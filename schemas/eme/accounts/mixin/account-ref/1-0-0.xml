@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:accounts:mixin:account-ref:1-0-0" mixin="true">
+    <fields>
+      <field name="account_id" type="identifier">
+        <description>
+          The EME account that this message is associated with.
+        </description>
+        <php-options>
+          <classname>Eme\Schemas\Accounts\AccountId</classname>
+        </php-options>
+      </field>
+    </fields>
+
+    <php-options>
+      <namespace>Eme\Schemas\Accounts\Mixin\AccountRef</namespace>
+    </php-options>
+  </schema>
+</pbj-schema>

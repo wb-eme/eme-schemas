@@ -1,0 +1,16 @@
+domain: http://schemas.wbeme.com
+
+namespaces:
+  - eme:accounts
+  - eme:collector
+  - eme:solicits
+  - eme:users
+
+languages:
+  php:
+    output: ./src/php
+    manifest: ./pbj-schemas.php
+
+  json-schema:
+    include_all: true
+    output: ./gh-pages/json-schema

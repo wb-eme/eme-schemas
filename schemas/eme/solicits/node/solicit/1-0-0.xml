@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <!--
+    fixme: add html/handlebars, custom_js and validators/enrichers, custom fields
+    todo: add webhook notif urls here or global account level?
+  -->
+  <schema id="pbj:eme:solicits:node:solicit:1-0-0">
+    <fields>
+      <field name="_id" type="identifier" required="true">
+        <php-options>
+          <classname>Eme\Schemas\Solicits\SolicitId</classname>
+          <default>function() { return SolicitId::generate(); }</default>
+        </php-options>
+      </field>
+      <field name="description" type="text">
+        <description>
+          A short description (a few sentences) about this solicit.  This field should
+          not have html as it is used in metadata.
+        </description>
+      </field>
+      <field name="hashtags" type="string" format="hashtag" rule="set"/>
+      <field name="story_enabled" type="boolean">
+        <default>true</default>
+      </field>
+      <field name="story_required" type="boolean"/>
+      <field name="story_label" type="string"/>
+      <field name="utm_campaign" type="string" pattern="^[\w\/\.:-]+$" max="50"/>
+    </fields>
+
+    <mixins>
+      <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:expirable:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:indexed:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:publishable:v1</curie-major>
+    </mixins>
+
+    <php-options>
+      <namespace>Eme\Schemas\Solicits\Node</namespace>
+      <insertion-points>
+        <imports/>
+        <methods>
+          <![CDATA[
+/**
+ * @return array
+ */
+public function getUriTemplateVars()
+{
+    return ['solicit_id' => (string)$this->get('_id')];
+}
+            ]]>
+        </methods>
+      </insertion-points>
+    </php-options>
+  </schema>
+</pbj-schema>

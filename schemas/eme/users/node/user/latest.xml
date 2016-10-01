@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:users:node:user:1-0-0">
+    <fields>
+      <field name="_id" type="identifier" required="true">
+        <php-options>
+          <classname>Eme\Schemas\Users\UserId</classname>
+          <default>function() { return UserId::generate(); }</default>
+        </php-options>
+      </field>
+      <field name="first_name" type="string"/>
+      <field name="last_name" type="string"/>
+      <field name="email" type="string" format="email"/>
+      <field name="email_domain" type="string" format="hostname"/>
+      <field name="address" type="message">
+        <any-of>
+          <curie>gdbots:geo::address</curie>
+        </any-of>
+      </field>
+      <field name="phone" type="string" pattern="^\+?[1-9]\d{1,14}$" rule="map">
+        <description>
+          A general format for international telephone numbers.
+          @link https://en.wikipedia.org/wiki/E.164
+        </description>
+      </field>
+      <field name="dob" type="date"/>
+      <field name="gender" type="int-enum">
+        <default>0</default>
+        <enum id="gdbots:common:gender"/>
+      </field>
+      <field name="networks" type="string" pattern="^[\w\.-]+$" max="50" rule="map">
+        <description>
+          Networks is a map that contains handles/usernames on a social network.
+          E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
+        </description>
+      </field>
+      <field name="hashtags" type="string" format="hashtag" rule="set"/>
+      <field name="tags" type="string" pattern="^[\w\/\.:-]+$" rule="map">
+        <description>
+          Tags is a map that categorizes users or track references in
+          external or legacy systems. The tags names should be consistent and descriptive,
+          e.g. bots_respondent_id:123, salesforce_customer_id:456.
+        </description>
+      </field>
+      <field name="is_blocked" type="boolean"/>
+    </fields>
+
+    <mixins>
+      <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:indexed:v1</curie-major>
+    </mixins>
+
+    <php-options>
+      <namespace>Eme\Schemas\Users\Node</namespace>
+      <insertion-points>
+        <imports/>
+        <methods>
+          <![CDATA[
+/**
+ * @return array
+ */
+public function getUriTemplateVars()
+{
+    return ['user_id' => (string)$this->get('_id')];
+}
+            ]]>
+        </methods>
+      </insertion-points>
+    </php-options>
+  </schema>
+</pbj-schema>

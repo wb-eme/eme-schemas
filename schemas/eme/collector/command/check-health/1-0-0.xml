@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:collector:command:check-health:1-0-0">
+    <fields>
+      <field name="msg" type="string">
+        <description>
+          A random string that will be validated to match after
+          the event "health-checked" is triggered.  (ping-pong)
+        </description>
+      </field>
+    </fields>
+
+    <mixins>
+      <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
+      <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
+      <curie-major>eme:collector:mixin:collectable:v1</curie-major>
+    </mixins>
+
+    <php-options>
+      <namespace>Eme\Schemas\Collector\Command</namespace>
+    </php-options>
+  </schema>
+</pbj-schema>

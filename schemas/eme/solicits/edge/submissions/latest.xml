@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <!--
+    This edge helps answer these questions:
+    + What submissions have we received for solicit ABC?
+    + What submissions has user XYZ sent to us?
+  -->
+  <schema id="pbj:eme:solicits:edge:submissions:1-0-0">
+    <fields>
+      <field name="multiplicity" type="string-enum">
+        <default>one2many</default>
+        <enum id="gdbots:ncr:edge-multiplicity"/>
+      </field>
+    </fields>
+
+    <mixins>
+      <curie-major>gdbots:ncr:mixin:edge:v1</curie-major>
+    </mixins>
+
+    <php-options>
+      <namespace>Eme\Schemas\Solicits\Edge</namespace>
+    </php-options>
+
+  </schema>
+</pbj-schema>

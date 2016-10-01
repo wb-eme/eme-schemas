@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:accounts:node:account:1-0-0">
+    <fields>
+      <field name="_id" type="identifier" required="true" overridable="true">
+        <php-options>
+          <classname>Eme\Schemas\Accounts\AccountId</classname>
+        </php-options>
+      </field>
+      <field name="trackers" type="message" rule="map">
+        <any-of>
+          <curie>gdbots:analytics:mixin:tracker</curie>
+        </any-of>
+      </field>
+    </fields>
+
+    <mixins>
+      <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:sluggable:v1</curie-major>
+    </mixins>
+
+    <php-options>
+      <namespace>Eme\Schemas\Accounts\Node</namespace>
+      <insertion-points>
+        <imports/>
+        <methods>
+          <![CDATA[
+/**
+ * @return array
+ */
+public function getUriTemplateVars()
+{
+    return [
+        'account_id' => (string)$this->get('_id'),
+        'slug' => $this->get('slug'),
+    ];
+}
+            ]]>
+        </methods>
+      </insertion-points>
+    </php-options>
+  </schema>
+</pbj-schema>

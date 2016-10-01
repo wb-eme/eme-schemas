@@ -1,0 +1,31 @@
+{
+  "id": "http://schemas.wbeme.com/json-schema/gdbots/ncr/mixin/get-node-batch-response/1-0-0.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": [
+        {
+          "$ref": "#/definitions/node"
+        }
+      ],
+      "additionalProperties": false,
+      "pbj": {
+        "type": "message",
+        "rule": "list"
+      }
+    }
+  },
+  "definitions": {
+    "node": {
+      "type": "object",
+      "anyOf": [
+        {
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/ncr/mixin/node/1-0-0.json#"
+        }
+      ]
+    }
+  },
+  "additionalProperties": true
+}
