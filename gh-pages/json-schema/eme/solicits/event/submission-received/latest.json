@@ -478,36 +478,6 @@
         "rule": "set"
       }
     },
-    "photo_urls": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string",
-          "pattern": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
-        }
-      ],
-      "additionalProperties": false,
-      "pbj": {
-        "type": "string",
-        "rule": "list",
-        "format": "url"
-      }
-    },
-    "video_urls": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string",
-          "pattern": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
-        }
-      ],
-      "additionalProperties": false,
-      "pbj": {
-        "type": "string",
-        "rule": "list",
-        "format": "url"
-      }
-    },
     "networks": {
       "type": "object",
       "patternProperties": {

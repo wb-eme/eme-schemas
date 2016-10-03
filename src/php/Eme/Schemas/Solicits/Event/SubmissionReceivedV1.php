@@ -118,14 +118,6 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                     ->asASet()
                     ->className('Gdbots\Schemas\Files\FileId')
                     ->build(),
-                Fb::create('photo_urls', T\StringType::create())
-                    ->asAList()
-                    ->format(Format::URL())
-                    ->build(),
-                Fb::create('video_urls', T\StringType::create())
-                    ->asAList()
-                    ->format(Format::URL())
-                    ->build(),
                 /*
                  * Networks is a map that contains handles/usernames on a social network.
                  * E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.

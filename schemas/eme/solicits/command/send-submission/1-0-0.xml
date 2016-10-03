@@ -41,9 +41,6 @@
           <classname>Gdbots\Schemas\Files\FileId</classname>
         </php-options>
       </field>
-      <!-- fixme: remove photo_urls and video_urls after code/migration updates -->
-      <field name="photo_urls" type="string" format="url" rule="list"/>
-      <field name="video_urls" type="string" format="url" rule="list"/>
       <field name="networks" type="string" pattern="^[\w\.-]+$" max="50" rule="map">
         <description>
           Networks is a map that contains handles/usernames on a social network.
