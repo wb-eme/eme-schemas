@@ -12,8 +12,6 @@
     'eme:accounts:node:account' => 'Eme\Schemas\Accounts\Node\AccountV1',
     'eme:accounts:request:get-account-request' => 'Eme\Schemas\Accounts\Request\GetAccountRequestV1',
     'eme:accounts:request:get-account-response' => 'Eme\Schemas\Accounts\Request\GetAccountResponseV1',
-    'eme:collector:command:check-health' => 'Eme\Schemas\Collector\Command\CheckHealthV1',
-    'eme:collector:event:health-checked' => 'Eme\Schemas\Collector\Event\HealthCheckedV1',
     'eme:solicits:command:import-submission' => 'Eme\Schemas\Solicits\Command\ImportSubmissionV1',
     'eme:solicits:command:send-submission' => 'Eme\Schemas\Solicits\Command\SendSubmissionV1',
     'eme:solicits:edge:submissions' => 'Eme\Schemas\Solicits\Edge\SubmissionsV1',
@@ -38,4 +36,6 @@
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',
     'gdbots:geo::address' => 'Gdbots\Schemas\Geo\AddressV1',
     'gdbots:pbjx::envelope' => 'Gdbots\Schemas\Pbjx\EnvelopeV1',
+    'gdbots:pbjx:command:check-health' => 'Gdbots\Schemas\Pbjx\Command\CheckHealthV1',
+    'gdbots:pbjx:event:health-checked' => 'Gdbots\Schemas\Pbjx\Event\HealthCheckedV1',
 ]);
