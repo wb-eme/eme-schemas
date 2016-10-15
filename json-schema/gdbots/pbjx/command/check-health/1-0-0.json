@@ -1,21 +1,12 @@
 {
-  "id": "http://schemas.wbeme.com/json-schema/eme/collector/command/check-health/1-0-0.json#",
+  "id": "http://schemas.wbeme.com/json-schema/gdbots/pbjx/command/check-health/1-0-0.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "_schema": {
       "type": "string",
       "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
-      "default": "pbj:eme:collector:command:check-health:1-0-0"
-    },
-    "account_id": {
-      "type": "string",
-      "pattern": "^[\\w\\._-]+$",
-      "description": "The EME account that this message is associated with.",
-      "pbj": {
-        "type": "identifier",
-        "rule": "single"
-      }
+      "default": "pbj:gdbots:pbjx:command:check-health:1-0-0"
     },
     "command_id": {
       "type": "string",
@@ -193,19 +184,6 @@
         "type": "text",
         "rule": "single",
         "overridable": true
-      }
-    },
-    "collector": {
-      "type": "object",
-      "anyOf": [
-        {
-          "$ref": "#/definitions/app"
-        }
-      ],
-      "description": "The application collecting the message. This is set on the server by the collector app itself.",
-      "pbj": {
-        "type": "message",
-        "rule": "single"
       }
     },
     "msg": {
