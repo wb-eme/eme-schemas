@@ -178,6 +178,34 @@
         "format": "slug"
       }
     },
+    "auth0_client_domain": {
+      "type": "string",
+      "format": "hostname",
+      "pbj": {
+        "type": "string",
+        "rule": "single",
+        "format": "hostname"
+      }
+    },
+    "auth0_client_id": {
+      "type": "string",
+      "pattern": "^[\\w\\/\\.:-]+$",
+      "description": "Auth0 Client ID (or app id) does not require encryption.",
+      "pbj": {
+        "type": "string",
+        "rule": "single"
+      }
+    },
+    "auth0_client_secret": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535,
+      "description": "Auth0 Client Secret MUST be encrypted when stored.",
+      "pbj": {
+        "type": "text",
+        "rule": "single"
+      }
+    },
     "trackers": {
       "type": "object",
       "patternProperties": {

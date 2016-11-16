@@ -31,11 +31,11 @@
     'eme:solicits:request:get-submission-history-request' => 'Eme\Schemas\Solicits\Request\GetSubmissionHistoryRequestV1',
     'eme:solicits:request:get-submission-history-response' => 'Eme\Schemas\Solicits\Request\GetSubmissionHistoryResponseV1',
     'eme:users:node:user' => 'Eme\Schemas\Users\Node\UserV1',
+    'gdbots:pbjx:command:check-health' => 'Gdbots\Schemas\Pbjx\Command\CheckHealthV1',
+    'gdbots:pbjx:event:health-checked' => 'Gdbots\Schemas\Pbjx\Event\HealthCheckedV1',
     'gdbots:contexts::app' => 'Gdbots\Schemas\Contexts\AppV1',
     'gdbots:contexts::cloud' => 'Gdbots\Schemas\Contexts\CloudV1',
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',
     'gdbots:geo::address' => 'Gdbots\Schemas\Geo\AddressV1',
     'gdbots:pbjx::envelope' => 'Gdbots\Schemas\Pbjx\EnvelopeV1',
-    'gdbots:pbjx:command:check-health' => 'Gdbots\Schemas\Pbjx\Command\CheckHealthV1',
-    'gdbots:pbjx:event:health-checked' => 'Gdbots\Schemas\Pbjx\Event\HealthCheckedV1',
 ]);

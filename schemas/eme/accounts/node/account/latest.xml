@@ -10,6 +10,13 @@
           <classname>Eme\Schemas\Accounts\AccountId</classname>
         </php-options>
       </field>
+      <field name="auth0_client_domain" type="string" format="hostname"/>
+      <field name="auth0_client_id" type="string" pattern="^[\w\/\.:-]+$">
+        <description>Auth0 Client ID (or app id) does not require encryption.</description>
+      </field>
+      <field name="auth0_client_secret" type="text">
+        <description>Auth0 Client Secret MUST be encrypted when stored.</description>
+      </field>
       <field name="trackers" type="message" rule="map">
         <any-of>
           <curie>gdbots:analytics:mixin:tracker</curie>

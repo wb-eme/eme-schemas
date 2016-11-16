@@ -4,6 +4,7 @@ namespace Eme\Schemas\Accounts\Node;
 
 use Eme\Schemas\Accounts\AccountId;
 use Gdbots\Pbj\AbstractMessage;
+use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
@@ -34,6 +35,20 @@ final class AccountV1 extends AbstractMessage implements
                     ->required()
                     ->className('Eme\Schemas\Accounts\AccountId')
                     ->overridable(true)
+                    ->build(),
+                Fb::create('auth0_client_domain', T\StringType::create())
+                    ->format(Format::HOSTNAME())
+                    ->build(),
+                /*
+                 * Auth0 Client ID (or app id) does not require encryption.
+                 */
+                Fb::create('auth0_client_id', T\StringType::create())
+                    ->pattern('^[\w\/\.:-]+$')
+                    ->build(),
+                /*
+                 * Auth0 Client Secret MUST be encrypted when stored.
+                 */
+                Fb::create('auth0_client_secret', T\TextType::create())
                     ->build(),
                 Fb::create('trackers', T\MessageType::create())
                     ->asAMap()
