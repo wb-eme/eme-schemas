@@ -103,7 +103,7 @@ final class UserV1 extends AbstractMessage implements
                  */
                 Fb::create('roles', T\StringType::create())
                     ->asASet()
-                    ->pattern('^[A-Z_]+$')
+                    ->pattern('^[\w_]+$')
                     ->build()
             ],
             [

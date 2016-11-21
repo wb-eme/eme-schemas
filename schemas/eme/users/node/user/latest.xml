@@ -51,7 +51,7 @@
           Indicates that the user is a staff member and has access to the dashboard.
         </description>
       </field>
-      <field name="roles" type="string" pattern="^[A-Z_]+$" rule="set">
+      <field name="roles" type="string" pattern="^[\w_]+$" rule="set">
         <description>
           A user's roles determine what permissions they'll have when using the system.
         </description>

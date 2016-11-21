@@ -326,7 +326,7 @@
       "items": [
         {
           "type": "string",
-          "pattern": "^[A-Z_]+$"
+          "pattern": "^[\\w_]+$"
         }
       ],
       "uniqueItems": true,
