@@ -312,6 +312,30 @@
         "type": "boolean",
         "rule": "single"
       }
+    },
+    "is_staff": {
+      "type": "boolean",
+      "description": "Indicates that the user is a staff member and has access to the dashboard.",
+      "pbj": {
+        "type": "boolean",
+        "rule": "single"
+      }
+    },
+    "roles": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "pattern": "^[A-Z_]+$"
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false,
+      "description": "A user's roles determine what permissions they'll have when using the system.",
+      "pbj": {
+        "type": "string",
+        "rule": "set"
+      }
     }
   },
   "required": [

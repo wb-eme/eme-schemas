@@ -92,6 +92,18 @@ final class UserV1 extends AbstractMessage implements
                     ->pattern('^[\w\/\.:-]+$')
                     ->build(),
                 Fb::create('is_blocked', T\BooleanType::create())
+                    ->build(),
+                /*
+                 * Indicates that the user is a staff member and has access to the dashboard.
+                 */
+                Fb::create('is_staff', T\BooleanType::create())
+                    ->build(),
+                /*
+                 * A user's roles determine what permissions they'll have when using the system.
+                 */
+                Fb::create('roles', T\StringType::create())
+                    ->asASet()
+                    ->pattern('^[A-Z_]+$')
                     ->build()
             ],
             [
