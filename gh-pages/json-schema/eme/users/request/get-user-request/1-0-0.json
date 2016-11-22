@@ -228,6 +228,15 @@
         "rule": "single",
         "format": "slug"
       }
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "pbj": {
+        "type": "string",
+        "rule": "single",
+        "format": "email"
+      }
     }
   },
   "required": [
