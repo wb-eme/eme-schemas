@@ -3,19 +3,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
 
-  <schema id="pbj:eme:users:request:get-user-request:1-0-0">
-    <fields>
-      <field name="email" type="string" format="email"/>
-    </fields>
-
+  <schema id="pbj:eme:users:command:delete-user:1-0-0">
     <mixins>
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
-      <curie-major>gdbots:pbjx:mixin:request:v1</curie-major>
-      <curie-major>gdbots:ncr:mixin:get-node-request:v1</curie-major>
+      <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:delete-node:v1</curie-major>
     </mixins>
 
     <php-options>
-      <namespace>Eme\Schemas\Users\Request</namespace>
+      <namespace>Eme\Schemas\Users\Command</namespace>
     </php-options>
   </schema>
 </pbj-schema>

@@ -1,12 +1,12 @@
 {
-  "id": "http://schemas.wbeme.com/json-schema/eme/users/request/get-user-batch-request/1-0-0.json#",
+  "id": "http://schemas.wbeme.com/json-schema/eme/users/request/get-user-history-request/1-0-0.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "_schema": {
       "type": "string",
       "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
-      "default": "pbj:eme:users:request:get-user-batch-request:1-0-0"
+      "default": "pbj:eme:users:request:get-user-history-request:1-0-0"
     },
     "account_id": {
       "type": "string",
@@ -186,83 +186,48 @@
         "overridable": true
       }
     },
-    "node_refs": {
-      "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "curie": {
-              "type": "string",
-              "pattern": "^([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+)$",
-              "minLength": 0,
-              "maxLength": 146
-            },
-            "id": {
-              "type": "string",
-              "pattern": "^[A-Za-z0-9:_\\-]+$",
-              "minLength": 0,
-              "maxLength": 255
-            },
-            "tag": {
-              "type": "string",
-              "pattern": "^([\\w\\/-]|[\\w-][\\w\\/-]*[\\w-])$",
-              "minLength": 0,
-              "maxLength": 255
-            }
-          },
-          "required": [
-            "curie",
-            "id"
-          ],
-          "additionalProperties": false
-        }
-      ],
-      "uniqueItems": true,
-      "additionalProperties": false,
-      "description": "When \"node_refs\" is supplied it SHOULD be used to perform the request. The \"node_refs\", \"_ids\" and \"slugs\" are analogous to protobuf unions in that only one of these should exist and the priority of selection is as ordered in this schema.",
+    "stream_id": {
+      "type": "string",
+      "pattern": "^[\\w\\._-]+$",
       "pbj": {
-        "type": "message-ref",
-        "rule": "set"
+        "type": "identifier",
+        "rule": "single"
       }
     },
-    "_ids": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string",
-          "pattern": "^[\\w\\/\\.:-]+$"
-        }
-      ],
-      "uniqueItems": true,
-      "additionalProperties": false,
+    "since": {
+      "type": "string",
+      "pattern": "^[1-9]{1}[0-9]{12,15}$",
+      "description": "Return events since this time (exclusive greater than if forward=true, less than if forward=false)",
       "pbj": {
-        "type": "string",
-        "rule": "set"
+        "type": "microtime",
+        "rule": "single",
+        "useTypeDefault": false
       }
     },
-    "slugs": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string",
-          "pattern": "^([\\w\\/-]|[\\w-][\\w\\/-]*[\\w-])$",
-          "minLength": 0,
-          "maxLength": 255
-        }
-      ],
-      "uniqueItems": true,
-      "additionalProperties": false,
+    "count": {
+      "type": "integer",
+      "default": 25,
+      "minimum": 0,
+      "maximum": 255,
+      "description": "The number of events to return.",
       "pbj": {
-        "type": "string",
-        "rule": "set",
-        "format": "slug"
+        "type": "tiny-int",
+        "rule": "single"
+      }
+    },
+    "forward": {
+      "type": "boolean",
+      "description": "When true, the events are read from oldest to newest, otherwise newest to oldest.",
+      "pbj": {
+        "type": "boolean",
+        "rule": "single"
       }
     }
   },
   "required": [
     "_schema",
-    "request_id"
+    "request_id",
+    "stream_id"
   ],
   "definitions": {
     "app": {
