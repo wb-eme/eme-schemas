@@ -33,18 +33,15 @@
         "rule": "single"
       }
     },
-    "sort": {
+    "status": {
       "type": "string",
-      "default": "relevance",
       "enum": [
         "unknown",
-        "relevance",
-        "created-at-desc",
-        "created-at-asc",
-        "updated-at-desc",
-        "updated-at-asc",
-        "title-desc",
-        "title-asc"
+        "published",
+        "scheduled",
+        "draft",
+        "expired",
+        "deleted"
       ],
       "pbj": {
         "type": "string-enum",

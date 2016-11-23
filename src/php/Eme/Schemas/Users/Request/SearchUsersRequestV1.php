@@ -5,6 +5,7 @@ namespace Eme\Schemas\Users\Request;
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1;
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin;
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Trait;
+use Eme\Schemas\Users\Enum\SearchSort;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
@@ -34,10 +35,14 @@ final class SearchUsersRequestV1 extends AbstractMessage implements
     {
         return new Schema('pbj:eme:users:request:search-users-request:1-0-0', __CLASS__,
             [
-                Fb::create('is_blocked', T\TrinaryType::create())
-                    ->withDefault(2)
+                Fb::create('sort', T\StringEnumType::create())
+                    ->withDefault(SearchSort::RELEVANCE())
+                    ->className('Eme\Schemas\Users\Enum\SearchSort')
                     ->build(),
                 Fb::create('is_staff', T\TrinaryType::create())
+                    ->build(),
+                Fb::create('is_blocked', T\TrinaryType::create())
+                    ->withDefault(2)
                     ->build()
             ],
             [
