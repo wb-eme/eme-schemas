@@ -7,54 +7,15 @@
       "type": "array",
       "items": [
         {
-          "type": "object",
-          "properties": {
-            "curie": {
-              "type": "string",
-              "pattern": "^([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+)$",
-              "minLength": 0,
-              "maxLength": 146
-            },
-            "id": {
-              "type": "string",
-              "pattern": "^[A-Za-z0-9:_\\-]+$",
-              "minLength": 0,
-              "maxLength": 255
-            },
-            "tag": {
-              "type": "string",
-              "pattern": "^([\\w\\/-]|[\\w-][\\w\\/-]*[\\w-])$",
-              "minLength": 0,
-              "maxLength": 255
-            }
-          },
-          "required": [
-            "curie",
-            "id"
-          ],
-          "additionalProperties": false
-        }
-      ],
-      "uniqueItems": true,
-      "additionalProperties": false,
-      "description": "When \"node_refs\" is supplied it SHOULD be used to perform the request. The \"node_refs\", \"_ids\" and \"slugs\" are analogous to protobuf unions in that only one of these should exist and the priority of selection is as ordered in this schema.",
-      "pbj": {
-        "type": "message-ref",
-        "rule": "set"
-      }
-    },
-    "_ids": {
-      "type": "array",
-      "items": [
-        {
           "type": "string",
-          "pattern": "^[\\w\\/\\.:-]+$"
+          "pattern": "^[\\w\\._-]+$"
         }
       ],
       "uniqueItems": true,
       "additionalProperties": false,
+      "description": "When \"node_refs\" is supplied it SHOULD be used to perform the request. The \"node_refs\" and \"slugs\" are analogous to protobuf unions in that only one of these should exist and the priority of selection is as ordered in this schema.",
       "pbj": {
-        "type": "string",
+        "type": "identifier",
         "rule": "set"
       }
     },

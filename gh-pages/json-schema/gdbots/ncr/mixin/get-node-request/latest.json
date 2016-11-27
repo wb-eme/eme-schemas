@@ -4,43 +4,11 @@
   "type": "object",
   "properties": {
     "node_ref": {
-      "type": "object",
-      "properties": {
-        "curie": {
-          "type": "string",
-          "pattern": "^([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+)$",
-          "minLength": 0,
-          "maxLength": 146
-        },
-        "id": {
-          "type": "string",
-          "pattern": "^[A-Za-z0-9:_\\-]+$",
-          "minLength": 0,
-          "maxLength": 255
-        },
-        "tag": {
-          "type": "string",
-          "pattern": "^([\\w\\/-]|[\\w-][\\w\\/-]*[\\w-])$",
-          "minLength": 0,
-          "maxLength": 255
-        }
-      },
-      "required": [
-        "curie",
-        "id"
-      ],
-      "additionalProperties": false,
-      "description": "When \"node_ref\" is supplied it SHOULD be used to perform the request. The \"node_ref\", \"_id\" and \"slug\" are analogous to protobuf unions in that only one of these should exist and the priority of selection is as ordered in this schema.",
-      "pbj": {
-        "type": "message-ref",
-        "rule": "single"
-      }
-    },
-    "_id": {
       "type": "string",
-      "pattern": "^[\\w\\/\\.:-]+$",
+      "pattern": "^[\\w\\._-]+$",
+      "description": "When \"node_ref\" is supplied it SHOULD be used to perform the request. The \"node_ref\" and \"slug\" are analogous to protobuf unions in that only one of these should exist and the priority of selection is as ordered in this schema.",
       "pbj": {
-        "type": "string",
+        "type": "identifier",
         "rule": "single"
       }
     },

@@ -16,6 +16,9 @@
       }
     }
   },
+  "required": [
+    "node"
+  ],
   "definitions": {
     "indexed": {
       "type": "object",

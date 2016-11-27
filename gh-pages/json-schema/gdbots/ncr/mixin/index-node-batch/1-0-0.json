@@ -7,41 +7,21 @@
       "type": "array",
       "items": [
         {
-          "type": "object",
-          "properties": {
-            "curie": {
-              "type": "string",
-              "pattern": "^([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+)$",
-              "minLength": 0,
-              "maxLength": 146
-            },
-            "id": {
-              "type": "string",
-              "pattern": "^[A-Za-z0-9:_\\-]+$",
-              "minLength": 0,
-              "maxLength": 255
-            },
-            "tag": {
-              "type": "string",
-              "pattern": "^([\\w\\/-]|[\\w-][\\w\\/-]*[\\w-])$",
-              "minLength": 0,
-              "maxLength": 255
-            }
-          },
-          "required": [
-            "curie",
-            "id"
-          ],
-          "additionalProperties": false
+          "type": "string",
+          "pattern": "^[\\w\\._-]+$"
         }
       ],
       "uniqueItems": true,
+      "minItems": 1,
       "additionalProperties": false,
       "pbj": {
-        "type": "message-ref",
+        "type": "identifier",
         "rule": "set"
       }
     }
   },
+  "required": [
+    "node_refs"
+  ],
   "additionalProperties": true
 }
