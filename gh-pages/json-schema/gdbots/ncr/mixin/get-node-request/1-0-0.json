@@ -3,6 +3,14 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
+    "consistent_read": {
+      "type": "boolean",
+      "description": "If true, a strongly consistent read is used; if false (the default), an eventually consistent read is used.",
+      "pbj": {
+        "type": "boolean",
+        "rule": "single"
+      }
+    },
     "node_ref": {
       "type": "string",
       "pattern": "^[\\w\\._-]+$",
