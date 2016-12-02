@@ -5,7 +5,7 @@
   "properties": {
     "from_ref": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
         "type": "identifier",
         "rule": "single"
@@ -13,7 +13,7 @@
     },
     "to_ref": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
         "type": "identifier",
         "rule": "single"

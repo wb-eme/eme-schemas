@@ -10,7 +10,7 @@
     },
     "account_id": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "description": "The EME account that this message is associated with.",
       "pbj": {
         "type": "identifier",
@@ -199,7 +199,7 @@
       "items": [
         {
           "type": "string",
-          "pattern": "^[\\w\\._-]+$"
+          "pattern": "^[\\w\\/\\.:-]+$"
         }
       ],
       "uniqueItems": true,
@@ -208,6 +208,15 @@
       "pbj": {
         "type": "identifier",
         "rule": "set"
+      }
+    },
+    "qname": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+:[a-z0-9-]+$",
+      "description": "The \"qname\" field should be populated when the request is not using \"node_refs\", e.g. \"acme:article\"",
+      "pbj": {
+        "type": "string",
+        "rule": "single"
       }
     },
     "slugs": {

@@ -10,7 +10,7 @@
     },
     "_id": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
         "type": "identifier",
         "rule": "single",
@@ -209,7 +209,7 @@
     "trackers": {
       "type": "object",
       "patternProperties": {
-        "^[a-zA-Z_]{1}[a-zA-Z0-9_]{1,99}$": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
           "type": "object",
           "anyOf": [
             {

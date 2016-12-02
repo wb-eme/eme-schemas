@@ -10,7 +10,7 @@
     },
     "account_id": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "description": "The EME account that this message is associated with.",
       "pbj": {
         "type": "identifier",
@@ -200,7 +200,7 @@
       "items": [
         {
           "type": "string",
-          "pattern": "^[\\w\\._-]+$"
+          "pattern": "^[\\w\\/\\.:-]+$"
         }
       ],
       "uniqueItems": true,

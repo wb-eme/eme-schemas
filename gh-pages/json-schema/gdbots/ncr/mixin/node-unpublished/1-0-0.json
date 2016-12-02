@@ -5,7 +5,7 @@
   "properties": {
     "node_ref": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
         "type": "identifier",
         "rule": "single"

@@ -10,7 +10,7 @@
     },
     "account_id": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "description": "The EME account that this message is associated with.",
       "pbj": {
         "type": "identifier",
@@ -19,7 +19,7 @@
     },
     "_id": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
         "type": "identifier",
         "rule": "single"
@@ -225,7 +225,7 @@
     "phone": {
       "type": "object",
       "patternProperties": {
-        "^[a-zA-Z_]{1}[a-zA-Z0-9_]{1,99}$": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
           "type": "string",
           "pattern": "^\\+?[1-9]\\d{1,14}$"
         }
@@ -262,7 +262,7 @@
     "networks": {
       "type": "object",
       "patternProperties": {
-        "^[a-zA-Z_]{1}[a-zA-Z0-9_]{1,99}$": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
           "type": "string",
           "pattern": "^[\\w\\.-]+$"
         }
@@ -294,7 +294,7 @@
     "tags": {
       "type": "object",
       "patternProperties": {
-        "^[a-zA-Z_]{1}[a-zA-Z0-9_]{1,99}$": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
           "type": "string",
           "pattern": "^[\\w\\/\\.:-]+$"
         }

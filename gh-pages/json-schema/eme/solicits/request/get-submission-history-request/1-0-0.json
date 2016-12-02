@@ -10,7 +10,7 @@
     },
     "account_id": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "description": "The EME account that this message is associated with.",
       "pbj": {
         "type": "identifier",
@@ -188,7 +188,7 @@
     },
     "stream_id": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
         "type": "identifier",
         "rule": "single"
