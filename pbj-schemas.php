@@ -49,6 +49,7 @@
     'eme:users:request:get-user-history-response' => 'Eme\Schemas\Users\Request\GetUserHistoryResponseV1',
     'eme:users:request:search-users-request' => 'Eme\Schemas\Users\Request\SearchUsersRequestV1',
     'eme:users:request:search-users-response' => 'Eme\Schemas\Users\Request\SearchUsersResponseV1',
+    'eme:users:command:import-user' => 'Eme\Schemas\Users\Command\ImportUserV1',
     'gdbots:contexts::app' => 'Gdbots\Schemas\Contexts\AppV1',
     'gdbots:contexts::cloud' => 'Gdbots\Schemas\Contexts\CloudV1',
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',

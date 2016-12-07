@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:users:command:import-user:1-0-0">
+    <fields>
+      <field name="user_id" type="identifier">
+        <php-options>
+          <classname>Eme\Schemas\Users\UserId</classname>
+        </php-options>
+      </field>
+      <field name="first_name" type="string"/>
+      <field name="last_name" type="string"/>
+      <field name="email" type="string" format="email" required="true"/>
+      <field name="tags" type="string" pattern="^[\w\/\.:-]+$" rule="map">
+        <description>
+          Tags are name value pairs used to categorize users or track references in
+          external or legacy systems. The tags names should be consistent and descriptive,
+          i.e. bots_user_id:100
+        </description>
+      </field>
+      <field name="is_staff" type="boolean"/>
+      <field name="is_active" type="boolean"/>
+      <field name="created_at" type="microtime" use-type-default="false"/>
+    </fields>
+
+    <mixins>
+      <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
+      <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
+    </mixins>
+
+    <php-options>
+      <namespace>Eme\Schemas\Users\Command</namespace>
+    </php-options>
+  </schema>
+</pbj-schema>
