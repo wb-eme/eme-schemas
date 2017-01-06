@@ -38,13 +38,6 @@
         </description>
       </field>
       <field name="hashtags" type="string" format="hashtag" rule="set"/>
-      <field name="tags" type="string" pattern="^[\w\/\.:-]+$" rule="map">
-        <description>
-          Tags is a map that categorizes users or track references in
-          external or legacy systems. The tags names should be consistent and descriptive,
-          e.g. bots_respondent_id:123, salesforce_customer_id:456.
-        </description>
-      </field>
       <field name="is_blocked" type="boolean"/>
       <field name="is_staff" type="boolean">
         <description>
@@ -62,6 +55,7 @@
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:indexed:v1</curie-major>
+      <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
     </mixins>
 
     <php-options>

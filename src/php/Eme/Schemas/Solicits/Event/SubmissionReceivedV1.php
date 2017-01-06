@@ -18,6 +18,9 @@ use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1;
 use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1Mixin;
 use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1Trait;
 use Gdbots\Schemas\Common\Enum\Gender;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Mixin;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Trait;
 use Gdbots\Schemas\Enrichments\Mixin\IpToGeo\IpToGeoV1;
 use Gdbots\Schemas\Enrichments\Mixin\IpToGeo\IpToGeoV1Mixin;
 use Gdbots\Schemas\Enrichments\Mixin\IpToGeo\IpToGeoV1Trait;
@@ -52,7 +55,8 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
     TimePartingV1,
     TimeSamplingV1,
     UaParserV1,
-    UtmV1
+    UtmV1,
+    TaggableV1
   
 {
     use AccountRefV1Trait;
@@ -65,6 +69,7 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
     use TimeSamplingV1Trait;
     use UaParserV1Trait;
     use UtmV1Trait;
+    use TaggableV1Trait;
 
     /**
      * @return Schema
@@ -146,15 +151,6 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                     ->asASet()
                     ->format(Format::HASHTAG())
                     ->build(),
-                /*
-                 * Tags is a map that categorizes submissions or track references in
-                 * external or legacy systems. The tags names should be consistent and descriptive,
-                 * e.g. bots_request_id:100, bots_respondent_id:123, bots_submission_id:456.
-                 */
-                Fb::create('tags', T\StringType::create())
-                    ->asAMap()
-                    ->pattern('^[\w\/\.:-]+$')
-                    ->build(),
                 Fb::create('is_blocked', T\BooleanType::create())
                     ->build(),
                 Fb::create('is_read', T\BooleanType::create())
@@ -223,7 +219,8 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                 TimePartingV1Mixin::create(), 
                 TimeSamplingV1Mixin::create(), 
                 UaParserV1Mixin::create(), 
-                UtmV1Mixin::create()
+                UtmV1Mixin::create(), 
+                TaggableV1Mixin::create()
             ]
         );
     }

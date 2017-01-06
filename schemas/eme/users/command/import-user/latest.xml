@@ -13,13 +13,6 @@
       <field name="first_name" type="string"/>
       <field name="last_name" type="string"/>
       <field name="email" type="string" format="email" required="true"/>
-      <field name="tags" type="string" pattern="^[\w\/\.:-]+$" rule="map">
-        <description>
-          Tags are name value pairs used to categorize users or track references in
-          external or legacy systems. The tags names should be consistent and descriptive,
-          i.e. bots_user_id:100
-        </description>
-      </field>
       <field name="is_staff" type="boolean"/>
       <field name="is_active" type="boolean"/>
       <field name="created_at" type="microtime" use-type-default="false"/>
@@ -28,6 +21,7 @@
     <mixins>
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
+      <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
     </mixins>
 
     <php-options>

@@ -12,6 +12,9 @@ use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
 use Gdbots\Schemas\Common\Enum\Gender;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Mixin;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Trait;
 use Gdbots\Schemas\Ncr\Mixin\Indexed\IndexedV1;
 use Gdbots\Schemas\Ncr\Mixin\Indexed\IndexedV1Mixin;
 use Gdbots\Schemas\Ncr\Mixin\Indexed\IndexedV1Trait;
@@ -23,12 +26,14 @@ final class UserV1 extends AbstractMessage implements
     User,
     AccountRefV1,
     NodeV1,
-    IndexedV1
+    IndexedV1,
+    TaggableV1
   
 {
     use AccountRefV1Trait;
     use NodeV1Trait;
     use IndexedV1Trait;
+    use TaggableV1Trait;
 
     /**
      * @return Schema
@@ -82,15 +87,6 @@ final class UserV1 extends AbstractMessage implements
                     ->asASet()
                     ->format(Format::HASHTAG())
                     ->build(),
-                /*
-                 * Tags is a map that categorizes users or track references in
-                 * external or legacy systems. The tags names should be consistent and descriptive,
-                 * e.g. bots_respondent_id:123, salesforce_customer_id:456.
-                 */
-                Fb::create('tags', T\StringType::create())
-                    ->asAMap()
-                    ->pattern('^[\w\/\.:-]+$')
-                    ->build(),
                 Fb::create('is_blocked', T\BooleanType::create())
                     ->build(),
                 /*
@@ -109,7 +105,8 @@ final class UserV1 extends AbstractMessage implements
             [
                 AccountRefV1Mixin::create(), 
                 NodeV1Mixin::create(), 
-                IndexedV1Mixin::create()
+                IndexedV1Mixin::create(), 
+                TaggableV1Mixin::create()
             ]
         );
     }

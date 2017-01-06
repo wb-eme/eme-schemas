@@ -15,6 +15,9 @@ use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
 use Gdbots\Schemas\Common\Enum\Gender;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Mixin;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Trait;
 use Gdbots\Schemas\Enrichments\Mixin\TimeParting\TimePartingV1;
 use Gdbots\Schemas\Enrichments\Mixin\TimeParting\TimePartingV1Mixin;
 use Gdbots\Schemas\Enrichments\Mixin\TimeParting\TimePartingV1Trait;
@@ -36,7 +39,8 @@ final class ImportSubmissionV1 extends AbstractMessage implements
     CollectableV1,
     TimePartingV1,
     TimeSamplingV1,
-    UtmV1
+    UtmV1,
+    TaggableV1
   
 {
     use AccountRefV1Trait;
@@ -45,6 +49,7 @@ final class ImportSubmissionV1 extends AbstractMessage implements
     use TimePartingV1Trait;
     use TimeSamplingV1Trait;
     use UtmV1Trait;
+    use TaggableV1Trait;
 
     /**
      * @return Schema
@@ -118,15 +123,6 @@ final class ImportSubmissionV1 extends AbstractMessage implements
                     ->asASet()
                     ->format(Format::HASHTAG())
                     ->build(),
-                /*
-                 * Tags are name value pairs used to categorize submissions or track references in
-                 * external or legacy systems. The tags names should be consistent and descriptive,
-                 * i.e. bots_request_id:100, bots_respondent_id:123, bots_submission_id:456.
-                 */
-                Fb::create('tags', T\StringType::create())
-                    ->asAMap()
-                    ->pattern('^[\w\/\.:-]+$')
-                    ->build(),
                 Fb::create('is_blocked', T\BooleanType::create())
                     ->build(),
                 Fb::create('is_read', T\BooleanType::create())
@@ -156,7 +152,8 @@ final class ImportSubmissionV1 extends AbstractMessage implements
                 CollectableV1Mixin::create(), 
                 TimePartingV1Mixin::create(), 
                 TimeSamplingV1Mixin::create(), 
-                UtmV1Mixin::create()
+                UtmV1Mixin::create(), 
+                TaggableV1Mixin::create()
             ]
         );
     }

@@ -57,11 +57,11 @@
     'eme:users:command:revoke-roles-from-user' => 'Eme\Schemas\Users\Command\RevokeRolesFromUserV1',
     'eme:users:event:user-roles-granted' => 'Eme\Schemas\Users\Event\UserRolesGrantedV1',
     'eme:users:event:user-roles-revoked' => 'Eme\Schemas\Users\Event\UserRolesRevokedV1',
+    'gdbots:ncr:request:get-node-batch-request' => 'Gdbots\Schemas\Ncr\Request\GetNodeBatchRequestV1',
+    'gdbots:ncr:request:get-node-batch-response' => 'Gdbots\Schemas\Ncr\Request\GetNodeBatchResponseV1',
     'gdbots:contexts::app' => 'Gdbots\Schemas\Contexts\AppV1',
     'gdbots:contexts::cloud' => 'Gdbots\Schemas\Contexts\CloudV1',
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',
     'gdbots:geo::address' => 'Gdbots\Schemas\Geo\AddressV1',
-    'gdbots:ncr:request:get-node-batch-request' => 'Gdbots\Schemas\Ncr\Request\GetNodeBatchRequestV1',
-    'gdbots:ncr:request:get-node-batch-response' => 'Gdbots\Schemas\Ncr\Request\GetNodeBatchResponseV1',
     'gdbots:pbjx::envelope' => 'Gdbots\Schemas\Pbjx\EnvelopeV1',
 ]);

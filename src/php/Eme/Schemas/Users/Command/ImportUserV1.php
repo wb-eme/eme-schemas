@@ -11,6 +11,9 @@ use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Mixin;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Trait;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Trait;
@@ -18,11 +21,13 @@ use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Trait;
 final class ImportUserV1 extends AbstractMessage implements
     ImportUser,
     AccountRefV1,
-    CommandV1
+    CommandV1,
+    TaggableV1
   
 {
     use AccountRefV1Trait;
     use CommandV1Trait;
+    use TaggableV1Trait;
 
     /**
      * @return Schema
@@ -42,15 +47,6 @@ final class ImportUserV1 extends AbstractMessage implements
                     ->required()
                     ->format(Format::EMAIL())
                     ->build(),
-                /*
-                 * Tags are name value pairs used to categorize users or track references in
-                 * external or legacy systems. The tags names should be consistent and descriptive,
-                 * i.e. bots_user_id:100
-                 */
-                Fb::create('tags', T\StringType::create())
-                    ->asAMap()
-                    ->pattern('^[\w\/\.:-]+$')
-                    ->build(),
                 Fb::create('is_staff', T\BooleanType::create())
                     ->build(),
                 Fb::create('is_active', T\BooleanType::create())
@@ -61,7 +57,8 @@ final class ImportUserV1 extends AbstractMessage implements
             ],
             [
                 AccountRefV1Mixin::create(), 
-                CommandV1Mixin::create()
+                CommandV1Mixin::create(), 
+                TaggableV1Mixin::create()
             ]
         );
     }

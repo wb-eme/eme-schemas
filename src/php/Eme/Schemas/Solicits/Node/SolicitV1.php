@@ -11,6 +11,9 @@ use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Mixin;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Trait;
 use Gdbots\Schemas\Ncr\Mixin\Expirable\ExpirableV1;
 use Gdbots\Schemas\Ncr\Mixin\Expirable\ExpirableV1Mixin;
 use Gdbots\Schemas\Ncr\Mixin\Expirable\ExpirableV1Trait;
@@ -30,7 +33,8 @@ final class SolicitV1 extends AbstractMessage implements
     NodeV1,
     ExpirableV1,
     IndexedV1,
-    PublishableV1
+    PublishableV1,
+    TaggableV1
   
 {
     use AccountRefV1Trait;
@@ -38,6 +42,7 @@ final class SolicitV1 extends AbstractMessage implements
     use ExpirableV1Trait;
     use IndexedV1Trait;
     use PublishableV1Trait;
+    use TaggableV1Trait;
 
     /**
      * @return Schema
@@ -61,15 +66,6 @@ final class SolicitV1 extends AbstractMessage implements
                     ->asASet()
                     ->format(Format::HASHTAG())
                     ->build(),
-                /*
-                 * Tags are name value pairs used to categorize solicits or track references in
-                 * external or legacy systems. The tags names should be consistent and descriptive,
-                 * i.e. bots_request_id:100
-                 */
-                Fb::create('tags', T\StringType::create())
-                    ->asAMap()
-                    ->pattern('^[\w\/\.:-]+$')
-                    ->build(),
                 Fb::create('story_enabled', T\BooleanType::create())
                     ->withDefault(true)
                     ->build(),
@@ -87,7 +83,8 @@ final class SolicitV1 extends AbstractMessage implements
                 NodeV1Mixin::create(), 
                 ExpirableV1Mixin::create(), 
                 IndexedV1Mixin::create(), 
-                PublishableV1Mixin::create()
+                PublishableV1Mixin::create(), 
+                TaggableV1Mixin::create()
             ]
         );
     }

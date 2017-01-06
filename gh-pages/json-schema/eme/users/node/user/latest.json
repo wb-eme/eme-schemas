@@ -174,6 +174,21 @@
         "rule": "single"
       }
     },
+    "tags": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
+          "type": "string",
+          "pattern": "^[\\w\\/\\.:-]+$"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Tags is a map that categorizes data or tracks references in external systems. The tags names should be consistent and descriptive, e.g. fb_user_id:123, salesforce_customer_id:456.",
+      "pbj": {
+        "type": "string",
+        "rule": "map"
+      }
+    },
     "first_name": {
       "type": "string",
       "minLength": 0,
@@ -289,21 +304,6 @@
         "type": "string",
         "rule": "set",
         "format": "hashtag"
-      }
-    },
-    "tags": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
-          "type": "string",
-          "pattern": "^[\\w\\/\\.:-]+$"
-        }
-      },
-      "additionalProperties": false,
-      "description": "Tags is a map that categorizes users or track references in external or legacy systems. The tags names should be consistent and descriptive, e.g. bots_respondent_id:123, salesforce_customer_id:456.",
-      "pbj": {
-        "type": "string",
-        "rule": "map"
       }
     },
     "is_blocked": {
