@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Eme\Schemas\Users;
 
@@ -10,7 +11,7 @@ final class UserId extends UuidIdentifier
     /**
      * @return NodeRef
      */
-    public function toNodeRef()
+    public function toNodeRef(): NodeRef
     {
         return NodeRef::fromString("eme:user:{$this->toString()}");
     }

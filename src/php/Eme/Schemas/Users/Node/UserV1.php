@@ -24,7 +24,7 @@ final class UserV1 extends AbstractMessage implements
     AccountRefV1,
     NodeV1,
     IndexedV1
-
+  
 {
     use AccountRefV1Trait;
     use NodeV1Trait;
@@ -107,8 +107,8 @@ final class UserV1 extends AbstractMessage implements
                     ->build()
             ],
             [
-                AccountRefV1Mixin::create(),
-                NodeV1Mixin::create(),
+                AccountRefV1Mixin::create(), 
+                NodeV1Mixin::create(), 
                 IndexedV1Mixin::create()
             ]
         );

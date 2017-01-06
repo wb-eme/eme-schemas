@@ -61,6 +61,15 @@ final class SolicitV1 extends AbstractMessage implements
                     ->asASet()
                     ->format(Format::HASHTAG())
                     ->build(),
+                /*
+                 * Tags are name value pairs used to categorize solicits or track references in
+                 * external or legacy systems. The tags names should be consistent and descriptive,
+                 * i.e. bots_request_id:100
+                 */
+                Fb::create('tags', T\StringType::create())
+                    ->asAMap()
+                    ->pattern('^[\w\/\.:-]+$')
+                    ->build(),
                 Fb::create('story_enabled', T\BooleanType::create())
                     ->withDefault(true)
                     ->build(),

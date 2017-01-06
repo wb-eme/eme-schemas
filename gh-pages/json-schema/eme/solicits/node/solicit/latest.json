@@ -217,6 +217,21 @@
         "format": "hashtag"
       }
     },
+    "tags": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
+          "type": "string",
+          "pattern": "^[\\w\\/\\.:-]+$"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Tags are name value pairs used to categorize solicits or track references in external or legacy systems. The tags names should be consistent and descriptive, i.e. bots_request_id:100",
+      "pbj": {
+        "type": "string",
+        "rule": "map"
+      }
+    },
     "story_enabled": {
       "type": "boolean",
       "default": true,

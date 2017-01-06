@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Eme\Schemas\Solicits;
 
@@ -10,7 +11,7 @@ final class SolicitId extends UuidIdentifier
     /**
      * @return NodeRef
      */
-    public function toNodeRef()
+    public function toNodeRef(): NodeRef
     {
         return NodeRef::fromString("eme:solicit:{$this->toString()}");
     }

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Eme\Schemas\Accounts;
 
@@ -10,6 +11,7 @@ final class AccountId extends StringIdentifier
 {
     /**
      * @param string $accountId
+     *
      * @throws \InvalidArgumentException
      */
     protected function __construct($accountId)
@@ -21,7 +23,7 @@ final class AccountId extends StringIdentifier
     /**
      * @return NodeRef
      */
-    public function toNodeRef()
+    public function toNodeRef(): NodeRef
     {
         return NodeRef::fromString("eme:account:{$this->toString()}");
     }

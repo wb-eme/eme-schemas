@@ -53,6 +53,14 @@
       <field name="cf" type="dynamic-field" rule="list">
         <description>Contains all of the answers submitted from the custom fields on the solicit.</description>
       </field>
+      <field name="hashtags" type="string" format="hashtag" rule="set"/>
+      <field name="tags" type="string" pattern="^[\w\/\.:-]+$" rule="map">
+        <description>
+          Tags are name value pairs used to categorize submissions or track references in
+          external or legacy systems. The tags names should be consistent and descriptive,
+          i.e. bots_request_id:100, bots_respondent_id:123, bots_submission_id:456.
+        </description>
+      </field>
     </fields>
 
     <mixins>

@@ -636,6 +636,38 @@
         "type": "dynamic-field",
         "rule": "list"
       }
+    },
+    "hashtags": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false,
+      "pbj": {
+        "type": "string",
+        "rule": "set",
+        "format": "hashtag"
+      }
+    },
+    "tags": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
+          "type": "string",
+          "pattern": "^[\\w\\/\\.:-]+$"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Tags are name value pairs used to categorize submissions or track references in external or legacy systems. The tags names should be consistent and descriptive, i.e. bots_request_id:100, bots_respondent_id:123, bots_submission_id:456.",
+      "pbj": {
+        "type": "string",
+        "rule": "map"
+      }
     }
   },
   "required": [

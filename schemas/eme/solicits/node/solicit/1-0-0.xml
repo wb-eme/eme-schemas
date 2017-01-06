@@ -22,6 +22,13 @@
         </description>
       </field>
       <field name="hashtags" type="string" format="hashtag" rule="set"/>
+      <field name="tags" type="string" pattern="^[\w\/\.:-]+$" rule="map">
+        <description>
+          Tags are name value pairs used to categorize solicits or track references in
+          external or legacy systems. The tags names should be consistent and descriptive,
+          i.e. bots_request_id:100
+        </description>
+      </field>
       <field name="story_enabled" type="boolean">
         <default>true</default>
       </field>

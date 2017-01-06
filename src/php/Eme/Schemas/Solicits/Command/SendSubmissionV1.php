@@ -117,6 +117,19 @@ final class SendSubmissionV1 extends AbstractMessage implements
                  */
                 Fb::create('cf', T\DynamicFieldType::create())
                     ->asAList()
+                    ->build(),
+                Fb::create('hashtags', T\StringType::create())
+                    ->asASet()
+                    ->format(Format::HASHTAG())
+                    ->build(),
+                /*
+                 * Tags are name value pairs used to categorize submissions or track references in
+                 * external or legacy systems. The tags names should be consistent and descriptive,
+                 * i.e. bots_request_id:100, bots_respondent_id:123, bots_submission_id:456.
+                 */
+                Fb::create('tags', T\StringType::create())
+                    ->asAMap()
+                    ->pattern('^[\w\/\.:-]+$')
                     ->build()
             ],
             [
