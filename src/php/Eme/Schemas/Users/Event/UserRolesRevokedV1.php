@@ -31,6 +31,7 @@ final class UserRolesRevokedV1 extends AbstractMessage implements
         return new Schema('pbj:eme:users:event:user-roles-revoked:1-0-0', __CLASS__,
             [
                 Fb::create('user_id', T\IdentifierType::create())
+                    ->required()
                     ->className('Eme\Schemas\Users\UserId')
                     ->build(),
                 /*

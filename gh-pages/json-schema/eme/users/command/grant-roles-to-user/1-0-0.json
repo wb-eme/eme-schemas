@@ -222,7 +222,8 @@
   },
   "required": [
     "_schema",
-    "command_id"
+    "command_id",
+    "user_id"
   ],
   "definitions": {
     "app": {

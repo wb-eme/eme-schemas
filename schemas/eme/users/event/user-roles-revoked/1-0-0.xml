@@ -5,7 +5,7 @@
 
   <schema id="pbj:eme:users:event:user-roles-revoked:1-0-0">
     <fields>
-      <field name="user_id" type="identifier">
+      <field name="user_id" type="identifier" required="true">
         <php-options>
           <classname>Eme\Schemas\Users\UserId</classname>
         </php-options>

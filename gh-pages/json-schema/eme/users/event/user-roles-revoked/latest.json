@@ -202,7 +202,8 @@
   },
   "required": [
     "_schema",
-    "event_id"
+    "event_id",
+    "user_id"
   ],
   "definitions": {
     "app": {
