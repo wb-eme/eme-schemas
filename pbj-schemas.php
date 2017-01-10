@@ -59,6 +59,8 @@
     'eme:users:event:user-roles-revoked' => 'Eme\Schemas\Users\Event\UserRolesRevokedV1',
     'gdbots:ncr:request:get-node-batch-request' => 'Gdbots\Schemas\Ncr\Request\GetNodeBatchRequestV1',
     'gdbots:ncr:request:get-node-batch-response' => 'Gdbots\Schemas\Ncr\Request\GetNodeBatchResponseV1',
+    'eme:solicits:command:mark-submissions-as-read' => 'Eme\Schemas\Solicits\Command\MarkSubmissionsAsReadV1',
+    'eme:solicits:event:submission-marked-as-read' => 'Eme\Schemas\Solicits\Event\SubmissionMarkedAsReadV1',
     'gdbots:contexts::app' => 'Gdbots\Schemas\Contexts\AppV1',
     'gdbots:contexts::cloud' => 'Gdbots\Schemas\Contexts\CloudV1',
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',
