@@ -201,7 +201,7 @@
         "rule": "set"
       }
     },
-    "hints": {
+    "context": {
       "type": "object",
       "patternProperties": {
         "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
@@ -210,7 +210,7 @@
         }
       },
       "additionalProperties": false,
-      "description": "Hints is a map of data that helps the NCR decide where to read/write data from. A common use case is multi-tenant applications.",
+      "description": "Context is a map of data that helps the NCR decide where to read/write data from. A common use case is multi-tenant applications.",
       "pbj": {
         "type": "string",
         "rule": "map"
