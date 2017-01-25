@@ -61,6 +61,8 @@
     'gdbots:ncr:request:get-node-batch-response' => 'Gdbots\Schemas\Ncr\Request\GetNodeBatchResponseV1',
     'eme:solicits:command:mark-submissions-as-read' => 'Eme\Schemas\Solicits\Command\MarkSubmissionsAsReadV1',
     'eme:solicits:event:submission-marked-as-read' => 'Eme\Schemas\Solicits\Event\SubmissionMarkedAsReadV1',
+    'eme:accounts:request:get-active-accounts-request' => 'Eme\Schemas\Accounts\Request\GetActiveAccountsRequestV1',
+    'eme:accounts:request:get-active-accounts-response' => 'Eme\Schemas\Accounts\Request\GetActiveAccountsResponseV1',
     'gdbots:contexts::app' => 'Gdbots\Schemas\Contexts\AppV1',
     'gdbots:contexts::cloud' => 'Gdbots\Schemas\Contexts\CloudV1',
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',
