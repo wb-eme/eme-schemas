@@ -39,8 +39,6 @@
     'eme:users:request:get-user-response' => 'Eme\Schemas\Users\Request\GetUserResponseV1',
     'eme:users:command:create-user' => 'Eme\Schemas\Users\Command\CreateUserV1',
     'eme:users:command:delete-user' => 'Eme\Schemas\Users\Command\DeleteUserV1',
-    'eme:users:command:index-user-batch' => 'Eme\Schemas\Users\Command\IndexUserBatchV1',
-    'eme:users:command:index-user' => 'Eme\Schemas\Users\Command\IndexUserV1',
     'eme:users:command:update-user' => 'Eme\Schemas\Users\Command\UpdateUserV1',
     'eme:users:event:user-created' => 'Eme\Schemas\Users\Event\UserCreatedV1',
     'eme:users:event:user-deleted' => 'Eme\Schemas\Users\Event\UserDeletedV1',
