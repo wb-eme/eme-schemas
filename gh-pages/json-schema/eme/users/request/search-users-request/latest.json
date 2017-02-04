@@ -298,8 +298,10 @@
         "created-at-asc",
         "updated-at-desc",
         "updated-at-asc",
-        "title-desc",
-        "title-asc"
+        "first-name-desc",
+        "first-name-asc",
+        "last-name-desc",
+        "last-name-asc"
       ],
       "pbj": {
         "type": "string-enum",
