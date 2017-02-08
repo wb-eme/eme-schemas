@@ -9,23 +9,23 @@ use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
-use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1;
-use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1Mixin;
-use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1Trait;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait;
+use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1;
+use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1Mixin;
+use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1Trait;
 
 final class NoteAddedToSubmissionV1 extends AbstractMessage implements
     NoteAddedToSubmission,
     AccountRefV1,
     EventV1,
-    TrackedMessageV1
+    IndexedV1
   
 {
     use AccountRefV1Trait;
     use EventV1Trait;
-    use TrackedMessageV1Trait;
+    use IndexedV1Trait;
 
     /**
      * @return Schema
@@ -43,7 +43,7 @@ final class NoteAddedToSubmissionV1 extends AbstractMessage implements
             [
                 AccountRefV1Mixin::create(), 
                 EventV1Mixin::create(), 
-                TrackedMessageV1Mixin::create()
+                IndexedV1Mixin::create()
             ]
         );
     }
