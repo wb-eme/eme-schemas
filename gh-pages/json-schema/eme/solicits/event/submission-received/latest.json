@@ -550,6 +550,13 @@
         "format": "hashtag"
       }
     },
+    "has_notes": {
+      "type": "boolean",
+      "pbj": {
+        "type": "boolean",
+        "rule": "single"
+      }
+    },
     "is_blocked": {
       "type": "boolean",
       "pbj": {

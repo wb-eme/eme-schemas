@@ -61,6 +61,8 @@
     'eme:solicits:event:submission-marked-as-read' => 'Eme\Schemas\Solicits\Event\SubmissionMarkedAsReadV1',
     'eme:accounts:request:get-active-accounts-request' => 'Eme\Schemas\Accounts\Request\GetActiveAccountsRequestV1',
     'eme:accounts:request:get-active-accounts-response' => 'Eme\Schemas\Accounts\Request\GetActiveAccountsResponseV1',
+    'eme:solicits:command:add-note-to-submission' => 'Eme\Schemas\Solicits\Command\AddNoteToSubmissionV1',
+    'eme:solicits:event:note-added-to-submission' => 'Eme\Schemas\Solicits\Event\NoteAddedToSubmissionV1',
     'gdbots:contexts::app' => 'Gdbots\Schemas\Contexts\AppV1',
     'gdbots:contexts::cloud' => 'Gdbots\Schemas\Contexts\CloudV1',
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',

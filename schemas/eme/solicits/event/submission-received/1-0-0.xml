@@ -58,6 +58,7 @@
         <description>Publisher provided identifier (PPID)</description>
       </field>
       <field name="hashtags" type="string" format="hashtag" rule="set"/>
+      <field name="has_notes" type="boolean"/>
       <field name="is_blocked" type="boolean"/>
       <field name="is_read" type="boolean"/>
       <field name="last_read_at" type="microtime" use-type-default="false"/>

@@ -21,6 +21,7 @@
       </field>
       <field name="age_min" type="tiny-int" max="120"/>
       <field name="age_max" type="tiny-int" max="120"/>
+      <field name="has_notes" type="trinary"/>
       <field name="is_blocked" type="trinary"/>
       <field name="is_read" type="trinary"/>
       <field name="last_read_after" type="date-time"/>

@@ -347,6 +347,16 @@
         "rule": "single"
       }
     },
+    "has_notes": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 2,
+      "pbj": {
+        "type": "trinary",
+        "rule": "single"
+      }
+    },
     "is_blocked": {
       "type": "integer",
       "default": 0,

@@ -151,6 +151,8 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                     ->asASet()
                     ->format(Format::HASHTAG())
                     ->build(),
+                Fb::create('has_notes', T\BooleanType::create())
+                    ->build(),
                 Fb::create('is_blocked', T\BooleanType::create())
                     ->build(),
                 Fb::create('is_read', T\BooleanType::create())
