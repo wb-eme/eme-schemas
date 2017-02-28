@@ -426,7 +426,7 @@
       "patternProperties": {
         "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
           "type": "string",
-          "pattern": "^\\+?[0-9]\\d{1,14}$"
+          "pattern": "^\\+?[1-9]\\d{1,14}$"
         }
       },
       "additionalProperties": false,
