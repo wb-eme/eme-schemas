@@ -19,7 +19,7 @@
           <curie>gdbots:geo::address</curie>
         </any-of>
       </field>
-      <field name="phone" type="string" pattern="^\+?[1-9]\d{1,14}$" max="20" rule="map">
+      <field name="phone" type="string" pattern="^\+?[0-9]\d{1,14}$" max="20" rule="map">
         <description>
           A general format for international telephone numbers.
           @link https://en.wikipedia.org/wiki/E.164

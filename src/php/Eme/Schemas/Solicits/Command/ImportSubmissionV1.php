@@ -82,7 +82,7 @@ final class ImportSubmissionV1 extends AbstractMessage implements
                 Fb::create('phone', T\StringType::create())
                     ->asAMap()
                     ->maxLength(20)
-                    ->pattern('^\+?[1-9]\d{1,14}$')
+                    ->pattern('^\+?[0-9]\d{1,14}$')
                     ->build(),
                 Fb::create('dob', T\DateType::create())
                     ->build(),
