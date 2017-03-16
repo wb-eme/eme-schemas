@@ -184,7 +184,8 @@
       ],
       "pbj": {
         "type": "message",
-        "rule": "single"
+        "rule": "single",
+        "overridable": true
       }
     },
     "ctx_ip_geo": {

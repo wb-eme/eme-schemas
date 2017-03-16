@@ -219,7 +219,8 @@
       ],
       "pbj": {
         "type": "message",
-        "rule": "single"
+        "rule": "single",
+        "overridable": true
       }
     },
     "old_node": {
@@ -232,7 +233,8 @@
       "description": "The entire node, as it appeared before it was modified.",
       "pbj": {
         "type": "message",
-        "rule": "single"
+        "rule": "single",
+        "overridable": true
       }
     }
   },
