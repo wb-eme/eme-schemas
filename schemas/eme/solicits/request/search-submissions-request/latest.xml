@@ -28,6 +28,7 @@
       <field name="last_read_before" type="date-time"/>
       <field name="last_read_by_ref" type="message-ref"/>
       <field name="is_verified" type="trinary"/>
+      <field name="is_rejected" type="trinary"/>
     </fields>
 
     <mixins>

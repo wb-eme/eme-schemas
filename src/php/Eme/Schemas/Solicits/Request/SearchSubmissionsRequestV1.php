@@ -76,6 +76,8 @@ final class SearchSubmissionsRequestV1 extends AbstractMessage implements
                 Fb::create('last_read_by_ref', T\MessageRefType::create())
                     ->build(),
                 Fb::create('is_verified', T\TrinaryType::create())
+                    ->build(),
+                Fb::create('is_rejected', T\TrinaryType::create())
                     ->build()
             ],
             [

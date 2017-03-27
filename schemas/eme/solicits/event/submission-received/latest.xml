@@ -74,6 +74,7 @@
           If the submission was accepted without any kind of verification this should be false.
         </description>
       </field>
+      <field name="is_rejected" type="boolean"/>
       <field name="verified_at" type="microtime" use-type-default="false"/>
       <field name="allcaps" type="tiny-int" max="100">
         <description>The percentage (whole number) of text in the "story" that is ALL CAPS.</description>

@@ -116,8 +116,7 @@
       "additionalProperties": false,
       "pbj": {
         "type": "message",
-        "rule": "map",
-        "overridable": true
+        "rule": "map"
       }
     },
     "missing_node_refs": {

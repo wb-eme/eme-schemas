@@ -434,6 +434,16 @@
         "type": "trinary",
         "rule": "single"
       }
+    },
+    "is_rejected": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 2,
+      "pbj": {
+        "type": "trinary",
+        "rule": "single"
+      }
     }
   },
   "required": [

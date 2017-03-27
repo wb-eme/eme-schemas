@@ -172,6 +172,8 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                  */
                 Fb::create('is_verified', T\BooleanType::create())
                     ->build(),
+                Fb::create('is_rejected', T\BooleanType::create())
+                    ->build(),
                 Fb::create('verified_at', T\MicrotimeType::create())
                     ->useTypeDefault(false)
                     ->build(),

@@ -621,6 +621,13 @@
         "rule": "single"
       }
     },
+    "is_rejected": {
+      "type": "boolean",
+      "pbj": {
+        "type": "boolean",
+        "rule": "single"
+      }
+    },
     "verified_at": {
       "type": "string",
       "pattern": "^[1-9]{1}[0-9]{12,15}$",

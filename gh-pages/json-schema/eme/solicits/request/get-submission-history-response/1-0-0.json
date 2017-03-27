@@ -128,8 +128,7 @@
       "additionalProperties": false,
       "pbj": {
         "type": "message",
-        "rule": "list",
-        "overridable": true
+        "rule": "list"
       }
     }
   },
