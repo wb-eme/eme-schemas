@@ -7,16 +7,16 @@ use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
 use Gdbots\Schemas\Ncr\Enum\EdgeMultiplicity;
-use Gdbots\Schemas\Ncr\Mixin\Edge\EdgeV1;
-use Gdbots\Schemas\Ncr\Mixin\Edge\EdgeV1Mixin;
-use Gdbots\Schemas\Ncr\Mixin\Edge\EdgeV1Trait;
+use Gdbots\Schemas\Ncr\Mixin\Edge\EdgeV1 as GdbotsNcrEdgeV1;
+use Gdbots\Schemas\Ncr\Mixin\Edge\EdgeV1Mixin as GdbotsNcrEdgeV1Mixin;
+use Gdbots\Schemas\Ncr\Mixin\Edge\EdgeV1Trait as GdbotsNcrEdgeV1Trait;
 
 final class SubmissionsV1 extends AbstractMessage implements
     Submissions,
-    EdgeV1
+    GdbotsNcrEdgeV1
   
 {
-    use EdgeV1Trait;
+    use GdbotsNcrEdgeV1Trait;
 
     /**
      * @return Schema
@@ -31,7 +31,7 @@ final class SubmissionsV1 extends AbstractMessage implements
                     ->build()
             ],
             [
-                EdgeV1Mixin::create()
+                GdbotsNcrEdgeV1Mixin::create()
             ]
         );
     }

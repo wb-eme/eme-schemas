@@ -6,16 +6,16 @@ use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
-use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1;
-use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1Mixin;
-use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1Trait;
+use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1 as GdbotsPbjxResponseV1;
+use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1Mixin as GdbotsPbjxResponseV1Mixin;
+use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1Trait as GdbotsPbjxResponseV1Trait;
 
 final class GetActiveAccountsResponseV1 extends AbstractMessage implements
     GetActiveAccountsResponse,
-    ResponseV1
+    GdbotsPbjxResponseV1
   
 {
-    use ResponseV1Trait;
+    use GdbotsPbjxResponseV1Trait;
 
     /**
      * @return Schema
@@ -30,7 +30,7 @@ final class GetActiveAccountsResponseV1 extends AbstractMessage implements
                     ->build()
             ],
             [
-                ResponseV1Mixin::create()
+                GdbotsPbjxResponseV1Mixin::create()
             ]
         );
     }

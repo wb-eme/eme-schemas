@@ -2,26 +2,24 @@
 
 namespace Eme\Schemas\Users\Event;
 
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1;
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin;
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Trait;
+use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV1;
+use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Eme\Schemas\Users\UserId;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1 as GdbotsPbjxEventV1;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin as GdbotsPbjxEventV1Mixin;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait as GdbotsPbjxEventV1Trait;
 
 final class UserRolesRevokedV1 extends AbstractMessage implements
     UserRolesRevoked,
-    AccountRefV1,
-    EventV1
+    EmeAccountsAccountRefV1,
+    GdbotsPbjxEventV1
   
 {
-    use AccountRefV1Trait;
-    use EventV1Trait;
+    use GdbotsPbjxEventV1Trait;
 
     /**
      * @return Schema
@@ -43,8 +41,8 @@ final class UserRolesRevokedV1 extends AbstractMessage implements
                     ->build()
             ],
             [
-                AccountRefV1Mixin::create(), 
-                EventV1Mixin::create()
+                EmeAccountsAccountRefV1Mixin::create(), 
+                GdbotsPbjxEventV1Mixin::create()
             ]
         );
     }

@@ -2,25 +2,23 @@
 
 namespace Eme\Schemas\Solicits\Command;
 
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1;
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin;
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Trait;
+use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV1;
+use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
-use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1;
-use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Mixin;
-use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Trait;
+use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1 as GdbotsPbjxCommandV1;
+use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Mixin as GdbotsPbjxCommandV1Mixin;
+use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Trait as GdbotsPbjxCommandV1Trait;
 
 final class RejectSubmissionV1 extends AbstractMessage implements
     RejectSubmission,
-    AccountRefV1,
-    CommandV1
+    EmeAccountsAccountRefV1,
+    GdbotsPbjxCommandV1
   
 {
-    use AccountRefV1Trait;
-    use CommandV1Trait;
+    use GdbotsPbjxCommandV1Trait;
 
     /**
      * @return Schema
@@ -34,8 +32,8 @@ final class RejectSubmissionV1 extends AbstractMessage implements
                     ->build()
             ],
             [
-                AccountRefV1Mixin::create(), 
-                CommandV1Mixin::create()
+                EmeAccountsAccountRefV1Mixin::create(), 
+                GdbotsPbjxCommandV1Mixin::create()
             ]
         );
     }

@@ -2,30 +2,26 @@
 
 namespace Eme\Schemas\Users\Event;
 
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1;
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin;
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Trait;
+use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV1;
+use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
-use Gdbots\Schemas\Ncr\Mixin\NodeDeleted\NodeDeletedV1;
-use Gdbots\Schemas\Ncr\Mixin\NodeDeleted\NodeDeletedV1Mixin;
-use Gdbots\Schemas\Ncr\Mixin\NodeDeleted\NodeDeletedV1Trait;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait;
+use Gdbots\Schemas\Ncr\Mixin\NodeDeleted\NodeDeletedV1 as GdbotsNcrNodeDeletedV1;
+use Gdbots\Schemas\Ncr\Mixin\NodeDeleted\NodeDeletedV1Mixin as GdbotsNcrNodeDeletedV1Mixin;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1 as GdbotsPbjxEventV1;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin as GdbotsPbjxEventV1Mixin;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait as GdbotsPbjxEventV1Trait;
 
 final class UserDeletedV1 extends AbstractMessage implements
     UserDeleted,
-    AccountRefV1,
-    EventV1,
-    NodeDeletedV1
+    EmeAccountsAccountRefV1,
+    GdbotsPbjxEventV1,
+    GdbotsNcrNodeDeletedV1
   
 {
-    use AccountRefV1Trait;
-    use EventV1Trait;
-    use NodeDeletedV1Trait;
+    use GdbotsPbjxEventV1Trait;
 
     /**
      * @return Schema
@@ -35,9 +31,9 @@ final class UserDeletedV1 extends AbstractMessage implements
         return new Schema('pbj:eme:users:event:user-deleted:1-0-0', __CLASS__,
             [],
             [
-                AccountRefV1Mixin::create(), 
-                EventV1Mixin::create(), 
-                NodeDeletedV1Mixin::create()
+                EmeAccountsAccountRefV1Mixin::create(), 
+                GdbotsPbjxEventV1Mixin::create(), 
+                GdbotsNcrNodeDeletedV1Mixin::create()
             ]
         );
     }

@@ -2,30 +2,26 @@
 
 namespace Eme\Schemas\Solicits\Event;
 
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1;
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin;
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Trait;
+use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV1;
+use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait;
-use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1;
-use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1Mixin;
-use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1Trait;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1 as GdbotsPbjxEventV1;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin as GdbotsPbjxEventV1Mixin;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait as GdbotsPbjxEventV1Trait;
+use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1 as GdbotsPbjxIndexedV1;
+use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1Mixin as GdbotsPbjxIndexedV1Mixin;
 
 final class NoteAddedToSubmissionV1 extends AbstractMessage implements
     NoteAddedToSubmission,
-    AccountRefV1,
-    EventV1,
-    IndexedV1
+    EmeAccountsAccountRefV1,
+    GdbotsPbjxEventV1,
+    GdbotsPbjxIndexedV1
   
 {
-    use AccountRefV1Trait;
-    use EventV1Trait;
-    use IndexedV1Trait;
+    use GdbotsPbjxEventV1Trait;
 
     /**
      * @return Schema
@@ -41,9 +37,9 @@ final class NoteAddedToSubmissionV1 extends AbstractMessage implements
                     ->build()
             ],
             [
-                AccountRefV1Mixin::create(), 
-                EventV1Mixin::create(), 
-                IndexedV1Mixin::create()
+                EmeAccountsAccountRefV1Mixin::create(), 
+                GdbotsPbjxEventV1Mixin::create(), 
+                GdbotsPbjxIndexedV1Mixin::create()
             ]
         );
     }
