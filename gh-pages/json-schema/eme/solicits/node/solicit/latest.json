@@ -209,10 +209,23 @@
       "type": "string",
       "minLength": 0,
       "maxLength": 65535,
-      "description": "A short description (a few sentences) about this solicit. This field should not have html as it is used in metadata.",
+      "description": "A short description (a few sentences) about this form. This field should not have html as it is used in metadata.",
       "pbj": {
         "type": "text",
         "rule": "single"
+      }
+    },
+    "fields": {
+      "type": "array",
+      "items": [
+        {
+          "$ref": "#/definitions/field"
+        }
+      ],
+      "additionalProperties": false,
+      "pbj": {
+        "type": "message",
+        "rule": "list"
       }
     },
     "hashtags": {
@@ -231,43 +244,21 @@
         "rule": "set",
         "format": "hashtag"
       }
-    },
-    "story_enabled": {
-      "type": "boolean",
-      "default": true,
-      "pbj": {
-        "type": "boolean",
-        "rule": "single"
-      }
-    },
-    "story_required": {
-      "type": "boolean",
-      "pbj": {
-        "type": "boolean",
-        "rule": "single"
-      }
-    },
-    "story_label": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 255,
-      "pbj": {
-        "type": "string",
-        "rule": "single"
-      }
-    },
-    "utm_campaign": {
-      "type": "string",
-      "pattern": "^[\\w\\/\\.:-]+$",
-      "pbj": {
-        "type": "string",
-        "rule": "single"
-      }
     }
   },
   "required": [
     "_schema",
     "_id"
   ],
+  "definitions": {
+    "field": {
+      "type": "object",
+      "anyOf": [
+        {
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/field/1-0-0.json#"
+        }
+      ]
+    }
+  },
   "additionalProperties": false
 }
