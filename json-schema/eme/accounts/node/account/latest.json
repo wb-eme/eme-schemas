@@ -10,7 +10,7 @@
     },
     "_id": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
         "type": "identifier",
         "rule": "single",
@@ -118,7 +118,7 @@
         "id"
       ],
       "additionalProperties": false,
-      "description": "A fully qualified reference to what updated this node. This is intentionally a message-ref and not a user id because it is often a program that updates nodes, not a user. E.g. \"acme:apps:node:app:cli-scheduler\" or \"acme:users:node:user:60c71df0-fda8-11e5-bfb9-30342d363854\"",
+      "description": "A fully qualified reference to what updated this node. This is intentionally a message-ref and not a user id because it is often a program that updates nodes, not a user. E.g. \"acme:iam:node:app:cli-scheduler\" or \"acme:iam:node:user:60c71df0-fda8-11e5-bfb9-30342d363854\"",
       "pbj": {
         "type": "message-ref",
         "rule": "single"
@@ -178,10 +178,38 @@
         "format": "slug"
       }
     },
+    "auth0_client_domain": {
+      "type": "string",
+      "format": "hostname",
+      "pbj": {
+        "type": "string",
+        "rule": "single",
+        "format": "hostname"
+      }
+    },
+    "auth0_client_id": {
+      "type": "string",
+      "pattern": "^[\\w\\/\\.:-]+$",
+      "description": "Auth0 Client ID (or app id) does not require encryption.",
+      "pbj": {
+        "type": "string",
+        "rule": "single"
+      }
+    },
+    "auth0_client_secret": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535,
+      "description": "Auth0 Client Secret MUST be encrypted when stored.",
+      "pbj": {
+        "type": "text",
+        "rule": "single"
+      }
+    },
     "trackers": {
       "type": "object",
       "patternProperties": {
-        "^[a-zA-Z_]{1}[a-zA-Z0-9_]{1,99}$": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
           "type": "object",
           "anyOf": [
             {

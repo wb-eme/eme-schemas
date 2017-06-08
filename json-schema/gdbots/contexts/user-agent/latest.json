@@ -10,7 +10,7 @@
     },
     "br_family": {
       "type": "string",
-      "pattern": "^[\\w\\s\\(\\)\\[\\]\\{\\}\\/\\.:;-]+$",
+      "pattern": ".+",
       "pbj": {
         "type": "string",
         "rule": "single"
@@ -48,7 +48,7 @@
     },
     "os_family": {
       "type": "string",
-      "pattern": "^[\\w\\s\\(\\)\\[\\]\\{\\}\\/\\.:;-]+$",
+      "pattern": ".+",
       "pbj": {
         "type": "string",
         "rule": "single"
@@ -96,7 +96,7 @@
     },
     "dvce_family": {
       "type": "string",
-      "pattern": "^[\\w\\s\\(\\)\\[\\]\\{\\}\\/\\.:;-]+$",
+      "pattern": ".+",
       "pbj": {
         "type": "string",
         "rule": "single"

@@ -10,7 +10,7 @@
     },
     "account_id": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "description": "The EME account that this message is associated with.",
       "pbj": {
         "type": "identifier",
@@ -350,9 +350,24 @@
         "rule": "single"
       }
     },
+    "tags": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
+          "type": "string",
+          "pattern": "^[\\w\\/\\.:-]+$"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Tags is a map that categorizes data or tracks references in external systems. The tags names should be consistent and descriptive, e.g. fb_user_id:123, salesforce_customer_id:456.",
+      "pbj": {
+        "type": "string",
+        "rule": "map"
+      }
+    },
     "solicit_id": {
       "type": "string",
-      "pattern": "^[\\w\\._-]+$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
         "type": "identifier",
         "rule": "single"
@@ -409,7 +424,7 @@
     "phone": {
       "type": "object",
       "patternProperties": {
-        "^[a-zA-Z_]{1}[a-zA-Z0-9_]{1,99}$": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
           "type": "string",
           "pattern": "^\\+?[1-9]\\d{1,14}$"
         }
@@ -468,7 +483,7 @@
       "items": [
         {
           "type": "string",
-          "pattern": "^[\\w\\._-]+$"
+          "pattern": "^[\\w\\/\\.:-]+$"
         }
       ],
       "uniqueItems": true,
@@ -478,40 +493,10 @@
         "rule": "set"
       }
     },
-    "photo_urls": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string",
-          "pattern": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
-        }
-      ],
-      "additionalProperties": false,
-      "pbj": {
-        "type": "string",
-        "rule": "list",
-        "format": "url"
-      }
-    },
-    "video_urls": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string",
-          "pattern": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
-        }
-      ],
-      "additionalProperties": false,
-      "pbj": {
-        "type": "string",
-        "rule": "list",
-        "format": "url"
-      }
-    },
     "networks": {
       "type": "object",
       "patternProperties": {
-        "^[a-zA-Z_]{1}[a-zA-Z0-9_]{1,99}$": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
           "type": "string",
           "pattern": "^[\\w\\.-]+$"
         }
@@ -565,19 +550,11 @@
         "format": "hashtag"
       }
     },
-    "tags": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-zA-Z_]{1}[a-zA-Z0-9_]{1,99}$": {
-          "type": "string",
-          "pattern": "^[\\w\\/\\.:-]+$"
-        }
-      },
-      "additionalProperties": false,
-      "description": "Tags is a map that categorizes submissions or track references in external or legacy systems. The tags names should be consistent and descriptive, e.g. bots_request_id:100, bots_respondent_id:123, bots_submission_id:456.",
+    "has_notes": {
+      "type": "boolean",
       "pbj": {
-        "type": "string",
-        "rule": "map"
+        "type": "boolean",
+        "rule": "single"
       }
     },
     "is_blocked": {
@@ -639,6 +616,13 @@
     "is_verified": {
       "type": "boolean",
       "description": "If true this submission was verified to be from the associated ctx_user_ref or email. Verification can be secure cookie, email confirmation, phone verification, login, etc. If the submission was accepted without any kind of verification this should be false.",
+      "pbj": {
+        "type": "boolean",
+        "rule": "single"
+      }
+    },
+    "is_rejected": {
+      "type": "boolean",
       "pbj": {
         "type": "boolean",
         "rule": "single"

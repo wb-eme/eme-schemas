@@ -127,6 +127,24 @@
         "type": "text",
         "rule": "single"
       }
+    },
+    "prev_error_message": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535,
+      "pbj": {
+        "type": "text",
+        "rule": "single"
+      }
+    },
+    "stack_trace": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535,
+      "pbj": {
+        "type": "text",
+        "rule": "single"
+      }
     }
   },
   "required": [
