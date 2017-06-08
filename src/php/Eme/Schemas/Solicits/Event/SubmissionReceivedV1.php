@@ -2,69 +2,54 @@
 
 namespace Eme\Schemas\Solicits\Event;
 
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1;
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin;
-use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Trait;
-use Eme\Schemas\Collector\Mixin\Collectable\CollectableV1;
-use Eme\Schemas\Collector\Mixin\Collectable\CollectableV1Mixin;
-use Eme\Schemas\Collector\Mixin\Collectable\CollectableV1Trait;
+use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV1;
+use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
+use Eme\Schemas\Collector\Mixin\Collectable\CollectableV1 as EmeCollectorCollectableV1;
+use Eme\Schemas\Collector\Mixin\Collectable\CollectableV1Mixin as EmeCollectorCollectableV1Mixin;
 use Eme\Schemas\Solicits\SolicitId;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
-use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1;
-use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1Mixin;
-use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1Trait;
+use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1 as GdbotsAnalyticsTrackedMessageV1;
+use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1Mixin as GdbotsAnalyticsTrackedMessageV1Mixin;
 use Gdbots\Schemas\Common\Enum\Gender;
-use Gdbots\Schemas\Enrichments\Mixin\IpToGeo\IpToGeoV1;
-use Gdbots\Schemas\Enrichments\Mixin\IpToGeo\IpToGeoV1Mixin;
-use Gdbots\Schemas\Enrichments\Mixin\IpToGeo\IpToGeoV1Trait;
-use Gdbots\Schemas\Enrichments\Mixin\TimeParting\TimePartingV1;
-use Gdbots\Schemas\Enrichments\Mixin\TimeParting\TimePartingV1Mixin;
-use Gdbots\Schemas\Enrichments\Mixin\TimeParting\TimePartingV1Trait;
-use Gdbots\Schemas\Enrichments\Mixin\TimeSampling\TimeSamplingV1;
-use Gdbots\Schemas\Enrichments\Mixin\TimeSampling\TimeSamplingV1Mixin;
-use Gdbots\Schemas\Enrichments\Mixin\TimeSampling\TimeSamplingV1Trait;
-use Gdbots\Schemas\Enrichments\Mixin\UaParser\UaParserV1;
-use Gdbots\Schemas\Enrichments\Mixin\UaParser\UaParserV1Mixin;
-use Gdbots\Schemas\Enrichments\Mixin\UaParser\UaParserV1Trait;
-use Gdbots\Schemas\Enrichments\Mixin\Utm\UtmV1;
-use Gdbots\Schemas\Enrichments\Mixin\Utm\UtmV1Mixin;
-use Gdbots\Schemas\Enrichments\Mixin\Utm\UtmV1Trait;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1 as GdbotsCommonTaggableV1;
+use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Mixin as GdbotsCommonTaggableV1Mixin;
+use Gdbots\Schemas\Enrichments\Mixin\IpToGeo\IpToGeoV1 as GdbotsEnrichmentsIpToGeoV1;
+use Gdbots\Schemas\Enrichments\Mixin\IpToGeo\IpToGeoV1Mixin as GdbotsEnrichmentsIpToGeoV1Mixin;
+use Gdbots\Schemas\Enrichments\Mixin\TimeParting\TimePartingV1 as GdbotsEnrichmentsTimePartingV1;
+use Gdbots\Schemas\Enrichments\Mixin\TimeParting\TimePartingV1Mixin as GdbotsEnrichmentsTimePartingV1Mixin;
+use Gdbots\Schemas\Enrichments\Mixin\TimeSampling\TimeSamplingV1 as GdbotsEnrichmentsTimeSamplingV1;
+use Gdbots\Schemas\Enrichments\Mixin\TimeSampling\TimeSamplingV1Mixin as GdbotsEnrichmentsTimeSamplingV1Mixin;
+use Gdbots\Schemas\Enrichments\Mixin\UaParser\UaParserV1 as GdbotsEnrichmentsUaParserV1;
+use Gdbots\Schemas\Enrichments\Mixin\UaParser\UaParserV1Mixin as GdbotsEnrichmentsUaParserV1Mixin;
+use Gdbots\Schemas\Enrichments\Mixin\Utm\UtmV1 as GdbotsEnrichmentsUtmV1;
+use Gdbots\Schemas\Enrichments\Mixin\Utm\UtmV1Mixin as GdbotsEnrichmentsUtmV1Mixin;
 use Gdbots\Schemas\Files\FileId;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin;
-use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait;
-use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1;
-use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1Mixin;
-use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1Trait;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1 as GdbotsPbjxEventV1;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin as GdbotsPbjxEventV1Mixin;
+use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait as GdbotsPbjxEventV1Trait;
+use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1 as GdbotsPbjxIndexedV1;
+use Gdbots\Schemas\Pbjx\Mixin\Indexed\IndexedV1Mixin as GdbotsPbjxIndexedV1Mixin;
 
 final class SubmissionReceivedV1 extends AbstractMessage implements
     SubmissionReceived,
-    AccountRefV1,
-    EventV1,
-    IndexedV1,
-    TrackedMessageV1,
-    CollectableV1,
-    IpToGeoV1,
-    TimePartingV1,
-    TimeSamplingV1,
-    UaParserV1,
-    UtmV1
+    EmeAccountsAccountRefV1,
+    GdbotsPbjxEventV1,
+    GdbotsPbjxIndexedV1,
+    GdbotsAnalyticsTrackedMessageV1,
+    EmeCollectorCollectableV1,
+    GdbotsEnrichmentsIpToGeoV1,
+    GdbotsEnrichmentsTimePartingV1,
+    GdbotsEnrichmentsTimeSamplingV1,
+    GdbotsEnrichmentsUaParserV1,
+    GdbotsEnrichmentsUtmV1,
+    GdbotsCommonTaggableV1
   
 {
-    use AccountRefV1Trait;
-    use EventV1Trait;
-    use IndexedV1Trait;
-    use TrackedMessageV1Trait;
-    use CollectableV1Trait;
-    use IpToGeoV1Trait;
-    use TimePartingV1Trait;
-    use TimeSamplingV1Trait;
-    use UaParserV1Trait;
-    use UtmV1Trait;
+    use GdbotsPbjxEventV1Trait;
 
     /**
      * @return Schema
@@ -118,14 +103,6 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                     ->asASet()
                     ->className('Gdbots\Schemas\Files\FileId')
                     ->build(),
-                Fb::create('photo_urls', T\StringType::create())
-                    ->asAList()
-                    ->format(Format::URL())
-                    ->build(),
-                Fb::create('video_urls', T\StringType::create())
-                    ->asAList()
-                    ->format(Format::URL())
-                    ->build(),
                 /*
                  * Networks is a map that contains handles/usernames on a social network.
                  * E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
@@ -154,14 +131,7 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                     ->asASet()
                     ->format(Format::HASHTAG())
                     ->build(),
-                /*
-                 * Tags is a map that categorizes submissions or track references in
-                 * external or legacy systems. The tags names should be consistent and descriptive,
-                 * e.g. bots_request_id:100, bots_respondent_id:123, bots_submission_id:456.
-                 */
-                Fb::create('tags', T\StringType::create())
-                    ->asAMap()
-                    ->pattern('^[\w\/\.:-]+$')
+                Fb::create('has_notes', T\BooleanType::create())
                     ->build(),
                 Fb::create('is_blocked', T\BooleanType::create())
                     ->build(),
@@ -181,6 +151,8 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                  * If the submission was accepted without any kind of verification this should be false.
                  */
                 Fb::create('is_verified', T\BooleanType::create())
+                    ->build(),
+                Fb::create('is_rejected', T\BooleanType::create())
                     ->build(),
                 Fb::create('verified_at', T\MicrotimeType::create())
                     ->useTypeDefault(false)
@@ -222,16 +194,17 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                     ->build()
             ],
             [
-                AccountRefV1Mixin::create(), 
-                EventV1Mixin::create(), 
-                IndexedV1Mixin::create(), 
-                TrackedMessageV1Mixin::create(), 
-                CollectableV1Mixin::create(), 
-                IpToGeoV1Mixin::create(), 
-                TimePartingV1Mixin::create(), 
-                TimeSamplingV1Mixin::create(), 
-                UaParserV1Mixin::create(), 
-                UtmV1Mixin::create()
+                EmeAccountsAccountRefV1Mixin::create(), 
+                GdbotsPbjxEventV1Mixin::create(), 
+                GdbotsPbjxIndexedV1Mixin::create(), 
+                GdbotsAnalyticsTrackedMessageV1Mixin::create(), 
+                EmeCollectorCollectableV1Mixin::create(), 
+                GdbotsEnrichmentsIpToGeoV1Mixin::create(), 
+                GdbotsEnrichmentsTimePartingV1Mixin::create(), 
+                GdbotsEnrichmentsTimeSamplingV1Mixin::create(), 
+                GdbotsEnrichmentsUaParserV1Mixin::create(), 
+                GdbotsEnrichmentsUtmV1Mixin::create(), 
+                GdbotsCommonTaggableV1Mixin::create()
             ]
         );
     }

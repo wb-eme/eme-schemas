@@ -41,9 +41,6 @@
           <classname>Gdbots\Schemas\Files\FileId</classname>
         </php-options>
       </field>
-      <!-- fixme: remove photo_urls and video_urls after code/migration updates -->
-      <field name="photo_urls" type="string" format="url" rule="list"/>
-      <field name="video_urls" type="string" format="url" rule="list"/>
       <field name="networks" type="string" pattern="^[\w\.-]+$" max="50" rule="map">
         <description>
           Networks is a map that contains handles/usernames on a social network.
@@ -56,6 +53,7 @@
       <field name="cf" type="dynamic-field" rule="list">
         <description>Contains all of the answers submitted from the custom fields on the solicit.</description>
       </field>
+      <field name="hashtags" type="string" format="hashtag" rule="set"/>
     </fields>
 
     <mixins>
@@ -65,6 +63,7 @@
       <curie-major>gdbots:enrichments:mixin:time-parting:v1</curie-major>
       <curie-major>gdbots:enrichments:mixin:time-sampling:v1</curie-major>
       <curie-major>gdbots:enrichments:mixin:utm:v1</curie-major>
+      <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
     </mixins>
 
     <php-options>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:users:command:grant-roles-to-user:1-0-0">
+    <fields>
+      <field name="user_id" type="identifier" required="true">
+        <php-options>
+          <classname>Eme\Schemas\Users\UserId</classname>
+        </php-options>
+      </field>
+      <field name="roles" type="string" pattern="^[\w_]+$" rule="set">
+        <description>The roles to grant to the user.</description>
+      </field>
+    </fields>
+
+    <mixins>
+      <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
+      <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
+    </mixins>
+
+    <php-options>
+      <namespace>Eme\Schemas\Users\Command</namespace>
+    </php-options>
+  </schema>
+</pbj-schema>

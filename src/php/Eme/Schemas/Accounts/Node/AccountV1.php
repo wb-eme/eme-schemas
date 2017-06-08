@@ -4,24 +4,23 @@ namespace Eme\Schemas\Accounts\Node;
 
 use Eme\Schemas\Accounts\AccountId;
 use Gdbots\Pbj\AbstractMessage;
+use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
-use Gdbots\Schemas\Ncr\Mixin\Node\NodeV1;
-use Gdbots\Schemas\Ncr\Mixin\Node\NodeV1Mixin;
-use Gdbots\Schemas\Ncr\Mixin\Node\NodeV1Trait;
-use Gdbots\Schemas\Ncr\Mixin\Sluggable\SluggableV1;
-use Gdbots\Schemas\Ncr\Mixin\Sluggable\SluggableV1Mixin;
-use Gdbots\Schemas\Ncr\Mixin\Sluggable\SluggableV1Trait;
+use Gdbots\Schemas\Ncr\Mixin\Node\NodeV1 as GdbotsNcrNodeV1;
+use Gdbots\Schemas\Ncr\Mixin\Node\NodeV1Mixin as GdbotsNcrNodeV1Mixin;
+use Gdbots\Schemas\Ncr\Mixin\Node\NodeV1Trait as GdbotsNcrNodeV1Trait;
+use Gdbots\Schemas\Ncr\Mixin\Sluggable\SluggableV1 as GdbotsNcrSluggableV1;
+use Gdbots\Schemas\Ncr\Mixin\Sluggable\SluggableV1Mixin as GdbotsNcrSluggableV1Mixin;
 
 final class AccountV1 extends AbstractMessage implements
     Account,
-    NodeV1,
-    SluggableV1
+    GdbotsNcrNodeV1,
+    GdbotsNcrSluggableV1
   
 {
-    use NodeV1Trait;
-    use SluggableV1Trait;
+    use GdbotsNcrNodeV1Trait;
 
     /**
      * @return Schema
@@ -35,14 +34,28 @@ final class AccountV1 extends AbstractMessage implements
                     ->className('Eme\Schemas\Accounts\AccountId')
                     ->overridable(true)
                     ->build(),
+                Fb::create('auth0_client_domain', T\StringType::create())
+                    ->format(Format::HOSTNAME())
+                    ->build(),
+                /*
+                 * Auth0 Client ID (or app id) does not require encryption.
+                 */
+                Fb::create('auth0_client_id', T\StringType::create())
+                    ->pattern('^[\w\/\.:-]+$')
+                    ->build(),
+                /*
+                 * Auth0 Client Secret MUST be encrypted when stored.
+                 */
+                Fb::create('auth0_client_secret', T\TextType::create())
+                    ->build(),
                 Fb::create('trackers', T\MessageType::create())
                     ->asAMap()
                     ->className('Gdbots\Schemas\Analytics\Mixin\Tracker\Tracker')
                     ->build()
             ],
             [
-                NodeV1Mixin::create(), 
-                SluggableV1Mixin::create()
+                GdbotsNcrNodeV1Mixin::create(), 
+                GdbotsNcrSluggableV1Mixin::create()
             ]
         );
     }

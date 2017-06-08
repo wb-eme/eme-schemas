@@ -6,21 +6,19 @@ use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
-use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1;
-use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1Mixin;
-use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1Trait;
-use Gdbots\Schemas\Pbjx\Mixin\SearchEventsResponse\SearchEventsResponseV1;
-use Gdbots\Schemas\Pbjx\Mixin\SearchEventsResponse\SearchEventsResponseV1Mixin;
-use Gdbots\Schemas\Pbjx\Mixin\SearchEventsResponse\SearchEventsResponseV1Trait;
+use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1 as GdbotsPbjxResponseV1;
+use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1Mixin as GdbotsPbjxResponseV1Mixin;
+use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1Trait as GdbotsPbjxResponseV1Trait;
+use Gdbots\Schemas\Pbjx\Mixin\SearchEventsResponse\SearchEventsResponseV1 as GdbotsPbjxSearchEventsResponseV1;
+use Gdbots\Schemas\Pbjx\Mixin\SearchEventsResponse\SearchEventsResponseV1Mixin as GdbotsPbjxSearchEventsResponseV1Mixin;
 
 final class SearchSubmissionsResponseV1 extends AbstractMessage implements
     SearchSubmissionsResponse,
-    ResponseV1,
-    SearchEventsResponseV1
+    GdbotsPbjxResponseV1,
+    GdbotsPbjxSearchEventsResponseV1
   
 {
-    use ResponseV1Trait;
-    use SearchEventsResponseV1Trait;
+    use GdbotsPbjxResponseV1Trait;
 
     /**
      * @return Schema
@@ -30,8 +28,8 @@ final class SearchSubmissionsResponseV1 extends AbstractMessage implements
         return new Schema('pbj:eme:solicits:request:search-submissions-response:1-0-0', __CLASS__,
             [],
             [
-                ResponseV1Mixin::create(), 
-                SearchEventsResponseV1Mixin::create()
+                GdbotsPbjxResponseV1Mixin::create(), 
+                GdbotsPbjxSearchEventsResponseV1Mixin::create()
             ]
         );
     }

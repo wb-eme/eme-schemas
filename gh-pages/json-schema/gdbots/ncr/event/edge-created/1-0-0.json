@@ -181,7 +181,8 @@
   },
   "required": [
     "_schema",
-    "event_id"
+    "event_id",
+    "edge"
   ],
   "definitions": {
     "app": {

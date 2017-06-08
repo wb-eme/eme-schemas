@@ -42,9 +42,6 @@
           <classname>Gdbots\Schemas\Files\FileId</classname>
         </php-options>
       </field>
-      <!-- fixme: remove photo_urls and video_urls after code/migration updates -->
-      <field name="photo_urls" type="string" format="url" rule="list"/>
-      <field name="video_urls" type="string" format="url" rule="list"/>
       <field name="networks" type="string" pattern="^[\w\.-]+$" max="50" rule="map">
         <description>
           Networks is a map that contains handles/usernames on a social network.
@@ -61,13 +58,7 @@
         <description>Publisher provided identifier (PPID)</description>
       </field>
       <field name="hashtags" type="string" format="hashtag" rule="set"/>
-      <field name="tags" type="string" pattern="^[\w\/\.:-]+$" rule="map">
-        <description>
-          Tags is a map that categorizes submissions or track references in
-          external or legacy systems. The tags names should be consistent and descriptive,
-          e.g. bots_request_id:100, bots_respondent_id:123, bots_submission_id:456.
-        </description>
-      </field>
+      <field name="has_notes" type="boolean"/>
       <field name="is_blocked" type="boolean"/>
       <field name="is_read" type="boolean"/>
       <field name="last_read_at" type="microtime" use-type-default="false"/>
@@ -83,6 +74,7 @@
           If the submission was accepted without any kind of verification this should be false.
         </description>
       </field>
+      <field name="is_rejected" type="boolean"/>
       <field name="verified_at" type="microtime" use-type-default="false"/>
       <field name="allcaps" type="tiny-int" max="100">
         <description>The percentage (whole number) of text in the "story" that is ALL CAPS.</description>
@@ -124,6 +116,7 @@
       <curie-major>gdbots:enrichments:mixin:time-sampling:v1</curie-major>
       <curie-major>gdbots:enrichments:mixin:ua-parser:v1</curie-major>
       <curie-major>gdbots:enrichments:mixin:utm:v1</curie-major>
+      <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
     </mixins>
 
     <php-options>

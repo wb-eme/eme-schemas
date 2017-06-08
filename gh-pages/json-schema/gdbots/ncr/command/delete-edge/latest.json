@@ -201,7 +201,8 @@
   },
   "required": [
     "_schema",
-    "command_id"
+    "command_id",
+    "edge"
   ],
   "definitions": {
     "app": {
