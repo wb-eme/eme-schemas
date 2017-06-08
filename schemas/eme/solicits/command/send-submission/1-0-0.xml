@@ -5,7 +5,7 @@
 
   <schema id="pbj:eme:solicits:command:send-submission:1-0-0">
     <fields>
-      <field name="solicit_id" type="identifier" required="true">
+      <field name="solicit_id" type="identifier">
         <php-options>
           <classname>Eme\Schemas\Solicits\SolicitId</classname>
         </php-options>
@@ -26,7 +26,7 @@
         </description>
       </field>
       <field name="dob" type="date"/>
-      <field name="age" type="tiny-int" max="120" deprecated="true">
+      <field name="age" type="tiny-int" max="120">
         <description>
           The "age" is generally populated if "dob" is present by using the difference of
           "dob" and "occurred_at" to determine the age at the time of the response.
@@ -36,24 +36,12 @@
         <enum id="gdbots:common:gender"/>
       </field>
       <field name="story" type="text"/>
-      <field name="file_ids" type="identifier" rule="set">
-        <php-options>
-          <classname>Gdbots\Schemas\Files\FileId</classname>
-        </php-options>
-      </field>
       <field name="networks" type="string" pattern="^[\w\.-]+$" max="50" rule="map">
         <description>
           Networks is a map that contains handles/usernames on a social network.
           E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
         </description>
       </field>
-      <field name="ppid" type="string" pattern="^[\w\/\.:-]+$">
-        <description>Publisher provided identifier (PPID)</description>
-      </field>
-      <field name="cf" type="dynamic-field" rule="list">
-        <description>Contains all of the answers submitted from the custom fields on the solicit.</description>
-      </field>
-      <field name="hashtags" type="string" format="hashtag" rule="set"/>
     </fields>
 
     <mixins>
@@ -64,6 +52,7 @@
       <curie-major>gdbots:enrichments:mixin:time-sampling:v1</curie-major>
       <curie-major>gdbots:enrichments:mixin:utm:v1</curie-major>
       <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
+      <curie-major>gdbots:forms:mixin:send-submission:v1</curie-major>
     </mixins>
 
     <php-options>
