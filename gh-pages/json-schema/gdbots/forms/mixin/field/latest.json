@@ -12,7 +12,7 @@
         "rule": "single"
       }
     },
-    "map_to": {
+    "maps_to": {
       "type": "string",
       "default": "cf",
       "pattern": "^[a-zA-Z_]{1}[a-zA-Z0-9_]$",

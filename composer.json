@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "require": {
     "php": ">=7.1",
-    "gdbots/schemas": "dev-collector#ef5a3f0d7ed258397eeb573a8c641dc10eaba7d2 as 1.2.0"
+    "gdbots/schemas": "dev-collector as 1.2.0"
   },
   "require-dev": {
     "composer/composer": "1.0.*@dev",

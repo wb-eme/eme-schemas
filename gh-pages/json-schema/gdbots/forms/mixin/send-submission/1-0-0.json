@@ -353,6 +353,23 @@
         "type": "string",
         "rule": "single"
       }
+    },
+    "hashtags": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false,
+      "pbj": {
+        "type": "string",
+        "rule": "set",
+        "format": "hashtag"
+      }
     }
   },
   "required": [
