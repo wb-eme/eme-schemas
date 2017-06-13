@@ -11,10 +11,8 @@
       <option key="CREATED_AT_ASC" value="created-at-asc"/>
       <option key="UPDATED_AT_DESC" value="updated-at-desc"/>
       <option key="UPDATED_AT_ASC" value="updated-at-asc"/>
-      <option key="FIRST_NAME_DESC" value="first-name-desc"/>
-      <option key="FIRST_NAME_ASC" value="first-name-asc"/>
-      <option key="LAST_NAME_DESC" value="last-name-desc"/>
-      <option key="LAST_NAME_ASC" value="last-name-asc"/>
+      <option key="TITLE_DESC" value="title-desc"/>
+      <option key="TITLE_ASC" value="title-asc"/>
     </enum>
 
     <php-options>
