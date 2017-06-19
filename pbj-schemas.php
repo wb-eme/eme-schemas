@@ -87,6 +87,7 @@
     'eme:solicits:request:search-solicits-request' => 'Eme\Schemas\Solicits\Request\SearchSolicitsRequestV1',
     'eme:solicits:request:search-solicits-response' => 'Eme\Schemas\Solicits\Request\SearchSolicitsResponseV1',
     'eme:solicits:command:create-solicit' => 'Eme\Schemas\Solicits\Command\CreateSolicitV1',
+    'eme:solicits:event:solicit-created' => 'Eme\Schemas\Solicits\Event\SolicitCreatedV1',
     'gdbots:contexts::app' => 'Gdbots\Schemas\Contexts\AppV1',
     'gdbots:contexts::cloud' => 'Gdbots\Schemas\Contexts\CloudV1',
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',
