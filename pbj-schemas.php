@@ -89,6 +89,7 @@
     'eme:solicits:command:create-solicit' => 'Eme\Schemas\Solicits\Command\CreateSolicitV1',
     'eme:solicits:event:solicit-created' => 'Eme\Schemas\Solicits\Event\SolicitCreatedV1',
     'eme:solicits:command:update-solicit' => 'Eme\Schemas\Solicits\Command\UpdateSolicitV1',
+    'eme:solicits:event:solicit-updated' => 'Eme\Schemas\Solicits\Event\SolicitUpdatedV1',
     'gdbots:contexts::app' => 'Gdbots\Schemas\Contexts\AppV1',
     'gdbots:contexts::cloud' => 'Gdbots\Schemas\Contexts\CloudV1',
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',
