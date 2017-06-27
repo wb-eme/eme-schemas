@@ -3,21 +3,19 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
 
-  <schema id="pbj:eme:solicits:command:add-note-to-submission:1-0-0">
+  <schema id="pbj:eme:solicits:event:submission-marked-as-unread:1-0-0">
     <fields>
       <field name="submission_id" type="time-uuid" required="true"/>
-      <field name="note" type="text"/>
-      <field name="hashtags_to_add" type="string" format="hashtag" rule="set"/>
-      <field name="hashtags_to_remove" type="string" format="hashtag" rule="set"/>
     </fields>
 
     <mixins>
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
-      <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
+      <curie-major>gdbots:pbjx:mixin:event:v1</curie-major>
+      <curie-major>gdbots:analytics:mixin:tracked-message:v1</curie-major>
     </mixins>
 
     <php-options>
-      <namespace>Eme\Schemas\Solicits\Command</namespace>
+      <namespace>Eme\Schemas\Solicits\Event</namespace>
     </php-options>
   </schema>
 </pbj-schema>

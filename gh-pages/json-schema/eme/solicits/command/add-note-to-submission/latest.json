@@ -211,6 +211,40 @@
         "type": "text",
         "rule": "single"
       }
+    },
+    "hashtags_to_add": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false,
+      "pbj": {
+        "type": "string",
+        "rule": "set",
+        "format": "hashtag"
+      }
+    },
+    "hashtags_to_remove": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false,
+      "pbj": {
+        "type": "string",
+        "rule": "set",
+        "format": "hashtag"
+      }
     }
   },
   "required": [

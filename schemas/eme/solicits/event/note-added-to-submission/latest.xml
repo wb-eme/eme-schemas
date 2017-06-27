@@ -7,6 +7,8 @@
     <fields>
       <field name="submission_id" type="time-uuid" required="true"/>
       <field name="note" type="text"/>
+      <field name="hashtags_added" type="string" format="hashtag" rule="set"/>
+      <field name="hashtags_removed" type="string" format="hashtag" rule="set"/>
     </fields>
 
     <mixins>

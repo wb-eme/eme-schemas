@@ -65,6 +65,8 @@
     'eme:solicits:event:note-added-to-submission' => 'Eme\Schemas\Solicits\Event\NoteAddedToSubmissionV1',
     'eme:solicits:command:reject-submission' => 'Eme\Schemas\Solicits\Command\RejectSubmissionV1',
     'eme:solicits:event:submission-rejected' => 'Eme\Schemas\Solicits\Event\SubmissionRejectedV1',
+    'eme:solicits:command:mark-submissions-as-unread' => 'Eme\Schemas\Solicits\Command\MarkSubmissionsAsUnreadV1',
+    'eme:solicits:event:submission-marked-as-unread' => 'Eme\Schemas\Solicits\Event\SubmissionMarkedAsUnreadV1',
     'gdbots:contexts::app' => 'Gdbots\Schemas\Contexts\AppV1',
     'gdbots:contexts::cloud' => 'Gdbots\Schemas\Contexts\CloudV1',
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',

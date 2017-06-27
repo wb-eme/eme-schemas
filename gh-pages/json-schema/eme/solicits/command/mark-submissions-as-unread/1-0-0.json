@@ -1,12 +1,12 @@
 {
-  "id": "http://schemas.wbeme.com/json-schema/eme/solicits/event/note-added-to-submission/1-0-0.json#",
+  "id": "http://schemas.wbeme.com/json-schema/eme/solicits/command/mark-submissions-as-unread/1-0-0.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "_schema": {
       "type": "string",
       "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
-      "default": "pbj:eme:solicits:event:note-added-to-submission:1-0-0"
+      "default": "pbj:eme:solicits:command:mark-submissions-as-unread:1-0-0"
     },
     "account_id": {
       "type": "string",
@@ -17,7 +17,7 @@
         "rule": "single"
       }
     },
-    "event_id": {
+    "command_id": {
       "type": "string",
       "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
       "pbj": {
@@ -30,6 +30,26 @@
       "pattern": "^[1-9]{1}[0-9]{12,15}$",
       "pbj": {
         "type": "microtime",
+        "rule": "single"
+      }
+    },
+    "expected_etag": {
+      "type": "string",
+      "pattern": "^[\\w\\.:-]+$",
+      "description": "Used to perform optimistic concurrency control. @link https://en.wikipedia.org/wiki/HTTP_ETag",
+      "pbj": {
+        "type": "string",
+        "rule": "single"
+      }
+    },
+    "ctx_retries": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 255,
+      "description": "The \"ctx_retries\" field is used to keep track of how many attempts were made to process this command. In some cases, the service or transport that handles the command may be down or an optimistic check has failed and is being retried.",
+      "pbj": {
+        "type": "tiny-int",
         "rule": "single"
       }
     },
@@ -136,7 +156,7 @@
           "$ref": "#/definitions/app"
         }
       ],
-      "description": "The \"ctx_app\" refers to the application used to send the command which in turn resulted in this event being published.",
+      "description": "The \"ctx_app\" refers to the application used to send the command. This is different from ctx_ua (user_agent) because the agent used (Safari, Firefox) is not necessarily the app used (cms, iOS app, website)",
       "pbj": {
         "type": "message",
         "rule": "single"
@@ -149,7 +169,7 @@
           "$ref": "#/definitions/cloud"
         }
       ],
-      "description": "The \"ctx_cloud\" is usually copied from the command that resulted in this event being published. This means the value most likely refers to the cloud that received the command originally, not the machine processing the event.",
+      "description": "The \"ctx_cloud\" is set by the server receiving the command and is generally only used internally for tracking and performance monitoring.",
       "pbj": {
         "type": "message",
         "rule": "single"
@@ -175,62 +195,25 @@
         "overridable": true
       }
     },
-    "submission_id": {
-      "type": "string",
-      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+    "submission_ids": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false,
       "pbj": {
         "type": "time-uuid",
-        "rule": "single"
-      }
-    },
-    "note": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 65535,
-      "pbj": {
-        "type": "text",
-        "rule": "single"
-      }
-    },
-    "hashtags_added": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 255
-        }
-      ],
-      "uniqueItems": true,
-      "additionalProperties": false,
-      "pbj": {
-        "type": "string",
-        "rule": "set",
-        "format": "hashtag"
-      }
-    },
-    "hashtags_removed": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 255
-        }
-      ],
-      "uniqueItems": true,
-      "additionalProperties": false,
-      "pbj": {
-        "type": "string",
-        "rule": "set",
-        "format": "hashtag"
+        "rule": "set"
       }
     }
   },
   "required": [
     "_schema",
-    "event_id",
-    "submission_id"
+    "command_id"
   ],
   "definitions": {
     "app": {
