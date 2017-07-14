@@ -91,6 +91,8 @@
     'eme:solicits:command:update-solicit' => 'Eme\Schemas\Solicits\Command\UpdateSolicitV1',
     'eme:solicits:event:solicit-updated' => 'Eme\Schemas\Solicits\Event\SolicitUpdatedV1',
     'eme:solicits:event:solicit-deleted' => 'Eme\Schemas\Solicits\Event\SolicitDeletedV1',
+    'eme:solicits:request:get-solicit-history-request' => 'Eme\Schemas\Solicits\Request\GetSolicitHistoryRequestV1',
+    'eme:solicits:request:get-solicit-history-response' => 'Eme\Schemas\Solicits\Request\GetSolicitHistoryResponseV1',
     'gdbots:contexts::app' => 'Gdbots\Schemas\Contexts\AppV1',
     'gdbots:contexts::cloud' => 'Gdbots\Schemas\Contexts\CloudV1',
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',
