@@ -95,6 +95,8 @@
     'eme:solicits:request:get-solicit-history-response' => 'Eme\Schemas\Solicits\Request\GetSolicitHistoryResponseV1',
     'eme:solicits:command:publish-solicit' => 'Eme\Schemas\Solicits\Command\PublishSolicitV1',
     'eme:solicits:command:unpublish-solicit' => 'Eme\Schemas\Solicits\Command\UnpublishSolicitV1',
+    'eme:solicits:event:solicit-published' => 'Eme\Schemas\Solicits\Event\SolicitPublishedV1',
+    'eme:solicits:event:solicit-unpublished' => 'Eme\Schemas\Solicits\Event\SolicitUnpublishedV1',
     'gdbots:contexts::app' => 'Gdbots\Schemas\Contexts\AppV1',
     'gdbots:contexts::cloud' => 'Gdbots\Schemas\Contexts\CloudV1',
     'gdbots:contexts::user-agent' => 'Gdbots\Schemas\Contexts\UserAgentV1',
