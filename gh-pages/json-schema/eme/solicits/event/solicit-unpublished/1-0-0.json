@@ -174,11 +174,20 @@
         "rule": "single",
         "overridable": true
       }
+    },
+    "solicit_id": {
+      "type": "string",
+      "pattern": "^[\\w\\/\\.:-]+$",
+      "pbj": {
+        "type": "identifier",
+        "rule": "single"
+      }
     }
   },
   "required": [
     "_schema",
-    "event_id"
+    "event_id",
+    "solicit_id"
   ],
   "definitions": {
     "app": {
