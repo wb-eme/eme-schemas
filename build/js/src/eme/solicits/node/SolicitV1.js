@@ -1,8 +1,8 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/node/solicit/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
 import Fb from '@gdbots/pbj/FieldBuilder';
-import Format from '@gdbots/pbj/enums/Format';
 import GdbotsCommonTaggableV1Mixin from '@gdbots/schemas/gdbots/common/mixin/taggable/TaggableV1Mixin';
+import GdbotsFormsFormV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/form/FormV1Mixin';
 import GdbotsNcrExpirableV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/expirable/ExpirableV1Mixin';
 import GdbotsNcrIndexedV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/indexed/IndexedV1Mixin';
 import GdbotsNcrNodeV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/node/NodeV1Mixin';
@@ -28,27 +28,6 @@ export default class SolicitV1 extends Message {
           .withDefault(() => SolicitId.generate())
           .classProto(SolicitId)
           .build(),
-        /*
-         * A short description (a few sentences) about this solicit. This field should
-         * not have html as it is used in metadata.
-         */
-        Fb.create('description', T.TextType.create())
-          .build(),
-        Fb.create('hashtags', T.StringType.create())
-          .asASet()
-          .format(Format.HASHTAG)
-          .build(),
-        Fb.create('story_enabled', T.BooleanType.create())
-          .withDefault(true)
-          .build(),
-        Fb.create('story_required', T.BooleanType.create())
-          .build(),
-        Fb.create('story_label', T.StringType.create())
-          .build(),
-        Fb.create('utm_campaign', T.StringType.create())
-          .maxLength(50)
-          .pattern('^[\\w\\/\\.:-]+$')
-          .build(),
       ],
       [
         EmeAccountsAccountRefV1Mixin.create(),
@@ -57,6 +36,7 @@ export default class SolicitV1 extends Message {
         GdbotsNcrIndexedV1Mixin.create(),
         GdbotsNcrPublishableV1Mixin.create(),
         GdbotsCommonTaggableV1Mixin.create(),
+        GdbotsFormsFormV1Mixin.create(),
       ],
     );
   }

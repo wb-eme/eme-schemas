@@ -361,11 +361,154 @@
         "rule": "map"
       }
     },
-    "form_ref": {
+    "solicit_id": {
       "type": "string",
       "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
         "type": "identifier",
+        "rule": "single"
+      }
+    },
+    "first_name": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255,
+      "pbj": {
+        "type": "string",
+        "rule": "single"
+      }
+    },
+    "last_name": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255,
+      "pbj": {
+        "type": "string",
+        "rule": "single"
+      }
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "pbj": {
+        "type": "string",
+        "rule": "single",
+        "format": "email"
+      }
+    },
+    "email_domain": {
+      "type": "string",
+      "format": "hostname",
+      "pbj": {
+        "type": "string",
+        "rule": "single",
+        "format": "hostname"
+      }
+    },
+    "address": {
+      "type": "object",
+      "anyOf": [
+        {
+          "$ref": "#/definitions/address"
+        }
+      ],
+      "pbj": {
+        "type": "message",
+        "rule": "single"
+      }
+    },
+    "phone": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
+          "type": "string",
+          "pattern": "^\\+?[1-9]\\d{1,14}$"
+        }
+      },
+      "additionalProperties": false,
+      "description": "A general format for international telephone numbers. @link https://en.wikipedia.org/wiki/E.164",
+      "pbj": {
+        "type": "string",
+        "rule": "map"
+      }
+    },
+    "dob": {
+      "type": "object",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "pbj": {
+        "type": "date",
+        "rule": "single"
+      }
+    },
+    "age": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 120,
+      "description": "The \"age\" is generally populated if \"dob\" is present by using the difference of \"dob\" and \"occurred_at\" to determine the age at the time of the response.",
+      "pbj": {
+        "type": "tiny-int",
+        "rule": "single"
+      }
+    },
+    "gender": {
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        9
+      ],
+      "pbj": {
+        "type": "int-enum",
+        "rule": "single"
+      }
+    },
+    "story": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535,
+      "pbj": {
+        "type": "text",
+        "rule": "single"
+      }
+    },
+    "file_ids": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "pattern": "^[\\w\\/\\.:-]+$"
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false,
+      "pbj": {
+        "type": "identifier",
+        "rule": "set"
+      }
+    },
+    "networks": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
+          "type": "string",
+          "pattern": "^[\\w\\.-]+$"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Networks is a map that contains handles/usernames on a social network. E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.",
+      "pbj": {
+        "type": "string",
+        "rule": "map"
+      }
+    },
+    "ppid": {
+      "type": "string",
+      "pattern": "^[\\w\\/\\.:-]+$",
+      "description": "Publisher provided identifier (PPID)",
+      "pbj": {
+        "type": "string",
         "rule": "single"
       }
     },
@@ -503,35 +646,10 @@
         }
       ],
       "additionalProperties": false,
-      "description": "Contains answers submitted from the fields on the form.",
+      "description": "Contains all of the answers submitted from the custom fields on the solicit.",
       "pbj": {
         "type": "dynamic-field",
         "rule": "list"
-      }
-    },
-    "file_ids": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string",
-          "pattern": "^[\\w\\/\\.:-]+$"
-        }
-      ],
-      "uniqueItems": true,
-      "additionalProperties": false,
-      "description": "Any files uploaded should have the IDs copied here in addition to being present in the \"cf\" field (or whereever they are mapped to).",
-      "pbj": {
-        "type": "identifier",
-        "rule": "set"
-      }
-    },
-    "ppid": {
-      "type": "string",
-      "pattern": "^[\\w\\/\\.:-]+$",
-      "description": "Publisher provided identifier (PPID)",
-      "pbj": {
-        "type": "string",
-        "rule": "single"
       }
     },
     "hashtags": {
@@ -550,139 +668,12 @@
         "rule": "set",
         "format": "hashtag"
       }
-    },
-    "solicit_id": {
-      "type": "string",
-      "pattern": "^[\\w\\/\\.:-]+$",
-      "pbj": {
-        "type": "identifier",
-        "rule": "single"
-      }
-    },
-    "first_name": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 255,
-      "pbj": {
-        "type": "string",
-        "rule": "single"
-      }
-    },
-    "last_name": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 255,
-      "pbj": {
-        "type": "string",
-        "rule": "single"
-      }
-    },
-    "email": {
-      "type": "string",
-      "format": "email",
-      "pbj": {
-        "type": "string",
-        "rule": "single",
-        "format": "email"
-      }
-    },
-    "email_domain": {
-      "type": "string",
-      "format": "hostname",
-      "pbj": {
-        "type": "string",
-        "rule": "single",
-        "format": "hostname"
-      }
-    },
-    "address": {
-      "type": "object",
-      "anyOf": [
-        {
-          "$ref": "#/definitions/address"
-        }
-      ],
-      "pbj": {
-        "type": "message",
-        "rule": "single"
-      }
-    },
-    "phone": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
-          "type": "string",
-          "pattern": "^\\+?[1-9]\\d{1,14}$"
-        }
-      },
-      "additionalProperties": false,
-      "description": "A general format for international telephone numbers. @link https://en.wikipedia.org/wiki/E.164",
-      "pbj": {
-        "type": "string",
-        "rule": "map"
-      }
-    },
-    "dob": {
-      "type": "object",
-      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
-      "pbj": {
-        "type": "date",
-        "rule": "single"
-      }
-    },
-    "age": {
-      "type": "integer",
-      "default": 0,
-      "minimum": 0,
-      "maximum": 120,
-      "description": "The \"age\" is generally populated if \"dob\" is present by using the difference of \"dob\" and \"occurred_at\" to determine the age at the time of the response.",
-      "pbj": {
-        "type": "tiny-int",
-        "rule": "single"
-      }
-    },
-    "gender": {
-      "type": "integer",
-      "enum": [
-        0,
-        1,
-        2,
-        9
-      ],
-      "pbj": {
-        "type": "int-enum",
-        "rule": "single"
-      }
-    },
-    "story": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 65535,
-      "pbj": {
-        "type": "text",
-        "rule": "single"
-      }
-    },
-    "networks": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
-          "type": "string",
-          "pattern": "^[\\w\\.-]+$"
-        }
-      },
-      "additionalProperties": false,
-      "description": "Networks is a map that contains handles/usernames on a social network. E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.",
-      "pbj": {
-        "type": "string",
-        "rule": "map"
-      }
     }
   },
   "required": [
     "_schema",
     "command_id",
-    "form_ref"
+    "solicit_id"
   ],
   "definitions": {
     "app": {

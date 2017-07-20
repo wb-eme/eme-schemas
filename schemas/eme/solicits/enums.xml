@@ -14,9 +14,5 @@
       <option key="TITLE_DESC" value="title-desc"/>
       <option key="TITLE_ASC" value="title-asc"/>
     </enum>
-
-    <php-options>
-      <namespace>Eme\Schemas\Solicits\Enum</namespace>
-    </php-options>
   </enums>
 </pbj-enums>

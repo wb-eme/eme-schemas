@@ -1,5 +1,5 @@
 <?php
-
+// @link http://schemas.wbeme.com/json-schema/eme/solicits/node/solicit/1-0-0.json#
 namespace Eme\Schemas\Solicits\Node;
 
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV1;
@@ -32,7 +32,6 @@ final class SolicitV1 extends AbstractMessage implements
     GdbotsNcrPublishableV1,
     GdbotsCommonTaggableV1,
     GdbotsFormsFormV1
-
 {
     use GdbotsNcrNodeV1Trait;
 
@@ -46,8 +45,8 @@ final class SolicitV1 extends AbstractMessage implements
                 Fb::create('_id', T\IdentifierType::create())
                     ->required()
                     ->withDefault(function() { return SolicitId::generate(); })
-                    ->className('Eme\Schemas\Solicits\SolicitId')
-                    ->build()
+                    ->className(SolicitId::class)
+                    ->build(),
             ],
             [
                 EmeAccountsAccountRefV1Mixin::create(),
@@ -56,7 +55,7 @@ final class SolicitV1 extends AbstractMessage implements
                 GdbotsNcrIndexedV1Mixin::create(),
                 GdbotsNcrPublishableV1Mixin::create(),
                 GdbotsCommonTaggableV1Mixin::create(),
-                GdbotsFormsFormV1Mixin::create()
+                GdbotsFormsFormV1Mixin::create(),
             ]
         );
     }

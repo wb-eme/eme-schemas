@@ -8,9 +8,6 @@
       <field name="sort" type="string-enum">
         <default>relevance</default>
         <enum id="eme:solicits:search-sort"/>
-        <php-options>
-          <default>SearchSort::RELEVANCE()</default>
-        </php-options>
       </field>
     </fields>
 
@@ -19,17 +16,5 @@
       <curie-major>gdbots:pbjx:mixin:request:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:search-nodes-request:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Solicits\Request</namespace>
-      <insertion-points>
-        <imports>
-          <![CDATA[
-use Eme\Schemas\Solicits\Enum\SearchSort;
-            ]]>
-        </imports>
-        <methods/>
-      </insertion-points>
-    </php-options>
   </schema>
 </pbj-schema>
