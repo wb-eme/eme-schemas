@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pbj-schema xmlns="http://gdbots.io/pbj/xsd"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
 
   <schema id="pbj:eme:solicits:command:send-submission:1-0-0">
     <fields>
-      <field name="solicit_id" type="identifier">
+      <field name="solicit_id" type="identifier" required="true">
         <php-options>
-          <classname>Eme\Schemas\Solicits\SolicitId</classname>
+          <imports>use Eme\Schemas\Solicits\SolicitId;</imports>
+          <class-name>SolicitId::class</class-name>
         </php-options>
+        <js-options>
+          <imports>import SolicitId from '@wbeme/schemas/eme/solicits/SolicitId';</imports>
+          <class-proto>SolicitId</class-proto>
+        </js-options>
       </field>
       <field name="first_name" type="string"/>
       <field name="last_name" type="string"/>
@@ -26,7 +31,7 @@
         </description>
       </field>
       <field name="dob" type="date"/>
-      <field name="age" type="tiny-int" max="120">
+      <field name="age" type="tiny-int" max="120" deprecated="true">
         <description>
           The "age" is generally populated if "dob" is present by using the difference of
           "dob" and "occurred_at" to determine the age at the time of the response.
@@ -36,12 +41,29 @@
         <enum id="gdbots:common:gender"/>
       </field>
       <field name="story" type="text"/>
+      <field name="file_ids" type="identifier" rule="set">
+        <php-options>
+          <imports>use Gdbots\Schemas\Files\FileId;</imports>
+          <class-name>FileId::class</class-name>
+        </php-options>
+        <js-options>
+          <imports>import FileId from '@gdbots/schemas/gdbots/files/FileId';</imports>
+          <class-proto>FileId</class-proto>
+        </js-options>
+      </field>
       <field name="networks" type="string" pattern="^[\w\.-]+$" max="50" rule="map">
         <description>
           Networks is a map that contains handles/usernames on a social network.
           E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
         </description>
       </field>
+      <field name="ppid" type="string" pattern="^[\w\/\.:-]+$">
+        <description>Publisher provided identifier (PPID)</description>
+      </field>
+      <field name="cf" type="dynamic-field" rule="list">
+        <description>Contains all of the answers submitted from the custom fields on the solicit.</description>
+      </field>
+      <field name="hashtags" type="string" format="hashtag" rule="set"/>
     </fields>
 
     <mixins>
@@ -52,11 +74,6 @@
       <curie-major>gdbots:enrichments:mixin:time-sampling:v1</curie-major>
       <curie-major>gdbots:enrichments:mixin:utm:v1</curie-major>
       <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
-      <curie-major>gdbots:forms:mixin:send-submission:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Solicits\Command</namespace>
-    </php-options>
   </schema>
 </pbj-schema>

@@ -12,9 +12,5 @@
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Solicits\Command</namespace>
-    </php-options>
   </schema>
 </pbj-schema>

@@ -9,9 +9,5 @@
       <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:create-node:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Users\Command</namespace>
-    </php-options>
   </schema>
 </pbj-schema>

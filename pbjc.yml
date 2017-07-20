@@ -8,8 +8,12 @@ namespaces:
 
 languages:
   php:
-    output: ./src/php
-    manifest: ./pbj-schemas.php
+    output: ./build/php/src
+
+  js:
+    output: ./build/js/src
+    packages:
+      eme: '@wbeme/schemas'
 
   json-schema:
     include_all: true

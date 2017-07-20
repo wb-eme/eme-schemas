@@ -7,9 +7,15 @@
     <fields>
       <field name="_id" type="identifier" required="true">
         <php-options>
-          <classname>Eme\Schemas\Users\UserId</classname>
+          <imports>use Eme\Schemas\Users\UserId;</imports>
+          <class-name>UserId::class</class-name>
           <default>function() { return UserId::generate(); }</default>
         </php-options>
+        <js-options>
+          <imports>import UserId from '@wbeme/schemas/eme/users/UserId';</imports>
+          <class-proto>UserId</class-proto>
+          <default>() => UserId.generate()</default>
+        </js-options>
       </field>
       <field name="first_name" type="string"/>
       <field name="last_name" type="string"/>
@@ -59,9 +65,7 @@
     </mixins>
 
     <php-options>
-      <namespace>Eme\Schemas\Users\Node</namespace>
       <insertion-points>
-        <imports/>
         <methods>
           <![CDATA[
 /**
@@ -75,5 +79,20 @@ public function getUriTemplateVars()
         </methods>
       </insertion-points>
     </php-options>
+
+    <js-options>
+      <insertion-points>
+        <methods>
+          <![CDATA[
+/**
+ * @returns {Object}
+ */
+getUriTemplateVars() {
+  return { user_id: `${this.get('_id', '')}` };
+}
+            ]]>
+        </methods>
+      </insertion-points>
+    </js-options>
   </schema>
 </pbj-schema>

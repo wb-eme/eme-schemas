@@ -6,3 +6,5 @@ php:
 before_script:
   - composer self-update
   - composer install
+
+# todo: also run tests for node

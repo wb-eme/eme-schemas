@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:solicits:command:mark-submissions-as-unread:1-0-0">
+    <fields>
+      <field name="submission_ids" type="time-uuid" rule="set"/>
+    </fields>
+
+    <mixins>
+      <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
+      <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
+    </mixins>
+  </schema>
+</pbj-schema>

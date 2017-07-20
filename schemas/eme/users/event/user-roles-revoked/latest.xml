@@ -7,8 +7,13 @@
     <fields>
       <field name="user_id" type="identifier" required="true">
         <php-options>
-          <classname>Eme\Schemas\Users\UserId</classname>
+          <imports>use Eme\Schemas\Users\UserId;</imports>
+          <class-name>UserId::class</class-name>
         </php-options>
+        <js-options>
+          <imports>import UserId from '@wbeme/schemas/eme/users/UserId';</imports>
+          <class-proto>UserId</class-proto>
+        </js-options>
       </field>
       <field name="roles" type="string" pattern="^[\w_]+$" rule="set">
         <description>The roles revoked from the user.</description>
@@ -19,9 +24,5 @@
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:event:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Users\Event</namespace>
-    </php-options>
   </schema>
 </pbj-schema>

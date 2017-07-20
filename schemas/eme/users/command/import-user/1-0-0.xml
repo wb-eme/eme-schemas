@@ -7,8 +7,13 @@
     <fields>
       <field name="user_id" type="identifier">
         <php-options>
-          <classname>Eme\Schemas\Users\UserId</classname>
+          <imports>use Eme\Schemas\Users\UserId;</imports>
+          <class-name>UserId::class</class-name>
         </php-options>
+        <js-options>
+          <imports>import UserId from '@wbeme/schemas/eme/users/UserId';</imports>
+          <class-proto>UserId</class-proto>
+        </js-options>
       </field>
       <field name="first_name" type="string"/>
       <field name="last_name" type="string"/>
@@ -23,9 +28,5 @@
       <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
       <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Users\Command</namespace>
-    </php-options>
   </schema>
 </pbj-schema>

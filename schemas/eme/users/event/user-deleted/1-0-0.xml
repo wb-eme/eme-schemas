@@ -9,9 +9,5 @@
       <curie-major>gdbots:pbjx:mixin:event:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:node-deleted:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Users\Event</namespace>
-    </php-options>
   </schema>
 </pbj-schema>
