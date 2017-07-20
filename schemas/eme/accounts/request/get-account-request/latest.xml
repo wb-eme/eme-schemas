@@ -8,9 +8,5 @@
       <curie-major>gdbots:pbjx:mixin:request:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:get-node-request:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Accounts\Request</namespace>
-    </php-options>
   </schema>
 </pbj-schema>

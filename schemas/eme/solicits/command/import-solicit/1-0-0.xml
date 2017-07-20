@@ -7,8 +7,13 @@
     <fields>
       <field name="solicit_id" type="identifier">
         <php-options>
-          <classname>Eme\Schemas\Solicits\SolicitId</classname>
+          <imports>use Eme\Schemas\Solicits\SolicitId;</imports>
+          <class-name>SolicitId::class</class-name>
         </php-options>
+        <js-options>
+          <imports>import SolicitId from '@wbeme/schemas/eme/solicits/SolicitId';</imports>
+          <class-proto>SolicitId</class-proto>
+        </js-options>
       </field>
       <field name="title" type="string"/>
       <field name="description" type="text">
@@ -31,9 +36,5 @@
       <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
       <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Solicits\Command</namespace>
-    </php-options>
   </schema>
 </pbj-schema>

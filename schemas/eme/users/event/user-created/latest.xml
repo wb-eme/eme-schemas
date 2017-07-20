@@ -14,9 +14,5 @@
       <curie-major>gdbots:enrichments:mixin:time-sampling:v1</curie-major>
       <curie-major>gdbots:enrichments:mixin:ua-parser:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Users\Event</namespace>
-    </php-options>
   </schema>
 </pbj-schema>

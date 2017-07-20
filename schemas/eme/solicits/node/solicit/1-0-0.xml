@@ -11,9 +11,15 @@
     <fields>
       <field name="_id" type="identifier" required="true">
         <php-options>
-          <classname>Eme\Schemas\Solicits\SolicitId</classname>
+          <imports>use Eme\Schemas\Solicits\SolicitId;</imports>
+          <class-name>SolicitId::class</class-name>
           <default>function() { return SolicitId::generate(); }</default>
         </php-options>
+        <js-options>
+          <imports>import SolicitId from '@wbeme/schemas/eme/solicits/SolicitId';</imports>
+          <class-proto>SolicitId</class-proto>
+          <default>() => SolicitId.generate()</default>
+        </js-options>
       </field>
       <field name="description" type="text">
         <description>
@@ -40,9 +46,7 @@
     </mixins>
 
     <php-options>
-      <namespace>Eme\Schemas\Solicits\Node</namespace>
       <insertion-points>
-        <imports/>
         <methods>
           <![CDATA[
 /**
@@ -56,5 +60,20 @@ public function getUriTemplateVars()
         </methods>
       </insertion-points>
     </php-options>
+
+    <js-options>
+      <insertion-points>
+        <methods>
+          <![CDATA[
+/**
+ * @returns {Object}
+ */
+getUriTemplateVars() {
+  return { solicit_id: `${this.get('_id', '')}` };
+}
+            ]]>
+        </methods>
+      </insertion-points>
+    </js-options>
   </schema>
 </pbj-schema>

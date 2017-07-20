@@ -9,9 +9,5 @@
       <curie-major>gdbots:pbjx:mixin:request:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:get-events-request:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Users\Request</namespace>
-    </php-options>
   </schema>
 </pbj-schema>

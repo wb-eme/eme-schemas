@@ -7,8 +7,13 @@
     <fields>
       <field name="solicit_id" type="identifier">
         <php-options>
-          <classname>Eme\Schemas\Solicits\SolicitId</classname>
+          <imports>use Eme\Schemas\Solicits\SolicitId;</imports>
+          <class-name>SolicitId::class</class-name>
         </php-options>
+        <js-options>
+          <imports>import SolicitId from '@wbeme/schemas/eme/solicits/SolicitId';</imports>
+          <class-proto>SolicitId</class-proto>
+        </js-options>
       </field>
       <field name="first_name" type="string"/>
       <field name="last_name" type="string"/>
@@ -37,9 +42,5 @@
       <curie-major>gdbots:pbjx:mixin:search-events-request:v1</curie-major>
       <curie-major>gdbots:analytics:mixin:tracked-message:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Solicits\Request</namespace>
-    </php-options>
   </schema>
 </pbj-schema>

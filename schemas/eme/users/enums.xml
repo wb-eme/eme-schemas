@@ -16,9 +16,5 @@
       <option key="LAST_NAME_DESC" value="last-name-desc"/>
       <option key="LAST_NAME_ASC" value="last-name-asc"/>
     </enum>
-
-    <php-options>
-      <namespace>Eme\Schemas\Users\Enum</namespace>
-    </php-options>
   </enums>
 </pbj-enums>

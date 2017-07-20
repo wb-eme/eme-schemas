@@ -8,9 +8,6 @@
       <field name="sort" type="string-enum">
         <default>relevance</default>
         <enum id="eme:users:search-sort"/>
-        <php-options>
-          <default>SearchSort::RELEVANCE()</default>
-        </php-options>
       </field>
       <field name="is_staff" type="trinary"/>
       <field name="is_blocked" type="trinary">
@@ -23,17 +20,5 @@
       <curie-major>gdbots:pbjx:mixin:request:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:search-nodes-request:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Users\Request</namespace>
-      <insertion-points>
-        <imports>
-          <![CDATA[
-use Eme\Schemas\Users\Enum\SearchSort;
-            ]]>
-        </imports>
-        <methods/>
-      </insertion-points>
-    </php-options>
   </schema>
 </pbj-schema>

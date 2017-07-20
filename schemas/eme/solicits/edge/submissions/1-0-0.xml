@@ -19,10 +19,5 @@
     <mixins>
       <curie-major>gdbots:ncr:mixin:edge:v1</curie-major>
     </mixins>
-
-    <php-options>
-      <namespace>Eme\Schemas\Solicits\Edge</namespace>
-    </php-options>
-
   </schema>
 </pbj-schema>

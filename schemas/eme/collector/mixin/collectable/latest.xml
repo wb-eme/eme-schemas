@@ -15,9 +15,5 @@
         </any-of>
       </field>
     </fields>
-
-    <php-options>
-      <namespace>Eme\Schemas\Collector\Mixin\Collectable</namespace>
-    </php-options>
   </schema>
 </pbj-schema>
