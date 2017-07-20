@@ -6,28 +6,33 @@
   "license": "Apache-2.0",
   "require": {
     "php": ">=7.1",
-    "gdbots/schemas": "dev-collector as 1.2.0"
+    "gdbots/schemas": "~1.2"
   },
   "require-dev": {
     "composer/composer": "1.0.*@dev",
-    "phpunit/phpunit": "~4.3",
-    "gdbots/pbjc": "~0.2"
+    "phpunit/phpunit": "~6.0",
+    "gdbots/pbjc": "~0.3"
   },
   "autoload": {
-    "files": ["pbj-schemas.php"],
+    "files": [
+      "build/php/src/pbj-schemas.php"
+    ],
     "psr-0": {
-      "": "src/php"
+      "": "build/php/src"
     }
   },
   "autoload-dev": {
-    "files": ["pbj-schema-stores.php"],
+    "files": [
+      "pbj-schema-stores.php"
+    ],
     "psr-0": {
-      "": "tests/php"
+      "": "build/php/tests"
     }
   },
   "scripts": {
     "pbjc": [
       "vendor/bin/pbjc",
+      "git add .",
       "@test"
     ],
     "post-package-install": [
@@ -39,6 +44,9 @@
     "post-package-update": [
       "Gdbots\\Pbjc\\Composer\\ScriptHandler::writePbjSchemaStoresFile"
     ],
-    "test": "vendor/bin/phpunit"
+    "test": [
+      "vendor/bin/phpunit",
+      "npm test"
+    ]
   }
 }
