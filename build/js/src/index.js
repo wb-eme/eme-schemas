@@ -15,6 +15,7 @@ import '@wbeme/schemas/eme/accounts/request/GetActiveAccountsRequestV1';
 import '@wbeme/schemas/eme/accounts/request/GetActiveAccountsResponseV1';
 import '@wbeme/schemas/eme/solicits/command/AddNoteToSubmissionV1';
 import '@wbeme/schemas/eme/solicits/command/CreateSolicitV1';
+import '@wbeme/schemas/eme/solicits/command/DeleteSolicitV1';
 import '@wbeme/schemas/eme/solicits/command/ImportSolicitV1';
 import '@wbeme/schemas/eme/solicits/command/ImportSubmissionV1';
 import '@wbeme/schemas/eme/solicits/command/MarkSubmissionsAsReadV1';
