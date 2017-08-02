@@ -37,6 +37,9 @@
           "dob" and "occurred_at" to determine the age at the time of the response.
         </description>
       </field>
+      <field name="height" type="tiny-int" max="120">
+        <description>The person's physical height recorded in inches.</description>
+      </field>
       <field name="gender" type="int-enum">
         <enum id="gdbots:common:gender"/>
       </field>

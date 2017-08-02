@@ -59,6 +59,12 @@ final class SearchSubmissionsRequestV1 extends AbstractMessage implements
                 Fb::create('age_max', T\TinyIntType::create())
                     ->max(120)
                     ->build(),
+                Fb::create('height_min', T\TinyIntType::create())
+                    ->max(120)
+                    ->build(),
+                Fb::create('height_max', T\TinyIntType::create())
+                    ->max(120)
+                    ->build(),
                 Fb::create('has_notes', T\TrinaryType::create())
                     ->build(),
                 Fb::create('is_blocked', T\TrinaryType::create())

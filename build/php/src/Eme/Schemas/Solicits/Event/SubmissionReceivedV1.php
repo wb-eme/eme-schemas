@@ -95,6 +95,12 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                 Fb::create('age', T\TinyIntType::create())
                     ->max(120)
                     ->build(),
+                /*
+                 * The person's physical height recorded in inches.
+                 */
+                Fb::create('height', T\TinyIntType::create())
+                    ->max(120)
+                    ->build(),
                 Fb::create('gender', T\IntEnumType::create())
                     ->withDefault(Gender::UNKNOWN())
                     ->className(Gender::class)
