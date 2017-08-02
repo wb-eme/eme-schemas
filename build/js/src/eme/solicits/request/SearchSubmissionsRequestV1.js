@@ -6,6 +6,7 @@ import GdbotsAnalyticsTrackedMessageV1Mixin from '@gdbots/schemas/gdbots/analyti
 import GdbotsPbjxRequestV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/request/RequestV1Mixin';
 import GdbotsPbjxRequestV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/request/RequestV1Trait';
 import GdbotsPbjxSearchEventsRequestV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/search-events-request/SearchEventsRequestV1Mixin';
+import Gender from '@gdbots/schemas/gdbots/common/enums/Gender';
 import Message from '@gdbots/pbj/Message';
 import MessageResolver from '@gdbots/pbj/MessageResolver';
 import Schema from '@gdbots/pbj/Schema';
@@ -50,6 +51,9 @@ export default class SearchSubmissionsRequestV1 extends Message {
           .build(),
         Fb.create('height_max', T.TinyIntType.create())
           .max(120)
+          .build(),
+        Fb.create('gender', T.IntEnumType.create())
+          .classProto(Gender)
           .build(),
         Fb.create('has_notes', T.TrinaryType.create())
           .build(),
