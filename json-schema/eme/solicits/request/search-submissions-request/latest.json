@@ -377,6 +377,19 @@
         "rule": "single"
       }
     },
+    "gender": {
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        9
+      ],
+      "pbj": {
+        "type": "int-enum",
+        "rule": "single"
+      }
+    },
     "has_notes": {
       "type": "integer",
       "default": 0,
