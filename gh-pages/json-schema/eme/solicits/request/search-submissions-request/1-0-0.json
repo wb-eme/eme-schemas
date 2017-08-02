@@ -357,6 +357,26 @@
         "rule": "single"
       }
     },
+    "height_min": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 120,
+      "pbj": {
+        "type": "tiny-int",
+        "rule": "single"
+      }
+    },
+    "height_max": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 120,
+      "pbj": {
+        "type": "tiny-int",
+        "rule": "single"
+      }
+    },
     "has_notes": {
       "type": "integer",
       "default": 0,
