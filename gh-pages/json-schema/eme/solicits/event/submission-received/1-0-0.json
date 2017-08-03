@@ -455,6 +455,17 @@
         "rule": "single"
       }
     },
+    "height": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 120,
+      "description": "The person's physical height recorded in inches.",
+      "pbj": {
+        "type": "tiny-int",
+        "rule": "single"
+      }
+    },
     "gender": {
       "type": "integer",
       "default": 0,

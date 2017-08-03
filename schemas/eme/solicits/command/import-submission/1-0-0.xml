@@ -32,6 +32,9 @@
       </field>
       <field name="dob" type="date"/>
       <field name="age" type="tiny-int" max="120"/>
+      <field name="height" type="tiny-int" max="120">
+        <description>The person's physical height recorded in inches.</description>
+      </field>
       <field name="gender" type="int-enum">
         <enum id="gdbots:common:gender"/>
       </field>

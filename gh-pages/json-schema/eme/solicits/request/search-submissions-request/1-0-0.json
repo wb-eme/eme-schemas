@@ -357,6 +357,39 @@
         "rule": "single"
       }
     },
+    "height_min": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 120,
+      "pbj": {
+        "type": "tiny-int",
+        "rule": "single"
+      }
+    },
+    "height_max": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 120,
+      "pbj": {
+        "type": "tiny-int",
+        "rule": "single"
+      }
+    },
+    "gender": {
+      "type": "integer",
+      "enum": [
+        0,
+        1,
+        2,
+        9
+      ],
+      "pbj": {
+        "type": "int-enum",
+        "rule": "single"
+      }
+    },
     "has_notes": {
       "type": "integer",
       "default": 0,
