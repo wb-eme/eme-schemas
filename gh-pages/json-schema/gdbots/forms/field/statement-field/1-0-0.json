@@ -1,12 +1,12 @@
 {
-  "id": "http://schemas.wbeme.com/json-schema/gdbots/forms/field/video-field/1-0-0.json#",
+  "id": "http://schemas.wbeme.com/json-schema/gdbots/forms/field/statement-field/1-0-0.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "_schema": {
       "type": "string",
       "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
-      "default": "pbj:gdbots:forms:field:video-field:1-0-0"
+      "default": "pbj:gdbots:forms:field:statement-field:1-0-0"
     },
     "name": {
       "type": "string",
@@ -60,16 +60,6 @@
       "type": "boolean",
       "pbj": {
         "type": "boolean",
-        "rule": "single"
-      }
-    },
-    "max_bytes": {
-      "type": "integer",
-      "default": 0,
-      "minimum": 0,
-      "maximum": 4294967295,
-      "pbj": {
-        "type": "int",
         "rule": "single"
       }
     }

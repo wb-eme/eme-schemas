@@ -62,6 +62,16 @@
         "type": "boolean",
         "rule": "single"
       }
+    },
+    "max_bytes": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 4294967295,
+      "pbj": {
+        "type": "int",
+        "rule": "single"
+      }
     }
   },
   "required": [

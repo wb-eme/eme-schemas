@@ -1,12 +1,12 @@
 {
-  "id": "http://schemas.wbeme.com/json-schema/gdbots/forms/field/video-field/1-0-0.json#",
+  "id": "http://schemas.wbeme.com/json-schema/gdbots/forms/field/select-field/1-0-0.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "_schema": {
       "type": "string",
       "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
-      "default": "pbj:gdbots:forms:field:video-field:1-0-0"
+      "default": "pbj:gdbots:forms:field:select-field:1-0-0"
     },
     "name": {
       "type": "string",
@@ -63,14 +63,34 @@
         "rule": "single"
       }
     },
-    "max_bytes": {
-      "type": "integer",
-      "default": 0,
-      "minimum": 0,
-      "maximum": 4294967295,
+    "option_label": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      ],
+      "additionalProperties": false,
       "pbj": {
-        "type": "int",
-        "rule": "single"
+        "type": "string",
+        "rule": "list"
+      }
+    },
+    "option_value": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      ],
+      "additionalProperties": false,
+      "pbj": {
+        "type": "string",
+        "rule": "list"
       }
     }
   },
