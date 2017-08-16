@@ -28,6 +28,8 @@ export default class SolicitV1 extends Message {
           .withDefault(() => SolicitId.generate())
           .classProto(SolicitId)
           .build(),
+        Fb.create('category', T.StringType.create())
+          .build(),
       ],
       [
         EmeAccountsAccountRefV1Mixin.create(),

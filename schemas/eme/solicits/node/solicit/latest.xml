@@ -21,6 +21,7 @@
           <default>() => SolicitId.generate()</default>
         </js-options>
       </field>
+      <field name="category" type="string"/>
     </fields>
 
     <mixins>

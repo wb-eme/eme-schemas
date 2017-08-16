@@ -47,6 +47,8 @@ final class SolicitV1 extends AbstractMessage implements
                     ->withDefault(function() { return SolicitId::generate(); })
                     ->className(SolicitId::class)
                     ->build(),
+                Fb::create('category', T\StringType::create())
+                    ->build(),
             ],
             [
                 EmeAccountsAccountRefV1Mixin::create(),
