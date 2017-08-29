@@ -1,27 +1,13 @@
 {
-  "id": "http://schemas.wbeme.com/json-schema/eme/solicits/event/solicit-published/1-0-0.json#",
+  "id": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/search-forms-request/1-0-0.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "_schema": {
-      "type": "string",
-      "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
-      "default": "pbj:eme:solicits:event:solicit-published:1-0-0"
-    },
-    "account_id": {
-      "type": "string",
-      "pattern": "^[\\w\\/\\.:-]+$",
-      "description": "The EME account that this message is associated with.",
-      "pbj": {
-        "type": "identifier",
-        "rule": "single"
-      }
-    },
-    "event_id": {
+    "request_id": {
       "type": "string",
       "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
       "pbj": {
-        "type": "time-uuid",
+        "type": "uuid",
         "rule": "single"
       }
     },
@@ -30,6 +16,17 @@
       "pattern": "^[1-9]{1}[0-9]{12,15}$",
       "pbj": {
         "type": "microtime",
+        "rule": "single"
+      }
+    },
+    "ctx_retries": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 255,
+      "description": "The \"ctx_retries\" field is used to keep track of how many attempts were made to handle this request. In some cases, the service or transport that handles the request may be down or over capacity and is being retried.",
+      "pbj": {
+        "type": "tiny-int",
         "rule": "single"
       }
     },
@@ -136,7 +133,7 @@
           "$ref": "#/definitions/app"
         }
       ],
-      "description": "The \"ctx_app\" refers to the application used to send the command which in turn resulted in this event being published.",
+      "description": "The \"ctx_app\" refers to the application used to make the request. This is different from ctx_ua (user_agent) because the agent used (Safari, Firefox) is not necessarily the app used (cms, iOS app, website)",
       "pbj": {
         "type": "message",
         "rule": "single"
@@ -149,7 +146,7 @@
           "$ref": "#/definitions/cloud"
         }
       ],
-      "description": "The \"ctx_cloud\" is usually copied from the command that resulted in this event being published. This means the value most likely refers to the cloud that received the command originally, not the machine processing the event.",
+      "description": "The \"ctx_cloud\" is set by the server making the request and is generally only used internally for tracking and performance monitoring.",
       "pbj": {
         "type": "message",
         "rule": "single"
@@ -175,38 +172,139 @@
         "overridable": true
       }
     },
-    "node_ref": {
+    "q": {
       "type": "string",
-      "pattern": "^[\\w\\/\\.:-]+$",
+      "minLength": 0,
+      "maxLength": 2000,
       "pbj": {
-        "type": "identifier",
+        "type": "text",
         "rule": "single"
       }
     },
-    "slug": {
-      "type": "string",
-      "pattern": "^([\\w\\/-]|[\\w-][\\w\\/-]*[\\w-])$",
-      "minLength": 0,
-      "maxLength": 255,
+    "count": {
+      "type": "integer",
+      "default": 25,
+      "minimum": 0,
+      "maximum": 255,
+      "description": "The number of results to return.",
       "pbj": {
-        "type": "string",
-        "rule": "single",
-        "format": "slug"
+        "type": "tiny-int",
+        "rule": "single"
       }
     },
-    "published_at": {
+    "page": {
+      "type": "integer",
+      "default": 1,
+      "minimum": 1,
+      "maximum": 255,
+      "pbj": {
+        "type": "tiny-int",
+        "rule": "single"
+      }
+    },
+    "cursor": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255,
+      "description": "A cursor is a string (normally base64 encoded) which marks a specific item in a list of data. When cursor is present it should be used instead of \"page\".",
+      "pbj": {
+        "type": "string",
+        "rule": "single"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "published",
+        "scheduled",
+        "draft",
+        "expired",
+        "deleted"
+      ],
+      "pbj": {
+        "type": "string-enum",
+        "rule": "single"
+      }
+    },
+    "created_after": {
       "type": "string",
       "format": "date-time",
       "pbj": {
         "type": "date-time",
         "rule": "single"
       }
+    },
+    "created_before": {
+      "type": "string",
+      "format": "date-time",
+      "pbj": {
+        "type": "date-time",
+        "rule": "single"
+      }
+    },
+    "updated_after": {
+      "type": "string",
+      "format": "date-time",
+      "pbj": {
+        "type": "date-time",
+        "rule": "single"
+      }
+    },
+    "updated_before": {
+      "type": "string",
+      "format": "date-time",
+      "pbj": {
+        "type": "date-time",
+        "rule": "single"
+      }
+    },
+    "fields_used": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "pattern": "^[\\w\\.-]+$"
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false,
+      "description": "The fields that are being queried as determined by parsing the \"q\" field.",
+      "pbj": {
+        "type": "string",
+        "rule": "set"
+      }
+    },
+    "parsed_query_json": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535,
+      "pbj": {
+        "type": "text",
+        "rule": "single"
+      }
+    },
+    "sort": {
+      "type": "string",
+      "default": "relevance",
+      "enum": [
+        "unknown",
+        "relevance",
+        "created-at-desc",
+        "created-at-asc",
+        "updated-at-desc",
+        "updated-at-asc",
+        "title-desc",
+        "title-asc"
+      ],
+      "pbj": {
+        "type": "string-enum",
+        "rule": "single"
+      }
     }
   },
   "required": [
-    "_schema",
-    "event_id",
-    "node_ref"
+    "request_id"
   ],
   "definitions": {
     "app": {
@@ -226,5 +324,5 @@
       ]
     }
   },
-  "additionalProperties": false
+  "additionalProperties": true
 }

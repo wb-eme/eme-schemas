@@ -175,11 +175,30 @@
         "overridable": true
       }
     },
-    "solicit_id": {
+    "node_ref": {
       "type": "string",
       "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
         "type": "identifier",
+        "rule": "single"
+      }
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^([\\w\\/-]|[\\w-][\\w\\/-]*[\\w-])$",
+      "minLength": 0,
+      "maxLength": 255,
+      "pbj": {
+        "type": "string",
+        "rule": "single",
+        "format": "slug"
+      }
+    },
+    "published_at": {
+      "type": "string",
+      "format": "date-time",
+      "pbj": {
+        "type": "date-time",
         "rule": "single"
       }
     }
@@ -187,7 +206,7 @@
   "required": [
     "_schema",
     "event_id",
-    "solicit_id"
+    "node_ref"
   ],
   "definitions": {
     "app": {

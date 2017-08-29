@@ -254,7 +254,7 @@
         "rule": "single"
       }
     },
-    "image": {
+    "image_id": {
       "type": "string",
       "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {

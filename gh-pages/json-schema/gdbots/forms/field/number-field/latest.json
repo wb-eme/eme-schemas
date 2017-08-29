@@ -87,8 +87,8 @@
       "type": "integer",
       "default": 0,
       "minimum": 0,
-      "maximum": 255,
-      "description": "Number of decimal places to show. 0 denotes this number field will be an integer",
+      "maximum": 6,
+      "description": "Number of decimal places to allow. A \"0\" denotes this number field will require an integer.",
       "pbj": {
         "type": "tiny-int",
         "rule": "single"

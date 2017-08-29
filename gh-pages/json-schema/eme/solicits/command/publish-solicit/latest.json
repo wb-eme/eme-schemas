@@ -195,11 +195,19 @@
         "overridable": true
       }
     },
-    "solicit_id": {
+    "node_ref": {
       "type": "string",
       "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
         "type": "identifier",
+        "rule": "single"
+      }
+    },
+    "publish_at": {
+      "type": "string",
+      "format": "date-time",
+      "pbj": {
+        "type": "date-time",
         "rule": "single"
       }
     }
@@ -207,7 +215,7 @@
   "required": [
     "_schema",
     "command_id",
-    "solicit_id"
+    "node_ref"
   ],
   "definitions": {
     "app": {

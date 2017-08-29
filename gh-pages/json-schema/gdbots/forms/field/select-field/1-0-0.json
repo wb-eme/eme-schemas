@@ -63,7 +63,7 @@
         "rule": "single"
       }
     },
-    "option_label": {
+    "option_labels": {
       "type": "array",
       "items": [
         {
@@ -78,7 +78,7 @@
         "rule": "list"
       }
     },
-    "option_value": {
+    "option_values": {
       "type": "array",
       "items": [
         {
