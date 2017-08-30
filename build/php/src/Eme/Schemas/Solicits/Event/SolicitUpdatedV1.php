@@ -6,8 +6,8 @@ use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Schema;
-use Gdbots\Schemas\Ncr\Mixin\NodeUpdated\NodeUpdatedV1 as GdbotsNcrNodeUpdatedV1;
-use Gdbots\Schemas\Ncr\Mixin\NodeUpdated\NodeUpdatedV1Mixin as GdbotsNcrNodeUpdatedV1Mixin;
+use Gdbots\Schemas\Forms\Mixin\FormUpdated\FormUpdatedV1 as GdbotsFormsFormUpdatedV1;
+use Gdbots\Schemas\Forms\Mixin\FormUpdated\FormUpdatedV1Mixin as GdbotsFormsFormUpdatedV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1 as GdbotsPbjxEventV1;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin as GdbotsPbjxEventV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait as GdbotsPbjxEventV1Trait;
@@ -16,7 +16,7 @@ final class SolicitUpdatedV1 extends AbstractMessage implements
     SolicitUpdated,
     EmeAccountsAccountRefV1,
     GdbotsPbjxEventV1,
-    GdbotsNcrNodeUpdatedV1
+    GdbotsFormsFormUpdatedV1
 {
     use GdbotsPbjxEventV1Trait;
 
@@ -30,7 +30,7 @@ final class SolicitUpdatedV1 extends AbstractMessage implements
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxEventV1Mixin::create(),
-                GdbotsNcrNodeUpdatedV1Mixin::create(),
+                GdbotsFormsFormUpdatedV1Mixin::create(),
             ]
         );
     }

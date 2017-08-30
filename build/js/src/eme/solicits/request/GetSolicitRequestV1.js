@@ -1,6 +1,6 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/request/get-solicit-request/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
-import GdbotsNcrGetNodeRequestV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/get-node-request/GetNodeRequestV1Mixin';
+import GdbotsFormsGetFormRequestV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/get-form-request/GetFormRequestV1Mixin';
 import GdbotsPbjxRequestV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/request/RequestV1Mixin';
 import GdbotsPbjxRequestV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/request/RequestV1Trait';
 import Message from '@gdbots/pbj/Message';
@@ -19,7 +19,7 @@ export default class GetSolicitRequestV1 extends Message {
       [
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxRequestV1Mixin.create(),
-        GdbotsNcrGetNodeRequestV1Mixin.create(),
+        GdbotsFormsGetFormRequestV1Mixin.create(),
       ],
     );
   }

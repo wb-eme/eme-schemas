@@ -195,7 +195,7 @@
         "overridable": true
       }
     },
-    "solicit_id": {
+    "node_ref": {
       "type": "string",
       "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
@@ -207,7 +207,7 @@
   "required": [
     "_schema",
     "command_id",
-    "solicit_id"
+    "node_ref"
   ],
   "definitions": {
     "app": {

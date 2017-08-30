@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pbj-schema xmlns="http://gdbots.io/pbj/xsd"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
 
   <schema id="pbj:eme:solicits:request:search-solicits-request:1-0-0">
-    <fields>
-      <field name="sort" type="string-enum">
-        <default>relevance</default>
-        <enum id="eme:solicits:search-sort"/>
-      </field>
-    </fields>
-
     <mixins>
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:request:v1</curie-major>
-      <curie-major>gdbots:ncr:mixin:search-nodes-request:v1</curie-major>
+      <curie-major>gdbots:forms:mixin:search-forms-request:v1</curie-major>
     </mixins>
   </schema>
 </pbj-schema>

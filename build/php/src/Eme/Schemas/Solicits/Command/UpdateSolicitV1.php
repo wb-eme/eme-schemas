@@ -6,8 +6,8 @@ use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Schema;
-use Gdbots\Schemas\Ncr\Mixin\UpdateNode\UpdateNodeV1 as GdbotsNcrUpdateNodeV1;
-use Gdbots\Schemas\Ncr\Mixin\UpdateNode\UpdateNodeV1Mixin as GdbotsNcrUpdateNodeV1Mixin;
+use Gdbots\Schemas\Forms\Mixin\UpdateForm\UpdateFormV1 as GdbotsFormsUpdateFormV1;
+use Gdbots\Schemas\Forms\Mixin\UpdateForm\UpdateFormV1Mixin as GdbotsFormsUpdateFormV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1 as GdbotsPbjxCommandV1;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Mixin as GdbotsPbjxCommandV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Trait as GdbotsPbjxCommandV1Trait;
@@ -16,7 +16,7 @@ final class UpdateSolicitV1 extends AbstractMessage implements
     UpdateSolicit,
     EmeAccountsAccountRefV1,
     GdbotsPbjxCommandV1,
-    GdbotsNcrUpdateNodeV1
+    GdbotsFormsUpdateFormV1
 {
     use GdbotsPbjxCommandV1Trait;
 
@@ -30,7 +30,7 @@ final class UpdateSolicitV1 extends AbstractMessage implements
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxCommandV1Mixin::create(),
-                GdbotsNcrUpdateNodeV1Mixin::create(),
+                GdbotsFormsUpdateFormV1Mixin::create(),
             ]
         );
     }

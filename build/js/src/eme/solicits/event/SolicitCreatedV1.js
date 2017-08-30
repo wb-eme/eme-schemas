@@ -5,7 +5,7 @@ import GdbotsEnrichmentsIpToGeoV1Mixin from '@gdbots/schemas/gdbots/enrichments/
 import GdbotsEnrichmentsTimePartingV1Mixin from '@gdbots/schemas/gdbots/enrichments/mixin/time-parting/TimePartingV1Mixin';
 import GdbotsEnrichmentsTimeSamplingV1Mixin from '@gdbots/schemas/gdbots/enrichments/mixin/time-sampling/TimeSamplingV1Mixin';
 import GdbotsEnrichmentsUaParserV1Mixin from '@gdbots/schemas/gdbots/enrichments/mixin/ua-parser/UaParserV1Mixin';
-import GdbotsNcrNodeCreatedV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/node-created/NodeCreatedV1Mixin';
+import GdbotsFormsFormCreatedV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/form-created/FormCreatedV1Mixin';
 import GdbotsPbjxEventV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Mixin';
 import GdbotsPbjxEventV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Trait';
 import Message from '@gdbots/pbj/Message';
@@ -24,7 +24,7 @@ export default class SolicitCreatedV1 extends Message {
       [
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxEventV1Mixin.create(),
-        GdbotsNcrNodeCreatedV1Mixin.create(),
+        GdbotsFormsFormCreatedV1Mixin.create(),
         GdbotsAnalyticsTrackedMessageV1Mixin.create(),
         GdbotsEnrichmentsIpToGeoV1Mixin.create(),
         GdbotsEnrichmentsTimePartingV1Mixin.create(),

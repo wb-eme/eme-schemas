@@ -159,14 +159,13 @@
       "type": "array",
       "items": [
         {
-          "$ref": "#/definitions/node"
+          "$ref": "#/definitions/form"
         }
       ],
       "additionalProperties": false,
       "pbj": {
         "type": "message",
-        "rule": "list",
-        "overridable": true
+        "rule": "list"
       }
     }
   },
@@ -183,11 +182,11 @@
         }
       ]
     },
-    "node": {
+    "form": {
       "type": "object",
       "anyOf": [
         {
-          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/ncr/mixin/node/1-0-0.json#"
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/form/1-0-0.json#"
         }
       ]
     }

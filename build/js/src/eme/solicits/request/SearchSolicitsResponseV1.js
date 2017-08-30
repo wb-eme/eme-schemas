@@ -1,5 +1,5 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/request/search-solicits-response/1-0-0.json#
-import GdbotsNcrSearchNodesResponseV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/search-nodes-response/SearchNodesResponseV1Mixin';
+import GdbotsFormsSearchFormsResponseV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/search-forms-response/SearchFormsResponseV1Mixin';
 import GdbotsPbjxResponseV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/response/ResponseV1Mixin';
 import GdbotsPbjxResponseV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/response/ResponseV1Trait';
 import Message from '@gdbots/pbj/Message';
@@ -17,7 +17,7 @@ export default class SearchSolicitsResponseV1 extends Message {
       [],
       [
         GdbotsPbjxResponseV1Mixin.create(),
-        GdbotsNcrSearchNodesResponseV1Mixin.create(),
+        GdbotsFormsSearchFormsResponseV1Mixin.create(),
       ],
     );
   }
