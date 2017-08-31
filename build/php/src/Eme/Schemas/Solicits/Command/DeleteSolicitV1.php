@@ -8,6 +8,8 @@ use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Schema;
 use Gdbots\Schemas\Forms\Mixin\DeleteForm\DeleteFormV1 as GdbotsFormsDeleteFormV1;
 use Gdbots\Schemas\Forms\Mixin\DeleteForm\DeleteFormV1Mixin as GdbotsFormsDeleteFormV1Mixin;
+use Gdbots\Schemas\Ncr\Mixin\DeleteNode\DeleteNodeV1 as GdbotsNcrDeleteNodeV1;
+use Gdbots\Schemas\Ncr\Mixin\DeleteNode\DeleteNodeV1Mixin as GdbotsNcrDeleteNodeV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1 as GdbotsPbjxCommandV1;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Mixin as GdbotsPbjxCommandV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Trait as GdbotsPbjxCommandV1Trait;
@@ -16,7 +18,8 @@ final class DeleteSolicitV1 extends AbstractMessage implements
     DeleteSolicit,
     EmeAccountsAccountRefV1,
     GdbotsPbjxCommandV1,
-    GdbotsFormsDeleteFormV1
+    GdbotsFormsDeleteFormV1,
+    GdbotsNcrDeleteNodeV1
 {
     use GdbotsPbjxCommandV1Trait;
 
@@ -31,6 +34,7 @@ final class DeleteSolicitV1 extends AbstractMessage implements
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxCommandV1Mixin::create(),
                 GdbotsFormsDeleteFormV1Mixin::create(),
+                GdbotsNcrDeleteNodeV1Mixin::create(),
             ]
         );
     }

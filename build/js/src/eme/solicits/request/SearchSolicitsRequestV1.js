@@ -1,6 +1,7 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/request/search-solicits-request/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
 import GdbotsFormsSearchFormsRequestV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/search-forms-request/SearchFormsRequestV1Mixin';
+import GdbotsNcrSearchNodesRequestV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/search-nodes-request/SearchNodesRequestV1Mixin';
 import GdbotsPbjxRequestV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/request/RequestV1Mixin';
 import GdbotsPbjxRequestV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/request/RequestV1Trait';
 import Message from '@gdbots/pbj/Message';
@@ -19,6 +20,7 @@ export default class SearchSolicitsRequestV1 extends Message {
       [
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxRequestV1Mixin.create(),
+        GdbotsNcrSearchNodesRequestV1Mixin.create(),
         GdbotsFormsSearchFormsRequestV1Mixin.create(),
       ],
     );

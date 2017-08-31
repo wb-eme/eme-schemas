@@ -8,6 +8,8 @@ use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Schema;
 use Gdbots\Schemas\Forms\Mixin\FormUnpublished\FormUnpublishedV1 as GdbotsFormsFormUnpublishedV1;
 use Gdbots\Schemas\Forms\Mixin\FormUnpublished\FormUnpublishedV1Mixin as GdbotsFormsFormUnpublishedV1Mixin;
+use Gdbots\Schemas\Ncr\Mixin\NodeUnpublished\NodeUnpublishedV1 as GdbotsNcrNodeUnpublishedV1;
+use Gdbots\Schemas\Ncr\Mixin\NodeUnpublished\NodeUnpublishedV1Mixin as GdbotsNcrNodeUnpublishedV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1 as GdbotsPbjxEventV1;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin as GdbotsPbjxEventV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait as GdbotsPbjxEventV1Trait;
@@ -16,6 +18,7 @@ final class SolicitUnpublishedV1 extends AbstractMessage implements
     SolicitUnpublished,
     EmeAccountsAccountRefV1,
     GdbotsPbjxEventV1,
+    GdbotsNcrNodeUnpublishedV1,
     GdbotsFormsFormUnpublishedV1
 {
     use GdbotsPbjxEventV1Trait;
@@ -30,6 +33,7 @@ final class SolicitUnpublishedV1 extends AbstractMessage implements
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxEventV1Mixin::create(),
+                GdbotsNcrNodeUnpublishedV1Mixin::create(),
                 GdbotsFormsFormUnpublishedV1Mixin::create(),
             ]
         );

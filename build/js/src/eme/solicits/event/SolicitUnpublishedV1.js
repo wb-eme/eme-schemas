@@ -1,6 +1,7 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/event/solicit-unpublished/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
 import GdbotsFormsFormUnpublishedV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/form-unpublished/FormUnpublishedV1Mixin';
+import GdbotsNcrNodeUnpublishedV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/node-unpublished/NodeUnpublishedV1Mixin';
 import GdbotsPbjxEventV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Mixin';
 import GdbotsPbjxEventV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Trait';
 import Message from '@gdbots/pbj/Message';
@@ -19,6 +20,7 @@ export default class SolicitUnpublishedV1 extends Message {
       [
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxEventV1Mixin.create(),
+        GdbotsNcrNodeUnpublishedV1Mixin.create(),
         GdbotsFormsFormUnpublishedV1Mixin.create(),
       ],
     );

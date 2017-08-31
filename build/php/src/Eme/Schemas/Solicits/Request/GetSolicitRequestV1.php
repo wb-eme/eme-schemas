@@ -8,6 +8,8 @@ use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Schema;
 use Gdbots\Schemas\Forms\Mixin\GetFormRequest\GetFormRequestV1 as GdbotsFormsGetFormRequestV1;
 use Gdbots\Schemas\Forms\Mixin\GetFormRequest\GetFormRequestV1Mixin as GdbotsFormsGetFormRequestV1Mixin;
+use Gdbots\Schemas\Ncr\Mixin\GetNodeRequest\GetNodeRequestV1 as GdbotsNcrGetNodeRequestV1;
+use Gdbots\Schemas\Ncr\Mixin\GetNodeRequest\GetNodeRequestV1Mixin as GdbotsNcrGetNodeRequestV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Request\RequestV1 as GdbotsPbjxRequestV1;
 use Gdbots\Schemas\Pbjx\Mixin\Request\RequestV1Mixin as GdbotsPbjxRequestV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Request\RequestV1Trait as GdbotsPbjxRequestV1Trait;
@@ -16,6 +18,7 @@ final class GetSolicitRequestV1 extends AbstractMessage implements
     GetSolicitRequest,
     EmeAccountsAccountRefV1,
     GdbotsPbjxRequestV1,
+    GdbotsNcrGetNodeRequestV1,
     GdbotsFormsGetFormRequestV1
 {
     use GdbotsPbjxRequestV1Trait;
@@ -30,6 +33,7 @@ final class GetSolicitRequestV1 extends AbstractMessage implements
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxRequestV1Mixin::create(),
+                GdbotsNcrGetNodeRequestV1Mixin::create(),
                 GdbotsFormsGetFormRequestV1Mixin::create(),
             ]
         );

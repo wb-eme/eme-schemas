@@ -8,6 +8,7 @@
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
       <curie-major>gdbots:forms:mixin:delete-form:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:delete-node:v1</curie-major>
     </mixins>
   </schema>
 </pbj-schema>

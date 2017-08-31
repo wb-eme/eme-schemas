@@ -18,8 +18,8 @@ export default class SearchSolicitsResponseV1 extends Message {
       [],
       [
         GdbotsPbjxResponseV1Mixin.create(),
-        GdbotsFormsSearchFormsResponseV1Mixin.create(),
         GdbotsNcrSearchNodesResponseV1Mixin.create(),
+        GdbotsFormsSearchFormsResponseV1Mixin.create(),
       ],
     );
   }

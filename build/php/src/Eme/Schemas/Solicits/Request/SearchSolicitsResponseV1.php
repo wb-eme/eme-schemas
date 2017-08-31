@@ -15,8 +15,8 @@ use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1Trait as GdbotsPbjxResponseV1Tr
 final class SearchSolicitsResponseV1 extends AbstractMessage implements
     SearchSolicitsResponse,
     GdbotsPbjxResponseV1,
-    GdbotsFormsSearchFormsResponseV1,
-    GdbotsNcrSearchNodesResponseV1
+    GdbotsNcrSearchNodesResponseV1,
+    GdbotsFormsSearchFormsResponseV1
 {
     use GdbotsPbjxResponseV1Trait;
 
@@ -29,8 +29,8 @@ final class SearchSolicitsResponseV1 extends AbstractMessage implements
             [],
             [
                 GdbotsPbjxResponseV1Mixin::create(),
-                GdbotsFormsSearchFormsResponseV1Mixin::create(),
                 GdbotsNcrSearchNodesResponseV1Mixin::create(),
+                GdbotsFormsSearchFormsResponseV1Mixin::create(),
             ]
         );
     }

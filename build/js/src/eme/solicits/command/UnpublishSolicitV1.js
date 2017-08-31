@@ -1,6 +1,7 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/command/unpublish-solicit/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
 import GdbotsFormsUnpublishFormV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/unpublish-form/UnpublishFormV1Mixin';
+import GdbotsNcrUnpublishNodeV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/unpublish-node/UnpublishNodeV1Mixin';
 import GdbotsPbjxCommandV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/command/CommandV1Mixin';
 import GdbotsPbjxCommandV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/command/CommandV1Trait';
 import Message from '@gdbots/pbj/Message';
@@ -20,6 +21,7 @@ export default class UnpublishSolicitV1 extends Message {
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxCommandV1Mixin.create(),
         GdbotsFormsUnpublishFormV1Mixin.create(),
+        GdbotsNcrUnpublishNodeV1Mixin.create(),
       ],
     );
   }
