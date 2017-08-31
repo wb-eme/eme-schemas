@@ -18,8 +18,8 @@ final class UnpublishSolicitV1 extends AbstractMessage implements
     UnpublishSolicit,
     EmeAccountsAccountRefV1,
     GdbotsPbjxCommandV1,
-    GdbotsFormsUnpublishFormV1,
-    GdbotsNcrUnpublishNodeV1
+    GdbotsNcrUnpublishNodeV1,
+    GdbotsFormsUnpublishFormV1
 {
     use GdbotsPbjxCommandV1Trait;
 
@@ -33,8 +33,8 @@ final class UnpublishSolicitV1 extends AbstractMessage implements
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxCommandV1Mixin::create(),
-                GdbotsFormsUnpublishFormV1Mixin::create(),
                 GdbotsNcrUnpublishNodeV1Mixin::create(),
+                GdbotsFormsUnpublishFormV1Mixin::create(),
             ]
         );
     }

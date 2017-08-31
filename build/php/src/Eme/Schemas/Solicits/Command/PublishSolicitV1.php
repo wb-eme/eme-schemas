@@ -18,8 +18,8 @@ final class PublishSolicitV1 extends AbstractMessage implements
     PublishSolicit,
     EmeAccountsAccountRefV1,
     GdbotsPbjxCommandV1,
-    GdbotsFormsPublishFormV1,
-    GdbotsNcrPublishNodeV1
+    GdbotsNcrPublishNodeV1,
+    GdbotsFormsPublishFormV1
 {
     use GdbotsPbjxCommandV1Trait;
 
@@ -33,8 +33,8 @@ final class PublishSolicitV1 extends AbstractMessage implements
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxCommandV1Mixin::create(),
-                GdbotsFormsPublishFormV1Mixin::create(),
                 GdbotsNcrPublishNodeV1Mixin::create(),
+                GdbotsFormsPublishFormV1Mixin::create(),
             ]
         );
     }

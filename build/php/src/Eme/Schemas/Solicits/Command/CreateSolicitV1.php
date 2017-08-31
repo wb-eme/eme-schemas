@@ -18,8 +18,8 @@ final class CreateSolicitV1 extends AbstractMessage implements
     CreateSolicit,
     EmeAccountsAccountRefV1,
     GdbotsPbjxCommandV1,
-    GdbotsFormsCreateFormV1,
-    GdbotsNcrCreateNodeV1
+    GdbotsNcrCreateNodeV1,
+    GdbotsFormsCreateFormV1
 {
     use GdbotsPbjxCommandV1Trait;
 
@@ -33,8 +33,8 @@ final class CreateSolicitV1 extends AbstractMessage implements
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxCommandV1Mixin::create(),
-                GdbotsFormsCreateFormV1Mixin::create(),
                 GdbotsNcrCreateNodeV1Mixin::create(),
+                GdbotsFormsCreateFormV1Mixin::create(),
             ]
         );
     }

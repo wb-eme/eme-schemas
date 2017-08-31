@@ -18,8 +18,8 @@ final class DeleteSolicitV1 extends AbstractMessage implements
     DeleteSolicit,
     EmeAccountsAccountRefV1,
     GdbotsPbjxCommandV1,
-    GdbotsFormsDeleteFormV1,
-    GdbotsNcrDeleteNodeV1
+    GdbotsNcrDeleteNodeV1,
+    GdbotsFormsDeleteFormV1
 {
     use GdbotsPbjxCommandV1Trait;
 
@@ -33,8 +33,8 @@ final class DeleteSolicitV1 extends AbstractMessage implements
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxCommandV1Mixin::create(),
-                GdbotsFormsDeleteFormV1Mixin::create(),
                 GdbotsNcrDeleteNodeV1Mixin::create(),
+                GdbotsFormsDeleteFormV1Mixin::create(),
             ]
         );
     }

@@ -20,8 +20,8 @@ export default class CreateSolicitV1 extends Message {
       [
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxCommandV1Mixin.create(),
-        GdbotsFormsCreateFormV1Mixin.create(),
         GdbotsNcrCreateNodeV1Mixin.create(),
+        GdbotsFormsCreateFormV1Mixin.create(),
       ],
     );
   }

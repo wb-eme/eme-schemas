@@ -18,8 +18,8 @@ final class UpdateSolicitV1 extends AbstractMessage implements
     UpdateSolicit,
     EmeAccountsAccountRefV1,
     GdbotsPbjxCommandV1,
-    GdbotsFormsUpdateFormV1,
-    GdbotsNcrUpdateNodeV1
+    GdbotsNcrUpdateNodeV1,
+    GdbotsFormsUpdateFormV1
 {
     use GdbotsPbjxCommandV1Trait;
 
@@ -33,8 +33,8 @@ final class UpdateSolicitV1 extends AbstractMessage implements
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxCommandV1Mixin::create(),
-                GdbotsFormsUpdateFormV1Mixin::create(),
                 GdbotsNcrUpdateNodeV1Mixin::create(),
+                GdbotsFormsUpdateFormV1Mixin::create(),
             ]
         );
     }

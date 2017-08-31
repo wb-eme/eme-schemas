@@ -20,8 +20,8 @@ export default class DeleteSolicitV1 extends Message {
       [
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxCommandV1Mixin.create(),
-        GdbotsFormsDeleteFormV1Mixin.create(),
         GdbotsNcrDeleteNodeV1Mixin.create(),
+        GdbotsFormsDeleteFormV1Mixin.create(),
       ],
     );
   }

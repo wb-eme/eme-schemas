@@ -20,8 +20,8 @@ export default class PublishSolicitV1 extends Message {
       [
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxCommandV1Mixin.create(),
-        GdbotsFormsPublishFormV1Mixin.create(),
         GdbotsNcrPublishNodeV1Mixin.create(),
+        GdbotsFormsPublishFormV1Mixin.create(),
       ],
     );
   }

@@ -20,8 +20,8 @@ export default class UnpublishSolicitV1 extends Message {
       [
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxCommandV1Mixin.create(),
-        GdbotsFormsUnpublishFormV1Mixin.create(),
         GdbotsNcrUnpublishNodeV1Mixin.create(),
+        GdbotsFormsUnpublishFormV1Mixin.create(),
       ],
     );
   }
