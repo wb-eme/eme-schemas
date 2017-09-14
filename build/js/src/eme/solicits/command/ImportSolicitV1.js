@@ -1,13 +1,13 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/command/import-solicit/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
 import Fb from '@gdbots/pbj/FieldBuilder';
+import FileId from '@gdbots/schemas/gdbots/files/FileId';
+import Format from '@gdbots/pbj/enums/Format';
 import GdbotsCommonTaggableV1Mixin from '@gdbots/schemas/gdbots/common/mixin/taggable/TaggableV1Mixin';
-import GdbotsFormsFormV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/form/FormV1Mixin';
 import GdbotsPbjxCommandV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/command/CommandV1Mixin';
 import GdbotsPbjxCommandV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/command/CommandV1Trait';
 import Message from '@gdbots/pbj/Message';
 import MessageResolver from '@gdbots/pbj/MessageResolver';
-import NodeStatus from '@gdbots/schemas/gdbots/ncr/enums/NodeStatus';
 import Schema from '@gdbots/pbj/Schema';
 import SolicitId from '@wbeme/schemas/eme/solicits/SolicitId';
 import T from '@gdbots/pbj/types';
@@ -28,12 +28,29 @@ export default class ImportSolicitV1 extends Message {
           .build(),
         Fb.create('category', T.StringType.create())
           .build(),
+        /*
+         * A short description (a few sentences) about this form. This field should
+         * not have html as it is used in metadata.
+         */
+        Fb.create('description', T.TextType.create())
+          .build(),
+        Fb.create('fields', T.MessageType.create())
+          .asAList()
+          .anyOfCuries([
+            'gdbots:forms:mixin:field',
+          ])
+          .build(),
+        Fb.create('hashtags', T.StringType.create())
+          .asASet()
+          .format(Format.HASHTAG)
+          .build(),
+        Fb.create('disclaimer', T.TextType.create())
+          .build(),
+        Fb.create('image_id', T.IdentifierType.create())
+          .classProto(FileId)
+          .build(),
         Fb.create('story_enabled', T.BooleanType.create())
           .withDefault(true)
-          .build(),
-        Fb.create('status', T.StringEnumType.create())
-          .withDefault(NodeStatus.DRAFT)
-          .classProto(NodeStatus)
           .build(),
         Fb.create('story_label', T.StringType.create())
           .build(),
@@ -44,7 +61,6 @@ export default class ImportSolicitV1 extends Message {
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxCommandV1Mixin.create(),
         GdbotsCommonTaggableV1Mixin.create(),
-        GdbotsFormsFormV1Mixin.create(),
       ],
     );
   }
