@@ -25,8 +25,6 @@ export default class ImportSolicitV1 extends Message {
         Fb.create('solicit_id', T.IdentifierType.create())
           .classProto(SolicitId)
           .build(),
-        Fb.create('title', T.StringType.create())
-          .build(),
         Fb.create('category', T.StringType.create())
           .build(),
         Fb.create('story_enabled', T.BooleanType.create())

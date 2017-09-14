@@ -15,7 +15,6 @@
           <class-proto>SolicitId</class-proto>
         </js-options>
       </field>
-      <field name="title" type="string"/>
       <field name="category" type="string"/>
       <field name="story_enabled" type="boolean">
         <default>true</default>
