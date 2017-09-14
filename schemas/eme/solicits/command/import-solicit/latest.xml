@@ -15,9 +15,14 @@
           <class-proto>SolicitId</class-proto>
         </js-options>
       </field>
+      <field name="title" type="string"/>
       <field name="category" type="string"/>
       <field name="story_enabled" type="boolean">
         <default>true</default>
+      </field>
+      <field name="status" type="string-enum">
+        <default>draft</default>
+        <enum id="gdbots:ncr:node-status"/>
       </field>
       <field name="story_label" type="string"/>
       <field name="is_active" type="boolean"/>
@@ -27,7 +32,6 @@
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
       <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
-      <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
       <curie-major>gdbots:forms:mixin:form:v1</curie-major>
     </mixins>
   </schema>
