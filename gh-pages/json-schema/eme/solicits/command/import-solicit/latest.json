@@ -316,6 +316,15 @@
         "type": "boolean",
         "rule": "single"
       }
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^[1-9]{1}[0-9]{12,15}$",
+      "pbj": {
+        "type": "microtime",
+        "rule": "single",
+        "useTypeDefault": false
+      }
     }
   },
   "required": [

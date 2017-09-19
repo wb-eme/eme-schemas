@@ -56,6 +56,9 @@ export default class ImportSolicitV1 extends Message {
           .build(),
         Fb.create('is_active', T.BooleanType.create())
           .build(),
+        Fb.create('created_at', T.MicrotimeType.create())
+          .useTypeDefault(false)
+          .build(),
       ],
       [
         EmeAccountsAccountRefV1Mixin.create(),

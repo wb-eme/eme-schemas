@@ -45,6 +45,7 @@
       </field>
       <field name="story_label" type="string"/>
       <field name="is_active" type="boolean"/>
+      <field name="created_at" type="microtime" use-type-default="false"/>
     </fields>
 
     <mixins>
