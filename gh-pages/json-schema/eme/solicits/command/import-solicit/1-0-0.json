@@ -293,23 +293,6 @@
         "rule": "single"
       }
     },
-    "story_enabled": {
-      "type": "boolean",
-      "default": true,
-      "pbj": {
-        "type": "boolean",
-        "rule": "single"
-      }
-    },
-    "story_label": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 255,
-      "pbj": {
-        "type": "string",
-        "rule": "single"
-      }
-    },
     "is_active": {
       "type": "boolean",
       "pbj": {

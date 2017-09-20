@@ -40,10 +40,6 @@
           <class-proto>FileId</class-proto>
         </js-options>
       </field>
-      <field name="story_enabled" type="boolean">
-        <default>true</default>
-      </field>
-      <field name="story_label" type="string"/>
       <field name="is_active" type="boolean"/>
       <field name="created_at" type="microtime" use-type-default="false"/>
       <field name="creator_email" type="string" format="email"/>

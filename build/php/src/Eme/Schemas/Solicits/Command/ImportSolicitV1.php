@@ -61,11 +61,6 @@ final class ImportSolicitV1 extends AbstractMessage implements
                 Fb::create('image_id', T\IdentifierType::create())
                     ->className(FileId::class)
                     ->build(),
-                Fb::create('story_enabled', T\BooleanType::create())
-                    ->withDefault(true)
-                    ->build(),
-                Fb::create('story_label', T\StringType::create())
-                    ->build(),
                 Fb::create('is_active', T\BooleanType::create())
                     ->build(),
                 Fb::create('created_at', T\MicrotimeType::create())
