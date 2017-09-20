@@ -1,13 +1,87 @@
 # CHANGELOG
 
 
+## v0.1.3
+* __Add Schemas:__
+  * `eme:solicits:command:create-solicit`
+  * `eme:solicits:command:delete-solicit`
+  * `eme:solicits:command:import-solicit`
+  * `eme:solicits:command:publish-solicit`
+  * `eme:solicits:command:unpublish-solicit`
+  * `eme:solicits:command:update-solicit`
+  * `eme:solicits:event:solicit-created`
+  * `eme:solicits:event:solicit-deleted`
+  * `eme:solicits:event:solicit-published`
+  * `eme:solicits:event:solicit-unpublished`
+  * `eme:solicits:event:solicit-updated`
+  * `eme:solicits:request:get-solicit-batch-request`
+  * `eme:solicits:request:get-solicit-batch-response`
+  * `eme:solicits:request:get-solicit-history-request`
+  * `eme:solicits:request:get-solicit-history-response`
+  * `eme:solicits:request:get-solicit-request`
+  * `eme:solicits:request:get-solicit-response`
+  * `eme:solicits:request:search-solicits-request`
+  * `eme:solicits:request:search-solicits-response`
+
+
 ## v0.1.2
-* Added `gender` to `eme:solicits:request:search-submissions-request`.
+* __Modify Schemas:__
+  * `eme:solicits:request:search-submissions-request` left version as is (still in beta)
+    * Add `gender` `int-enum` using enum `gdbots:common:gender`.
 
 
 ## v0.1.1
-* Adding height to submission process.
- 
+* __Modify Schemas:__
+  * `eme:solicits:command:send-submission` left version as is (still in beta)
+    * Add `height` `tiny-int` field for recording physical height.
+  * `eme:solicits:event:submission-received` left version as is (still in beta)
+    * Add `height` `tiny-int` field for recording physical height.
+
 
 ## v0.1.0
-* Initial version.
+* __Add Schemas:__
+  * `eme:accounts:mixin:account-ref`
+  * `eme:accounts:node:account`
+  * `eme:accounts:request:get-account-request`
+  * `eme:accounts:request:get-account-response`
+  * `eme:accounts:request:get-active-accounts-request`
+  * `eme:accounts:request:get-active-accounts-response`
+  * `eme:collector:mixin:collectable`
+  * `eme:solicits:command:add-note-to-submission`
+  * `eme:solicits:command:import-submission`
+  * `eme:solicits:command:mark-submissions-as-read`
+  * `eme:solicits:command:mark-submissions-as-unread`
+  * `eme:solicits:command:reject-submission`
+  * `eme:solicits:command:send-submission`
+  * `eme:solicits:edge:submissions`
+  * `eme:solicits:event:note-added-to-submission`
+  * `eme:solicits:event:submission-marked-as-read`
+  * `eme:solicits:event:submission-marked-as-unread`
+  * `eme:solicits:event:submission-received`
+  * `eme:solicits:event:submission-rejected`
+  * `eme:solicits:node:solicit`
+  * `eme:solicits:request:get-submission-history-request`
+  * `eme:solicits:request:get-submission-history-response`
+  * `eme:solicits:request:search-submissions-request`
+  * `eme:solicits:request:search-submissions-response`
+  * `eme:users:command:create-user`
+  * `eme:users:command:delete-user`
+  * `eme:users:command:grant-roles-to-user`
+  * `eme:users:command:import-user`
+  * `eme:users:command:revoke-roles-from-user`
+  * `eme:users:command:update-user`
+  * `eme:users:event:user-created`
+  * `eme:users:event:user-deleted`
+  * `eme:users:event:user-roles-granted`
+  * `eme:users:event:user-roles-revoked`
+  * `eme:users:event:user-updated`
+  * `eme:users:node:user`
+  * `eme:users:request:get-user-batch-request`
+  * `eme:users:request:get-user-batch-response`
+  * `eme:users:request:get-user-history-request`
+  * `eme:users:request:get-user-history-response`
+  * `eme:users:request:get-user-request`
+  * `eme:users:request:get-user-response`
+  * `eme:users:request:search-users-request`
+  * `eme:users:request:search-users-response`
+  * `eme:users:search-sort`
