@@ -38,6 +38,8 @@
     'eme:solicits:event:submission-received' => 'Eme\Schemas\Solicits\Event\SubmissionReceivedV1',
     'eme:solicits:event:submission-rejected' => 'Eme\Schemas\Solicits\Event\SubmissionRejectedV1',
     'eme:solicits:node:solicit' => 'Eme\Schemas\Solicits\Node\SolicitV1',
+    'eme:solicits:request:get-solicit-batch-request' => 'Eme\Schemas\Solicits\Request\GetSolicitBatchRequestV1',
+    'eme:solicits:request:get-solicit-batch-response' => 'Eme\Schemas\Solicits\Request\GetSolicitBatchResponseV1',
     'eme:solicits:request:get-solicit-history-request' => 'Eme\Schemas\Solicits\Request\GetSolicitHistoryRequestV1',
     'eme:solicits:request:get-solicit-history-response' => 'Eme\Schemas\Solicits\Request\GetSolicitHistoryResponseV1',
     'eme:solicits:request:get-solicit-request' => 'Eme\Schemas\Solicits\Request\GetSolicitRequestV1',

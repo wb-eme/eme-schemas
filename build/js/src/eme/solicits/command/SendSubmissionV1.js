@@ -87,12 +87,12 @@ export default class SendSubmissionV1 extends Message {
       [
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxCommandV1Mixin.create(),
+        GdbotsFormsSendSubmissionV1Mixin.create(),
         EmeCollectorCollectableV1Mixin.create(),
         GdbotsEnrichmentsTimePartingV1Mixin.create(),
         GdbotsEnrichmentsTimeSamplingV1Mixin.create(),
         GdbotsEnrichmentsUtmV1Mixin.create(),
         GdbotsCommonTaggableV1Mixin.create(),
-        GdbotsFormsSendSubmissionV1Mixin.create(),
       ],
     );
   }

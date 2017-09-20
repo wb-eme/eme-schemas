@@ -71,6 +71,9 @@ final class ImportSolicitV1 extends AbstractMessage implements
                 Fb::create('created_at', T\MicrotimeType::create())
                     ->useTypeDefault(false)
                     ->build(),
+                Fb::create('creator_email', T\StringType::create())
+                    ->format(Format::EMAIL())
+                    ->build(),
             ],
             [
                 EmeAccountsAccountRefV1Mixin::create(),

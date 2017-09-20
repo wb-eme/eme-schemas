@@ -27,11 +27,11 @@ final class SolicitV1 extends AbstractMessage implements
     Solicit,
     EmeAccountsAccountRefV1,
     GdbotsNcrNodeV1,
+    GdbotsFormsFormV1,
     GdbotsNcrExpirableV1,
     GdbotsNcrIndexedV1,
     GdbotsNcrPublishableV1,
-    GdbotsCommonTaggableV1,
-    GdbotsFormsFormV1
+    GdbotsCommonTaggableV1
 {
     use GdbotsNcrNodeV1Trait;
 
@@ -53,11 +53,11 @@ final class SolicitV1 extends AbstractMessage implements
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsNcrNodeV1Mixin::create(),
+                GdbotsFormsFormV1Mixin::create(),
                 GdbotsNcrExpirableV1Mixin::create(),
                 GdbotsNcrIndexedV1Mixin::create(),
                 GdbotsNcrPublishableV1Mixin::create(),
                 GdbotsCommonTaggableV1Mixin::create(),
-                GdbotsFormsFormV1Mixin::create(),
             ]
         );
     }

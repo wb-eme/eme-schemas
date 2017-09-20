@@ -1,12 +1,12 @@
 {
-  "id": "http://schemas.wbeme.com/json-schema/eme/solicits/event/solicit-created/1-0-0.json#",
+  "id": "http://schemas.wbeme.com/json-schema/eme/solicits/request/get-solicit-batch-response/1-0-0.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "_schema": {
       "type": "string",
       "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
-      "default": "pbj:eme:solicits:event:solicit-created:1-0-0"
+      "default": "pbj:eme:solicits:request:get-solicit-batch-response:1-0-0"
     },
     "account_id": {
       "type": "string",
@@ -17,15 +17,15 @@
         "rule": "single"
       }
     },
-    "event_id": {
+    "response_id": {
       "type": "string",
       "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
       "pbj": {
-        "type": "time-uuid",
+        "type": "uuid",
         "rule": "single"
       }
     },
-    "occurred_at": {
+    "created_at": {
       "type": "string",
       "pattern": "^[1-9]{1}[0-9]{12,15}$",
       "pbj": {
@@ -33,7 +33,7 @@
         "rule": "single"
       }
     },
-    "ctx_causator_ref": {
+    "ctx_request_ref": {
       "type": "object",
       "properties": {
         "curie": {
@@ -62,6 +62,19 @@
       "additionalProperties": false,
       "pbj": {
         "type": "message-ref",
+        "rule": "single"
+      }
+    },
+    "ctx_request": {
+      "type": "object",
+      "anyOf": [
+        {
+          "$ref": "#/definitions/request"
+        }
+      ],
+      "description": "The \"ctx_request\" is the actual request object that \"ctx_request_ref\" refers to. In some cases it's useful for request handlers to copy the request into the response so the requestor has everything in one message. This will NOT always be populated. A common use case is search request/response cycles where you want to know what the search criteria was so you can render that along with the results.",
+      "pbj": {
+        "type": "message",
         "rule": "single"
       }
     },
@@ -97,116 +110,51 @@
         "rule": "single"
       }
     },
-    "ctx_user_ref": {
+    "nodes": {
       "type": "object",
-      "properties": {
-        "curie": {
-          "type": "string",
-          "pattern": "^([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+)$",
-          "minLength": 0,
-          "maxLength": 146
-        },
-        "id": {
-          "type": "string",
-          "pattern": "^[A-Za-z0-9:_\\-]+$",
-          "minLength": 0,
-          "maxLength": 255
-        },
-        "tag": {
-          "type": "string",
-          "pattern": "^([\\w\\/-]|[\\w-][\\w\\/-]*[\\w-])$",
-          "minLength": 0,
-          "maxLength": 255
+      "patternProperties": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
+          "type": "object",
+          "anyOf": [
+            {
+              "$ref": "#/definitions/form"
+            }
+          ]
         }
       },
-      "required": [
-        "curie",
-        "id"
-      ],
       "additionalProperties": false,
       "pbj": {
-        "type": "message-ref",
-        "rule": "single"
+        "type": "message",
+        "rule": "map"
       }
     },
-    "ctx_app": {
-      "type": "object",
-      "anyOf": [
+    "missing_node_refs": {
+      "type": "array",
+      "items": [
         {
-          "$ref": "#/definitions/app"
+          "type": "string",
+          "pattern": "^[\\w\\/\\.:-]+$"
         }
       ],
-      "description": "The \"ctx_app\" refers to the application used to send the command which in turn resulted in this event being published.",
+      "uniqueItems": true,
+      "additionalProperties": false,
+      "description": "The \"missing_node_refs\" field contains a set of node_refs that the batch request failed to retrieve.",
       "pbj": {
-        "type": "message",
-        "rule": "single"
-      }
-    },
-    "ctx_cloud": {
-      "type": "object",
-      "anyOf": [
-        {
-          "$ref": "#/definitions/cloud"
-        }
-      ],
-      "description": "The \"ctx_cloud\" is usually copied from the command that resulted in this event being published. This means the value most likely refers to the cloud that received the command originally, not the machine processing the event.",
-      "pbj": {
-        "type": "message",
-        "rule": "single"
-      }
-    },
-    "ctx_ip": {
-      "type": "string",
-      "format": "ipv4",
-      "pbj": {
-        "type": "string",
-        "rule": "single",
-        "format": "ipv4",
-        "overridable": true
-      }
-    },
-    "ctx_ua": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 65535,
-      "pbj": {
-        "type": "text",
-        "rule": "single",
-        "overridable": true
-      }
-    },
-    "node": {
-      "type": "object",
-      "anyOf": [
-        {
-          "$ref": "#/definitions/form"
-        }
-      ],
-      "pbj": {
-        "type": "message",
-        "rule": "single"
+        "type": "identifier",
+        "rule": "set"
       }
     }
   },
   "required": [
     "_schema",
-    "event_id",
-    "node"
+    "response_id"
   ],
   "definitions": {
-    "app": {
+    "request": {
       "type": "object",
       "anyOf": [
         {
-          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/contexts/app/1-0-0.json#"
-        }
-      ]
-    },
-    "cloud": {
-      "type": "object",
-      "anyOf": [
-        {
-          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/contexts/cloud/1-0-0.json#"
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/pbjx/mixin/request/1-0-0.json#"
         }
       ]
     },

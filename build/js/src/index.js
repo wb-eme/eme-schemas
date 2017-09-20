@@ -37,6 +37,8 @@ import '@wbeme/schemas/eme/solicits/event/SubmissionMarkedAsUnreadV1';
 import '@wbeme/schemas/eme/solicits/event/SubmissionReceivedV1';
 import '@wbeme/schemas/eme/solicits/event/SubmissionRejectedV1';
 import '@wbeme/schemas/eme/solicits/node/SolicitV1';
+import '@wbeme/schemas/eme/solicits/request/GetSolicitBatchRequestV1';
+import '@wbeme/schemas/eme/solicits/request/GetSolicitBatchResponseV1';
 import '@wbeme/schemas/eme/solicits/request/GetSolicitHistoryRequestV1';
 import '@wbeme/schemas/eme/solicits/request/GetSolicitHistoryResponseV1';
 import '@wbeme/schemas/eme/solicits/request/GetSolicitRequestV1';

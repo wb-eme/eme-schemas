@@ -1,12 +1,12 @@
 {
-  "id": "http://schemas.wbeme.com/json-schema/eme/solicits/command/import-solicit/1-0-0.json#",
+  "id": "http://schemas.wbeme.com/json-schema/eme/solicits/request/get-solicit-batch-request/1-0-0.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "_schema": {
       "type": "string",
       "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
-      "default": "pbj:eme:solicits:command:import-solicit:1-0-0"
+      "default": "pbj:eme:solicits:request:get-solicit-batch-request:1-0-0"
     },
     "account_id": {
       "type": "string",
@@ -17,11 +17,11 @@
         "rule": "single"
       }
     },
-    "command_id": {
+    "request_id": {
       "type": "string",
       "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
       "pbj": {
-        "type": "time-uuid",
+        "type": "uuid",
         "rule": "single"
       }
     },
@@ -33,21 +33,12 @@
         "rule": "single"
       }
     },
-    "expected_etag": {
-      "type": "string",
-      "pattern": "^[\\w\\.:-]+$",
-      "description": "Used to perform optimistic concurrency control. @link https://en.wikipedia.org/wiki/HTTP_ETag",
-      "pbj": {
-        "type": "string",
-        "rule": "single"
-      }
-    },
     "ctx_retries": {
       "type": "integer",
       "default": 0,
       "minimum": 0,
       "maximum": 255,
-      "description": "The \"ctx_retries\" field is used to keep track of how many attempts were made to process this command. In some cases, the service or transport that handles the command may be down or an optimistic check has failed and is being retried.",
+      "description": "The \"ctx_retries\" field is used to keep track of how many attempts were made to handle this request. In some cases, the service or transport that handles the request may be down or over capacity and is being retried.",
       "pbj": {
         "type": "tiny-int",
         "rule": "single"
@@ -156,7 +147,7 @@
           "$ref": "#/definitions/app"
         }
       ],
-      "description": "The \"ctx_app\" refers to the application used to send the command. This is different from ctx_ua (user_agent) because the agent used (Safari, Firefox) is not necessarily the app used (cms, iOS app, website)",
+      "description": "The \"ctx_app\" refers to the application used to make the request. This is different from ctx_ua (user_agent) because the agent used (Safari, Firefox) is not necessarily the app used (cms, iOS app, website)",
       "pbj": {
         "type": "message",
         "rule": "single"
@@ -169,7 +160,7 @@
           "$ref": "#/definitions/cloud"
         }
       ],
-      "description": "The \"ctx_cloud\" is set by the server receiving the command and is generally only used internally for tracking and performance monitoring.",
+      "description": "The \"ctx_cloud\" is set by the server making the request and is generally only used internally for tracking and performance monitoring.",
       "pbj": {
         "type": "message",
         "rule": "single"
@@ -195,150 +186,33 @@
         "overridable": true
       }
     },
-    "tags": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
+    "consistent_read": {
+      "type": "boolean",
+      "description": "If true, a strongly consistent read is used; if false (the default), an eventually consistent read is used.",
+      "pbj": {
+        "type": "boolean",
+        "rule": "single"
+      }
+    },
+    "node_refs": {
+      "type": "array",
+      "items": [
+        {
           "type": "string",
           "pattern": "^[\\w\\/\\.:-]+$"
-        }
-      },
-      "additionalProperties": false,
-      "description": "Tags is a map that categorizes data or tracks references in external systems. The tags names should be consistent and descriptive, e.g. fb_user_id:123, salesforce_customer_id:456.",
-      "pbj": {
-        "type": "string",
-        "rule": "map"
-      }
-    },
-    "solicit_id": {
-      "type": "string",
-      "pattern": "^[\\w\\/\\.:-]+$",
-      "pbj": {
-        "type": "identifier",
-        "rule": "single"
-      }
-    },
-    "title": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 255,
-      "pbj": {
-        "type": "string",
-        "rule": "single"
-      }
-    },
-    "category": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 255,
-      "pbj": {
-        "type": "string",
-        "rule": "single"
-      }
-    },
-    "description": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 65535,
-      "description": "A short description (a few sentences) about this form. This field should not have html as it is used in metadata.",
-      "pbj": {
-        "type": "text",
-        "rule": "single"
-      }
-    },
-    "fields": {
-      "type": "array",
-      "items": [
-        {
-          "$ref": "#/definitions/field"
-        }
-      ],
-      "additionalProperties": false,
-      "pbj": {
-        "type": "message",
-        "rule": "list"
-      }
-    },
-    "hashtags": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string",
-          "minLength": 0,
-          "maxLength": 255
         }
       ],
       "uniqueItems": true,
       "additionalProperties": false,
       "pbj": {
-        "type": "string",
-        "rule": "set",
-        "format": "hashtag"
-      }
-    },
-    "disclaimer": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 65535,
-      "pbj": {
-        "type": "text",
-        "rule": "single"
-      }
-    },
-    "image_id": {
-      "type": "string",
-      "pattern": "^[\\w\\/\\.:-]+$",
-      "pbj": {
         "type": "identifier",
-        "rule": "single"
-      }
-    },
-    "story_enabled": {
-      "type": "boolean",
-      "default": true,
-      "pbj": {
-        "type": "boolean",
-        "rule": "single"
-      }
-    },
-    "story_label": {
-      "type": "string",
-      "minLength": 0,
-      "maxLength": 255,
-      "pbj": {
-        "type": "string",
-        "rule": "single"
-      }
-    },
-    "is_active": {
-      "type": "boolean",
-      "pbj": {
-        "type": "boolean",
-        "rule": "single"
-      }
-    },
-    "created_at": {
-      "type": "string",
-      "pattern": "^[1-9]{1}[0-9]{12,15}$",
-      "pbj": {
-        "type": "microtime",
-        "rule": "single",
-        "useTypeDefault": false
-      }
-    },
-    "creator_email": {
-      "type": "string",
-      "format": "email",
-      "pbj": {
-        "type": "string",
-        "rule": "single",
-        "format": "email"
+        "rule": "set"
       }
     }
   },
   "required": [
     "_schema",
-    "command_id"
+    "request_id"
   ],
   "definitions": {
     "app": {
@@ -354,14 +228,6 @@
       "anyOf": [
         {
           "$ref": "http://schemas.wbeme.com/json-schema/gdbots/contexts/cloud/1-0-0.json#"
-        }
-      ]
-    },
-    "field": {
-      "type": "object",
-      "anyOf": [
-        {
-          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/field/1-0-0.json#"
         }
       ]
     }

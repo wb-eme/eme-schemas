@@ -6,16 +6,6 @@ use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Schema;
-use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1 as GdbotsAnalyticsTrackedMessageV1;
-use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1Mixin as GdbotsAnalyticsTrackedMessageV1Mixin;
-use Gdbots\Schemas\Enrichments\Mixin\IpToGeo\IpToGeoV1 as GdbotsEnrichmentsIpToGeoV1;
-use Gdbots\Schemas\Enrichments\Mixin\IpToGeo\IpToGeoV1Mixin as GdbotsEnrichmentsIpToGeoV1Mixin;
-use Gdbots\Schemas\Enrichments\Mixin\TimeParting\TimePartingV1 as GdbotsEnrichmentsTimePartingV1;
-use Gdbots\Schemas\Enrichments\Mixin\TimeParting\TimePartingV1Mixin as GdbotsEnrichmentsTimePartingV1Mixin;
-use Gdbots\Schemas\Enrichments\Mixin\TimeSampling\TimeSamplingV1 as GdbotsEnrichmentsTimeSamplingV1;
-use Gdbots\Schemas\Enrichments\Mixin\TimeSampling\TimeSamplingV1Mixin as GdbotsEnrichmentsTimeSamplingV1Mixin;
-use Gdbots\Schemas\Enrichments\Mixin\UaParser\UaParserV1 as GdbotsEnrichmentsUaParserV1;
-use Gdbots\Schemas\Enrichments\Mixin\UaParser\UaParserV1Mixin as GdbotsEnrichmentsUaParserV1Mixin;
 use Gdbots\Schemas\Forms\Mixin\FormCreated\FormCreatedV1 as GdbotsFormsFormCreatedV1;
 use Gdbots\Schemas\Forms\Mixin\FormCreated\FormCreatedV1Mixin as GdbotsFormsFormCreatedV1Mixin;
 use Gdbots\Schemas\Ncr\Mixin\NodeCreated\NodeCreatedV1 as GdbotsNcrNodeCreatedV1;
@@ -29,12 +19,7 @@ final class SolicitCreatedV1 extends AbstractMessage implements
     EmeAccountsAccountRefV1,
     GdbotsPbjxEventV1,
     GdbotsNcrNodeCreatedV1,
-    GdbotsFormsFormCreatedV1,
-    GdbotsAnalyticsTrackedMessageV1,
-    GdbotsEnrichmentsIpToGeoV1,
-    GdbotsEnrichmentsTimePartingV1,
-    GdbotsEnrichmentsTimeSamplingV1,
-    GdbotsEnrichmentsUaParserV1
+    GdbotsFormsFormCreatedV1
 {
     use GdbotsPbjxEventV1Trait;
 
@@ -50,11 +35,6 @@ final class SolicitCreatedV1 extends AbstractMessage implements
                 GdbotsPbjxEventV1Mixin::create(),
                 GdbotsNcrNodeCreatedV1Mixin::create(),
                 GdbotsFormsFormCreatedV1Mixin::create(),
-                GdbotsAnalyticsTrackedMessageV1Mixin::create(),
-                GdbotsEnrichmentsIpToGeoV1Mixin::create(),
-                GdbotsEnrichmentsTimePartingV1Mixin::create(),
-                GdbotsEnrichmentsTimeSamplingV1Mixin::create(),
-                GdbotsEnrichmentsUaParserV1Mixin::create(),
             ]
         );
     }

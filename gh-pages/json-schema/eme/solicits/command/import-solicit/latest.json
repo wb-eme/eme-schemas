@@ -325,6 +325,15 @@
         "rule": "single",
         "useTypeDefault": false
       }
+    },
+    "creator_email": {
+      "type": "string",
+      "format": "email",
+      "pbj": {
+        "type": "string",
+        "rule": "single",
+        "format": "email"
+      }
     }
   },
   "required": [

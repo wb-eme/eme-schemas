@@ -32,12 +32,12 @@ final class SendSubmissionV1 extends AbstractMessage implements
     SendSubmission,
     EmeAccountsAccountRefV1,
     GdbotsPbjxCommandV1,
+    GdbotsFormsSendSubmissionV1,
     EmeCollectorCollectableV1,
     GdbotsEnrichmentsTimePartingV1,
     GdbotsEnrichmentsTimeSamplingV1,
     GdbotsEnrichmentsUtmV1,
-    GdbotsCommonTaggableV1,
-    GdbotsFormsSendSubmissionV1
+    GdbotsCommonTaggableV1
 {
     use GdbotsPbjxCommandV1Trait;
 
@@ -109,12 +109,12 @@ final class SendSubmissionV1 extends AbstractMessage implements
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxCommandV1Mixin::create(),
+                GdbotsFormsSendSubmissionV1Mixin::create(),
                 EmeCollectorCollectableV1Mixin::create(),
                 GdbotsEnrichmentsTimePartingV1Mixin::create(),
                 GdbotsEnrichmentsTimeSamplingV1Mixin::create(),
                 GdbotsEnrichmentsUtmV1Mixin::create(),
                 GdbotsCommonTaggableV1Mixin::create(),
-                GdbotsFormsSendSubmissionV1Mixin::create(),
             ]
         );
     }

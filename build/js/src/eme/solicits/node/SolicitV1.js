@@ -34,11 +34,11 @@ export default class SolicitV1 extends Message {
       [
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsNcrNodeV1Mixin.create(),
+        GdbotsFormsFormV1Mixin.create(),
         GdbotsNcrExpirableV1Mixin.create(),
         GdbotsNcrIndexedV1Mixin.create(),
         GdbotsNcrPublishableV1Mixin.create(),
         GdbotsCommonTaggableV1Mixin.create(),
-        GdbotsFormsFormV1Mixin.create(),
       ],
     );
   }

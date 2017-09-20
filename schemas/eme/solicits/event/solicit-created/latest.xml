@@ -9,7 +9,6 @@
       <curie-major>gdbots:pbjx:mixin:event:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:node-created:v1</curie-major>
       <curie-major>gdbots:forms:mixin:form-created:v1</curie-major>
-      <curie-major>gdbots:analytics:mixin:tracked-message:v1</curie-major>
     </mixins>
   </schema>
 </pbj-schema>
