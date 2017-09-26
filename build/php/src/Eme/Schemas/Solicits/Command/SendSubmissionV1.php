@@ -21,7 +21,8 @@ use Gdbots\Schemas\Enrichments\Mixin\TimeSampling\TimeSamplingV1 as GdbotsEnrich
 use Gdbots\Schemas\Enrichments\Mixin\TimeSampling\TimeSamplingV1Mixin as GdbotsEnrichmentsTimeSamplingV1Mixin;
 use Gdbots\Schemas\Enrichments\Mixin\Utm\UtmV1 as GdbotsEnrichmentsUtmV1;
 use Gdbots\Schemas\Enrichments\Mixin\Utm\UtmV1Mixin as GdbotsEnrichmentsUtmV1Mixin;
-use Gdbots\Schemas\Files\FileId;
+use Gdbots\Schemas\Forms\Mixin\SendSubmission\SendSubmissionV1 as GdbotsFormsSendSubmissionV1;
+use Gdbots\Schemas\Forms\Mixin\SendSubmission\SendSubmissionV1Mixin as GdbotsFormsSendSubmissionV1Mixin;
 use Gdbots\Schemas\Geo\Address as GdbotsGeoAddress;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1 as GdbotsPbjxCommandV1;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Mixin as GdbotsPbjxCommandV1Mixin;
@@ -31,6 +32,7 @@ final class SendSubmissionV1 extends AbstractMessage implements
     SendSubmission,
     EmeAccountsAccountRefV1,
     GdbotsPbjxCommandV1,
+    GdbotsFormsSendSubmissionV1,
     EmeCollectorCollectableV1,
     GdbotsEnrichmentsTimePartingV1,
     GdbotsEnrichmentsTimeSamplingV1,
@@ -94,10 +96,6 @@ final class SendSubmissionV1 extends AbstractMessage implements
                     ->build(),
                 Fb::create('story', T\TextType::create())
                     ->build(),
-                Fb::create('file_ids', T\IdentifierType::create())
-                    ->asASet()
-                    ->className(FileId::class)
-                    ->build(),
                 /*
                  * Networks is a map that contains handles/usernames on a social network.
                  * E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
@@ -107,26 +105,11 @@ final class SendSubmissionV1 extends AbstractMessage implements
                     ->maxLength(50)
                     ->pattern('^[\w\.-]+$')
                     ->build(),
-                /*
-                 * Publisher provided identifier (PPID)
-                 */
-                Fb::create('ppid', T\StringType::create())
-                    ->pattern('^[\w\/\.:-]+$')
-                    ->build(),
-                /*
-                 * Contains all of the answers submitted from the custom fields on the solicit.
-                 */
-                Fb::create('cf', T\DynamicFieldType::create())
-                    ->asAList()
-                    ->build(),
-                Fb::create('hashtags', T\StringType::create())
-                    ->asASet()
-                    ->format(Format::HASHTAG())
-                    ->build(),
             ],
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxCommandV1Mixin::create(),
+                GdbotsFormsSendSubmissionV1Mixin::create(),
                 EmeCollectorCollectableV1Mixin::create(),
                 GdbotsEnrichmentsTimePartingV1Mixin::create(),
                 GdbotsEnrichmentsTimeSamplingV1Mixin::create(),

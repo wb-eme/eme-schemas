@@ -2,12 +2,12 @@
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
 import EmeCollectorCollectableV1Mixin from '@wbeme/schemas/eme/collector/mixin/collectable/CollectableV1Mixin';
 import Fb from '@gdbots/pbj/FieldBuilder';
-import FileId from '@gdbots/schemas/gdbots/files/FileId';
 import Format from '@gdbots/pbj/enums/Format';
 import GdbotsCommonTaggableV1Mixin from '@gdbots/schemas/gdbots/common/mixin/taggable/TaggableV1Mixin';
 import GdbotsEnrichmentsTimePartingV1Mixin from '@gdbots/schemas/gdbots/enrichments/mixin/time-parting/TimePartingV1Mixin';
 import GdbotsEnrichmentsTimeSamplingV1Mixin from '@gdbots/schemas/gdbots/enrichments/mixin/time-sampling/TimeSamplingV1Mixin';
 import GdbotsEnrichmentsUtmV1Mixin from '@gdbots/schemas/gdbots/enrichments/mixin/utm/UtmV1Mixin';
+import GdbotsFormsSendSubmissionV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/send-submission/SendSubmissionV1Mixin';
 import GdbotsPbjxCommandV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/command/CommandV1Mixin';
 import GdbotsPbjxCommandV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/command/CommandV1Trait';
 import Gender from '@gdbots/schemas/gdbots/common/enums/Gender';
@@ -74,10 +74,6 @@ export default class SendSubmissionV1 extends Message {
           .build(),
         Fb.create('story', T.TextType.create())
           .build(),
-        Fb.create('file_ids', T.IdentifierType.create())
-          .asASet()
-          .classProto(FileId)
-          .build(),
         /*
          * Networks is a map that contains handles/usernames on a social network.
          * E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
@@ -87,26 +83,11 @@ export default class SendSubmissionV1 extends Message {
           .maxLength(50)
           .pattern('^[\\w\\.-]+$')
           .build(),
-        /*
-         * Publisher provided identifier (PPID)
-         */
-        Fb.create('ppid', T.StringType.create())
-          .pattern('^[\\w\\/\\.:-]+$')
-          .build(),
-        /*
-         * Contains all of the answers submitted from the custom fields on the solicit.
-         */
-        Fb.create('cf', T.DynamicFieldType.create())
-          .asAList()
-          .build(),
-        Fb.create('hashtags', T.StringType.create())
-          .asASet()
-          .format(Format.HASHTAG)
-          .build(),
       ],
       [
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxCommandV1Mixin.create(),
+        GdbotsFormsSendSubmissionV1Mixin.create(),
         EmeCollectorCollectableV1Mixin.create(),
         GdbotsEnrichmentsTimePartingV1Mixin.create(),
         GdbotsEnrichmentsTimeSamplingV1Mixin.create(),

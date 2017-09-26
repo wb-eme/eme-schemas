@@ -21,24 +21,13 @@
           <default>() => SolicitId.generate()</default>
         </js-options>
       </field>
-      <field name="description" type="text">
-        <description>
-          A short description (a few sentences) about this solicit.  This field should
-          not have html as it is used in metadata.
-        </description>
-      </field>
-      <field name="hashtags" type="string" format="hashtag" rule="set"/>
-      <field name="story_enabled" type="boolean">
-        <default>true</default>
-      </field>
-      <field name="story_required" type="boolean"/>
-      <field name="story_label" type="string"/>
-      <field name="utm_campaign" type="string" pattern="^[\w\/\.:-]+$" max="50"/>
+      <field name="category" type="string"/>
     </fields>
 
     <mixins>
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
+      <curie-major>gdbots:forms:mixin:form:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:expirable:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:indexed:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:publishable:v1</curie-major>

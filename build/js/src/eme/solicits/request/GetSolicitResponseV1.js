@@ -1,4 +1,5 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/request/get-solicit-response/1-0-0.json#
+import GdbotsFormsGetFormResponseV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/get-form-response/GetFormResponseV1Mixin';
 import GdbotsNcrGetNodeResponseV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/get-node-response/GetNodeResponseV1Mixin';
 import GdbotsPbjxResponseV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/response/ResponseV1Mixin';
 import GdbotsPbjxResponseV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/response/ResponseV1Trait';
@@ -18,6 +19,7 @@ export default class GetSolicitResponseV1 extends Message {
       [
         GdbotsPbjxResponseV1Mixin.create(),
         GdbotsNcrGetNodeResponseV1Mixin.create(),
+        GdbotsFormsGetFormResponseV1Mixin.create(),
       ],
     );
   }

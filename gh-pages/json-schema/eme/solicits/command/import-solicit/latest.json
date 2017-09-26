@@ -227,14 +227,36 @@
         "rule": "single"
       }
     },
+    "category": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255,
+      "pbj": {
+        "type": "string",
+        "rule": "single"
+      }
+    },
     "description": {
       "type": "string",
       "minLength": 0,
       "maxLength": 65535,
-      "description": "A short description (a few sentences) about this solicit. This field should not have html as it is used in metadata.",
+      "description": "A short description (a few sentences) about this form. This field should not have html as it is used in metadata.",
       "pbj": {
         "type": "text",
         "rule": "single"
+      }
+    },
+    "fields": {
+      "type": "array",
+      "items": [
+        {
+          "$ref": "#/definitions/field"
+        }
+      ],
+      "additionalProperties": false,
+      "pbj": {
+        "type": "message",
+        "rule": "list"
       }
     },
     "hashtags": {
@@ -254,20 +276,20 @@
         "format": "hashtag"
       }
     },
-    "story_enabled": {
-      "type": "boolean",
-      "default": true,
+    "disclaimer": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535,
       "pbj": {
-        "type": "boolean",
+        "type": "text",
         "rule": "single"
       }
     },
-    "story_label": {
+    "image_id": {
       "type": "string",
-      "minLength": 0,
-      "maxLength": 255,
+      "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
-        "type": "string",
+        "type": "identifier",
         "rule": "single"
       }
     },
@@ -285,6 +307,15 @@
         "type": "microtime",
         "rule": "single",
         "useTypeDefault": false
+      }
+    },
+    "creator_email": {
+      "type": "string",
+      "format": "email",
+      "pbj": {
+        "type": "string",
+        "rule": "single",
+        "format": "email"
       }
     }
   },
@@ -306,6 +337,17 @@
       "anyOf": [
         {
           "$ref": "http://schemas.wbeme.com/json-schema/gdbots/contexts/cloud/1-0-0.json#"
+        }
+      ]
+    },
+    "field": {
+      "type": "object",
+      "anyOf": [
+        {
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/field/1-0-0.json#"
+        },
+        {
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/field/1-0-1.json#"
         }
       ]
     }

@@ -44,34 +44,18 @@
         <enum id="gdbots:common:gender"/>
       </field>
       <field name="story" type="text"/>
-      <field name="file_ids" type="identifier" rule="set">
-        <php-options>
-          <imports>use Gdbots\Schemas\Files\FileId;</imports>
-          <class-name>FileId::class</class-name>
-        </php-options>
-        <js-options>
-          <imports>import FileId from '@gdbots/schemas/gdbots/files/FileId';</imports>
-          <class-proto>FileId</class-proto>
-        </js-options>
-      </field>
       <field name="networks" type="string" pattern="^[\w\.-]+$" max="50" rule="map">
         <description>
           Networks is a map that contains handles/usernames on a social network.
           E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
         </description>
       </field>
-      <field name="ppid" type="string" pattern="^[\w\/\.:-]+$">
-        <description>Publisher provided identifier (PPID)</description>
-      </field>
-      <field name="cf" type="dynamic-field" rule="list">
-        <description>Contains all of the answers submitted from the custom fields on the solicit.</description>
-      </field>
-      <field name="hashtags" type="string" format="hashtag" rule="set"/>
     </fields>
 
     <mixins>
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
+      <curie-major>gdbots:forms:mixin:send-submission:v1</curie-major>
       <curie-major>eme:collector:mixin:collectable:v1</curie-major>
       <curie-major>gdbots:enrichments:mixin:time-parting:v1</curie-major>
       <curie-major>gdbots:enrichments:mixin:time-sampling:v1</curie-major>

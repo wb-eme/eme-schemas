@@ -6,12 +6,13 @@ use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Eme\Schemas\Solicits\SolicitId;
 use Gdbots\Pbj\AbstractMessage;
-use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
 use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1 as GdbotsCommonTaggableV1;
 use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Mixin as GdbotsCommonTaggableV1Mixin;
+use Gdbots\Schemas\Forms\Mixin\Form\FormV1 as GdbotsFormsFormV1;
+use Gdbots\Schemas\Forms\Mixin\Form\FormV1Mixin as GdbotsFormsFormV1Mixin;
 use Gdbots\Schemas\Ncr\Mixin\Expirable\ExpirableV1 as GdbotsNcrExpirableV1;
 use Gdbots\Schemas\Ncr\Mixin\Expirable\ExpirableV1Mixin as GdbotsNcrExpirableV1Mixin;
 use Gdbots\Schemas\Ncr\Mixin\Indexed\IndexedV1 as GdbotsNcrIndexedV1;
@@ -26,6 +27,7 @@ final class SolicitV1 extends AbstractMessage implements
     Solicit,
     EmeAccountsAccountRefV1,
     GdbotsNcrNodeV1,
+    GdbotsFormsFormV1,
     GdbotsNcrExpirableV1,
     GdbotsNcrIndexedV1,
     GdbotsNcrPublishableV1,
@@ -45,31 +47,13 @@ final class SolicitV1 extends AbstractMessage implements
                     ->withDefault(function() { return SolicitId::generate(); })
                     ->className(SolicitId::class)
                     ->build(),
-                /*
-                 * A short description (a few sentences) about this solicit. This field should
-                 * not have html as it is used in metadata.
-                 */
-                Fb::create('description', T\TextType::create())
-                    ->build(),
-                Fb::create('hashtags', T\StringType::create())
-                    ->asASet()
-                    ->format(Format::HASHTAG())
-                    ->build(),
-                Fb::create('story_enabled', T\BooleanType::create())
-                    ->withDefault(true)
-                    ->build(),
-                Fb::create('story_required', T\BooleanType::create())
-                    ->build(),
-                Fb::create('story_label', T\StringType::create())
-                    ->build(),
-                Fb::create('utm_campaign', T\StringType::create())
-                    ->maxLength(50)
-                    ->pattern('^[\w\/\.:-]+$')
+                Fb::create('category', T\StringType::create())
                     ->build(),
             ],
             [
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsNcrNodeV1Mixin::create(),
+                GdbotsFormsFormV1Mixin::create(),
                 GdbotsNcrExpirableV1Mixin::create(),
                 GdbotsNcrIndexedV1Mixin::create(),
                 GdbotsNcrPublishableV1Mixin::create(),
