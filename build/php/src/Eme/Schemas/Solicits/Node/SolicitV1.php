@@ -6,6 +6,7 @@ use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Eme\Schemas\Solicits\SolicitId;
 use Gdbots\Pbj\AbstractMessage;
+use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
@@ -48,6 +49,9 @@ final class SolicitV1 extends AbstractMessage implements
                     ->className(SolicitId::class)
                     ->build(),
                 Fb::create('category', T\StringType::create())
+                    ->build(),
+                Fb::create('thank_you_url', T\StringType::create())
+                    ->format(Format::URL())
                     ->build(),
             ],
             [

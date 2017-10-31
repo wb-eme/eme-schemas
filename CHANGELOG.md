@@ -1,6 +1,12 @@
 # CHANGELOG
 
 
+## v0.1.4
+* __Modify Schemas:__
+  * `eme:solicits:node:solicit` left version as is (still in beta)
+    * Add `thank_you_url` `string` field.
+
+
 ## v0.1.3
 * __Add Schemas:__
   * `eme:solicits:command:create-solicit`
@@ -27,7 +33,7 @@
 ## v0.1.2
 * __Modify Schemas:__
   * `eme:solicits:request:search-submissions-request` left version as is (still in beta)
-    * Add `gender` `int-enum` using enum `gdbots:common:gender`.
+    * Add `gender` `int-enum` field using enum `gdbots:common:gender`.
 
 
 ## v0.1.1
