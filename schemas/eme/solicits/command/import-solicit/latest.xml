@@ -43,6 +43,7 @@
       <field name="is_active" type="boolean"/>
       <field name="created_at" type="microtime" use-type-default="false"/>
       <field name="creator_email" type="string" format="email"/>
+      <field name="thank_you_url" type="string" format="url"/>
     </fields>
 
     <mixins>

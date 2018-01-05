@@ -317,6 +317,15 @@
         "rule": "single",
         "format": "email"
       }
+    },
+    "thank_you_url": {
+      "type": "string",
+      "pattern": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$",
+      "pbj": {
+        "type": "string",
+        "rule": "single",
+        "format": "url"
+      }
     }
   },
   "required": [
@@ -348,6 +357,9 @@
         },
         {
           "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/field/1-0-1.json#"
+        },
+        {
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/field/1-0-2.json#"
         }
       ]
     }

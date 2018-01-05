@@ -1,6 +1,12 @@
 # CHANGELOG
 
 
+## v0.1.5
+* __Modify Schemas:__
+  * `eme:solicits:command:import-solicit`
+    * Add `thank_you_url` `string` field.
+
+
 ## v0.1.4
 * __Modify Schemas:__
   * `eme:solicits:node:solicit` left version as is (still in beta)

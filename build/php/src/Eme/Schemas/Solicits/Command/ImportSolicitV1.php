@@ -69,6 +69,9 @@ final class ImportSolicitV1 extends AbstractMessage implements
                 Fb::create('creator_email', T\StringType::create())
                     ->format(Format::EMAIL())
                     ->build(),
+                Fb::create('thank_you_url', T\StringType::create())
+                    ->format(Format::URL())
+                    ->build(),
             ],
             [
                 EmeAccountsAccountRefV1Mixin::create(),
