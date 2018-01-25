@@ -103,6 +103,8 @@ export default class ImportSubmissionV1 extends Message {
           .build(),
         Fb.create('is_read', T.BooleanType.create())
           .build(),
+        Fb.create('is_rejected', T.BooleanType.create())
+          .build(),
         Fb.create('last_read_at', T.MicrotimeType.create())
           .useTypeDefault(false)
           .build(),
