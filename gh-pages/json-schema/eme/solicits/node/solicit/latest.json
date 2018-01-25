@@ -32,8 +32,10 @@
         "unknown",
         "published",
         "scheduled",
+        "pending",
         "draft",
         "expired",
+        "archived",
         "deleted"
       ],
       "pbj": {
@@ -231,6 +233,19 @@
         "rule": "single"
       }
     },
+    "pii_impact": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "high",
+        "moderate",
+        "low"
+      ],
+      "pbj": {
+        "type": "string-enum",
+        "rule": "single"
+      }
+    },
     "expires_at": {
       "type": "string",
       "format": "date-time",
@@ -294,6 +309,9 @@
         },
         {
           "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/field/1-0-1.json#"
+        },
+        {
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/field/1-0-2.json#"
         }
       ]
     }

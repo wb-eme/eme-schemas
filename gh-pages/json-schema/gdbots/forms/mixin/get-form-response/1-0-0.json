@@ -126,6 +126,9 @@
       "anyOf": [
         {
           "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/form/1-0-0.json#"
+        },
+        {
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/form/1-0-1.json#"
         }
       ]
     }

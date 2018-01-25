@@ -64,6 +64,7 @@
       <field name="hashtags" type="string" format="hashtag" rule="set"/>
       <field name="is_blocked" type="boolean"/>
       <field name="is_read" type="boolean"/>
+      <field name="is_rejected" type="boolean"/>
       <field name="last_read_at" type="microtime" use-type-default="false"/>
       <field name="last_read_by_ref" type="message-ref">
         <description>

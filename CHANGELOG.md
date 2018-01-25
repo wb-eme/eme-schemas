@@ -1,10 +1,18 @@
 # CHANGELOG
 
 
+## v0.1.5
+* __Modify Schemas:__
+  * `eme:solicits:command:import-solicit` left version as is (still in beta)
+    * Add `thank_you_url` string field.
+  * `eme:solicits:command:import-submission` left version as is (still in beta)
+    * Add `is_rejected` boolean field.
+
+
 ## v0.1.4
 * __Modify Schemas:__
   * `eme:solicits:node:solicit` left version as is (still in beta)
-    * Add `thank_you_url` `string` field.
+    * Add `thank_you_url` string field.
 
 
 ## v0.1.3
@@ -33,15 +41,15 @@
 ## v0.1.2
 * __Modify Schemas:__
   * `eme:solicits:request:search-submissions-request` left version as is (still in beta)
-    * Add `gender` `int-enum` field using enum `gdbots:common:gender`.
+    * Add `gender` int-enum field using enum `gdbots:common:gender`.
 
 
 ## v0.1.1
 * __Modify Schemas:__
   * `eme:solicits:command:send-submission` left version as is (still in beta)
-    * Add `height` `tiny-int` field for recording physical height.
+    * Add `height` tiny-int field for recording physical height.
   * `eme:solicits:event:submission-received` left version as is (still in beta)
-    * Add `height` `tiny-int` field for recording physical height.
+    * Add `height` tiny-int field for recording physical height.
 
 
 ## v0.1.0
