@@ -4,16 +4,10 @@
     xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
 
   <schema id="pbj:eme:solicits:request:search-notes-request:1-0-0">
-    <fields>
-      <field name="submission_id" type="time-uuid" required="true"/>
-      <field name="note" type="text"/>
-    </fields>
-
     <mixins>
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:request:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:search-events-request:v1</curie-major>
-      <curie-major>gdbots:analytics:mixin:tracked-message:v1</curie-major>
     </mixins>
   </schema>
 </pbj-schema>
