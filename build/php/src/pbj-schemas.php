@@ -46,6 +46,8 @@
     'eme:solicits:request:get-solicit-response' => 'Eme\Schemas\Solicits\Request\GetSolicitResponseV1',
     'eme:solicits:request:get-submission-history-request' => 'Eme\Schemas\Solicits\Request\GetSubmissionHistoryRequestV1',
     'eme:solicits:request:get-submission-history-response' => 'Eme\Schemas\Solicits\Request\GetSubmissionHistoryResponseV1',
+    'eme:solicits:request:search-notes-request' => 'Eme\Schemas\Solicits\Request\SearchNotesRequestV1',
+    'eme:solicits:request:search-notes-response' => 'Eme\Schemas\Solicits\Request\SearchNotesResponseV1',
     'eme:solicits:request:search-solicits-request' => 'Eme\Schemas\Solicits\Request\SearchSolicitsRequestV1',
     'eme:solicits:request:search-solicits-response' => 'Eme\Schemas\Solicits\Request\SearchSolicitsResponseV1',
     'eme:solicits:request:search-submissions-request' => 'Eme\Schemas\Solicits\Request\SearchSubmissionsRequestV1',

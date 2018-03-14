@@ -1,8 +1,22 @@
 {
-  "id": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/search-forms-request/1-0-0.json#",
+  "id": "http://schemas.wbeme.com/json-schema/eme/solicits/request/search-notes-request/1-0-0.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
+    "_schema": {
+      "type": "string",
+      "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
+      "default": "pbj:eme:solicits:request:search-notes-request:1-0-0"
+    },
+    "account_id": {
+      "type": "string",
+      "pattern": "^[\\w\\/\\.:-]+$",
+      "description": "The EME account that this message is associated with.",
+      "pbj": {
+        "type": "identifier",
+        "rule": "single"
+      }
+    },
     "request_id": {
       "type": "string",
       "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
@@ -212,24 +226,21 @@
         "rule": "single"
       }
     },
-    "status": {
+    "sort": {
       "type": "string",
+      "default": "relevance",
       "enum": [
         "unknown",
-        "published",
-        "scheduled",
-        "pending",
-        "draft",
-        "expired",
-        "archived",
-        "deleted"
+        "relevance",
+        "date-desc",
+        "date-asc"
       ],
       "pbj": {
         "type": "string-enum",
         "rule": "single"
       }
     },
-    "created_after": {
+    "occurred_after": {
       "type": "string",
       "format": "date-time",
       "pbj": {
@@ -237,23 +248,7 @@
         "rule": "single"
       }
     },
-    "created_before": {
-      "type": "string",
-      "format": "date-time",
-      "pbj": {
-        "type": "date-time",
-        "rule": "single"
-      }
-    },
-    "updated_after": {
-      "type": "string",
-      "format": "date-time",
-      "pbj": {
-        "type": "date-time",
-        "rule": "single"
-      }
-    },
-    "updated_before": {
+    "occurred_before": {
       "type": "string",
       "format": "date-time",
       "pbj": {
@@ -286,27 +281,28 @@
         "rule": "single"
       }
     },
-    "sort": {
+    "submission_id": {
       "type": "string",
-      "default": "relevance",
-      "enum": [
-        "unknown",
-        "relevance",
-        "created-at-desc",
-        "created-at-asc",
-        "updated-at-desc",
-        "updated-at-asc",
-        "title-desc",
-        "title-asc"
-      ],
+      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
       "pbj": {
-        "type": "string-enum",
+        "type": "time-uuid",
+        "rule": "single"
+      }
+    },
+    "note": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535,
+      "pbj": {
+        "type": "text",
         "rule": "single"
       }
     }
   },
   "required": [
-    "request_id"
+    "_schema",
+    "request_id",
+    "submission_id"
   ],
   "definitions": {
     "app": {
@@ -326,5 +322,5 @@
       ]
     }
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

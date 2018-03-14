@@ -45,6 +45,8 @@ import '@wbeme/schemas/eme/solicits/request/GetSolicitRequestV1';
 import '@wbeme/schemas/eme/solicits/request/GetSolicitResponseV1';
 import '@wbeme/schemas/eme/solicits/request/GetSubmissionHistoryRequestV1';
 import '@wbeme/schemas/eme/solicits/request/GetSubmissionHistoryResponseV1';
+import '@wbeme/schemas/eme/solicits/request/SearchNotesRequestV1';
+import '@wbeme/schemas/eme/solicits/request/SearchNotesResponseV1';
 import '@wbeme/schemas/eme/solicits/request/SearchSolicitsRequestV1';
 import '@wbeme/schemas/eme/solicits/request/SearchSolicitsResponseV1';
 import '@wbeme/schemas/eme/solicits/request/SearchSubmissionsRequestV1';
