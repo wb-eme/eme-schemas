@@ -22,6 +22,9 @@ export default class SearchSubmissionsRequestV1 extends Message {
   static defineSchema() {
     return new Schema('pbj:eme:solicits:request:search-submissions-request:1-0-0', SearchSubmissionsRequestV1,
       [
+        Fb.create('ids', T.TimeUuidType.create())
+          .asASet()
+          .build(),
         Fb.create('solicit_id', T.IdentifierType.create())
           .classProto(SolicitId)
           .build(),

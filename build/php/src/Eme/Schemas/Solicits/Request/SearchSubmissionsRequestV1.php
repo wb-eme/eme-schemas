@@ -36,6 +36,9 @@ final class SearchSubmissionsRequestV1 extends AbstractMessage implements
     {
         return new Schema('pbj:eme:solicits:request:search-submissions-request:1-0-0', __CLASS__,
             [
+                Fb::create('ids', T\TimeUuidType::create())
+                    ->asASet()
+                    ->build(),
                 Fb::create('solicit_id', T\IdentifierType::create())
                     ->className(SolicitId::class)
                     ->build(),
