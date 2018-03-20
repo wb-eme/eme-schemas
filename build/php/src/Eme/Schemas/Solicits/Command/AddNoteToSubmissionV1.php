@@ -40,6 +40,9 @@ final class AddNoteToSubmissionV1 extends AbstractMessage implements
                     ->asASet()
                     ->format(Format::HASHTAG())
                     ->build(),
+                Fb::create('submissions', T\MessageType::create())
+                    ->asAMap()
+                    ->build(),
             ],
             [
                 EmeAccountsAccountRefV1Mixin::create(),

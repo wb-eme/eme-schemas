@@ -281,6 +281,21 @@
         "rule": "single"
       }
     },
+    "ids": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false,
+      "pbj": {
+        "type": "time-uuid",
+        "rule": "set"
+      }
+    },
     "solicit_id": {
       "type": "string",
       "pattern": "^[\\w\\/\\.:-]+$",
@@ -518,6 +533,9 @@
         },
         {
           "$ref": "http://schemas.wbeme.com/json-schema/gdbots/geo/address/1-0-1.json#"
+        },
+        {
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/geo/address/1-0-2.json#"
         }
       ]
     }
