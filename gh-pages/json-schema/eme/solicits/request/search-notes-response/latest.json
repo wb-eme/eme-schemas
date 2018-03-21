@@ -168,6 +168,19 @@
         "rule": "list",
         "overridable": true
       }
+    },
+    "submissions": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "pbj": {
+        "type": "message",
+        "rule": "map"
+      }
     }
   },
   "required": [
