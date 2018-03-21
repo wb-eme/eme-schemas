@@ -31,9 +31,6 @@ export default class AddNoteToSubmissionV1 extends Message {
           .asASet()
           .format(Format.HASHTAG)
           .build(),
-        Fb.create('submissions', T.MessageType.create())
-          .asAMap()
-          .build(),
       ],
       [
         EmeAccountsAccountRefV1Mixin.create(),

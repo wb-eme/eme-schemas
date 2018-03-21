@@ -9,7 +9,6 @@
       <field name="note" type="text"/>
       <field name="hashtags_to_add" type="string" format="hashtag" rule="set"/>
       <field name="hashtags_to_remove" type="string" format="hashtag" rule="set"/>
-      <field name="submissions" type="message" rule="map"/>
     </fields>
 
     <mixins>
