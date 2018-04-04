@@ -1,6 +1,21 @@
 # CHANGELOG
 
 
+## v0.2.0
+* Eliminate use of `gdbots:forms:mixin:*` ncr crud schemas.
+* Upgrade to `"gdbots/schemas": "1.5.0"`.
+* __Add Schemas:__
+  * `eme:solicits:request:search-notes-request`
+  * `eme:solicits:request:search-notes-response`
+* __Modify Schemas:__
+  * `eme:solicits:command:send-submission`
+    * Add `sexual_orientation` string-enum field using `gdbots:common:sexual-orientation`
+  * `eme:solicits:command:submission-received`
+    * Add `sexual_orientation` string-enum field using `gdbots:common:sexual-orientation`
+  * `eme:solicits:request:search-submissions-request`
+    * Add `ids` time-uuid set field. 
+
+
 ## v0.1.5
 * __Modify Schemas:__
   * `eme:solicits:command:import-solicit` left version as is (still in beta)

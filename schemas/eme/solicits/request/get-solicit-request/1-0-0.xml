@@ -8,7 +8,6 @@
       <curie-major>eme:accounts:mixin:account-ref:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:request:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:get-node-request:v1</curie-major>
-      <curie-major>gdbots:forms:mixin:get-form-request:v1</curie-major>
     </mixins>
   </schema>
 </pbj-schema>

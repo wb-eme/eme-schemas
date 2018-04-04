@@ -13,6 +13,7 @@ use Gdbots\Pbj\Type as T;
 use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1 as GdbotsAnalyticsTrackedMessageV1;
 use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1Mixin as GdbotsAnalyticsTrackedMessageV1Mixin;
 use Gdbots\Schemas\Common\Enum\Gender;
+use Gdbots\Schemas\Common\Enum\SexualOrientation;
 use Gdbots\Schemas\Geo\Address as GdbotsGeoAddress;
 use Gdbots\Schemas\Pbjx\Mixin\Request\RequestV1 as GdbotsPbjxRequestV1;
 use Gdbots\Schemas\Pbjx\Mixin\Request\RequestV1Mixin as GdbotsPbjxRequestV1Mixin;
@@ -71,6 +72,9 @@ final class SearchSubmissionsRequestV1 extends AbstractMessage implements
                     ->build(),
                 Fb::create('gender', T\IntEnumType::create())
                     ->className(Gender::class)
+                    ->build(),
+                Fb::create('sexual_orientation', T\StringEnumType::create())
+                    ->className(SexualOrientation::class)
                     ->build(),
                 Fb::create('has_notes', T\TrinaryType::create())
                     ->build(),

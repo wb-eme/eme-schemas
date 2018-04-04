@@ -199,12 +199,13 @@
       "type": "object",
       "anyOf": [
         {
-          "$ref": "#/definitions/form"
+          "$ref": "#/definitions/node"
         }
       ],
       "pbj": {
         "type": "message",
-        "rule": "single"
+        "rule": "single",
+        "overridable": true
       }
     }
   },
@@ -230,14 +231,11 @@
         }
       ]
     },
-    "form": {
+    "node": {
       "type": "object",
       "anyOf": [
         {
-          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/form/1-0-0.json#"
-        },
-        {
-          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/forms/mixin/form/1-0-1.json#"
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/ncr/mixin/node/1-0-0.json#"
         }
       ]
     }

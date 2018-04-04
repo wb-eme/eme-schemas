@@ -32,6 +32,9 @@
       <field name="gender" type="int-enum">
         <enum id="gdbots:common:gender"/>
       </field>
+      <field name="sexual_orientation" type="string-enum">
+        <enum id="gdbots:common:sexual-orientation"/>
+      </field>
       <field name="has_notes" type="trinary"/>
       <field name="is_blocked" type="trinary"/>
       <field name="is_read" type="trinary"/>

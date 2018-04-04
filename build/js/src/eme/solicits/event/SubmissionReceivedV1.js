@@ -18,6 +18,7 @@ import Gender from '@gdbots/schemas/gdbots/common/enums/Gender';
 import Message from '@gdbots/pbj/Message';
 import MessageResolver from '@gdbots/pbj/MessageResolver';
 import Schema from '@gdbots/pbj/Schema';
+import SexualOrientation from '@gdbots/schemas/gdbots/common/enums/SexualOrientation';
 import SolicitId from '@wbeme/schemas/eme/solicits/SolicitId';
 import T from '@gdbots/pbj/types';
 
@@ -76,6 +77,9 @@ export default class SubmissionReceivedV1 extends Message {
         Fb.create('gender', T.IntEnumType.create())
           .withDefault(Gender.UNKNOWN)
           .classProto(Gender)
+          .build(),
+        Fb.create('sexual_orientation', T.StringEnumType.create())
+          .classProto(SexualOrientation)
           .build(),
         Fb.create('story', T.TextType.create())
           .build(),

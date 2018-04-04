@@ -1,6 +1,5 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/command/create-solicit/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
-import GdbotsFormsCreateFormV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/create-form/CreateFormV1Mixin';
 import GdbotsNcrCreateNodeV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/create-node/CreateNodeV1Mixin';
 import GdbotsPbjxCommandV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/command/CommandV1Mixin';
 import GdbotsPbjxCommandV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/command/CommandV1Trait';
@@ -21,7 +20,6 @@ export default class CreateSolicitV1 extends Message {
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxCommandV1Mixin.create(),
         GdbotsNcrCreateNodeV1Mixin.create(),
-        GdbotsFormsCreateFormV1Mixin.create(),
       ],
     );
   }

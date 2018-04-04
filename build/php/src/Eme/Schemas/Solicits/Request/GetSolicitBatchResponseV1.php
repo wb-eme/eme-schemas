@@ -6,8 +6,6 @@ use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Schema;
-use Gdbots\Schemas\Forms\Mixin\GetFormBatchResponse\GetFormBatchResponseV1 as GdbotsFormsGetFormBatchResponseV1;
-use Gdbots\Schemas\Forms\Mixin\GetFormBatchResponse\GetFormBatchResponseV1Mixin as GdbotsFormsGetFormBatchResponseV1Mixin;
 use Gdbots\Schemas\Ncr\Mixin\GetNodeBatchResponse\GetNodeBatchResponseV1 as GdbotsNcrGetNodeBatchResponseV1;
 use Gdbots\Schemas\Ncr\Mixin\GetNodeBatchResponse\GetNodeBatchResponseV1Mixin as GdbotsNcrGetNodeBatchResponseV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Response\ResponseV1 as GdbotsPbjxResponseV1;
@@ -18,8 +16,7 @@ final class GetSolicitBatchResponseV1 extends AbstractMessage implements
     GetSolicitBatchResponse,
     EmeAccountsAccountRefV1,
     GdbotsPbjxResponseV1,
-    GdbotsNcrGetNodeBatchResponseV1,
-    GdbotsFormsGetFormBatchResponseV1
+    GdbotsNcrGetNodeBatchResponseV1
 {
     use GdbotsPbjxResponseV1Trait;
 
@@ -34,7 +31,6 @@ final class GetSolicitBatchResponseV1 extends AbstractMessage implements
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxResponseV1Mixin::create(),
                 GdbotsNcrGetNodeBatchResponseV1Mixin::create(),
-                GdbotsFormsGetFormBatchResponseV1Mixin::create(),
             ]
         );
     }

@@ -19,7 +19,7 @@
       <field name="category" type="string"/>
       <field name="description" type="text">
         <description>
-          A short description (a few sentences) about this form.  This field should
+          A short description (a few sentences) about this form. This field should
           not have html as it is used in metadata.
         </description>
       </field>

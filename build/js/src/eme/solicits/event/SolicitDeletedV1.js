@@ -1,6 +1,5 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/event/solicit-deleted/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
-import GdbotsFormsFormDeletedV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/form-deleted/FormDeletedV1Mixin';
 import GdbotsNcrNodeDeletedV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/node-deleted/NodeDeletedV1Mixin';
 import GdbotsPbjxEventV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Mixin';
 import GdbotsPbjxEventV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Trait';
@@ -21,7 +20,6 @@ export default class SolicitDeletedV1 extends Message {
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxEventV1Mixin.create(),
         GdbotsNcrNodeDeletedV1Mixin.create(),
-        GdbotsFormsFormDeletedV1Mixin.create(),
       ],
     );
   }

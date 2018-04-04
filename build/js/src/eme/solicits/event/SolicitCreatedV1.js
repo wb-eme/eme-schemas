@@ -1,6 +1,5 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/event/solicit-created/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
-import GdbotsFormsFormCreatedV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/form-created/FormCreatedV1Mixin';
 import GdbotsNcrNodeCreatedV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/node-created/NodeCreatedV1Mixin';
 import GdbotsPbjxEventV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Mixin';
 import GdbotsPbjxEventV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Trait';
@@ -21,7 +20,6 @@ export default class SolicitCreatedV1 extends Message {
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxEventV1Mixin.create(),
         GdbotsNcrNodeCreatedV1Mixin.create(),
-        GdbotsFormsFormCreatedV1Mixin.create(),
       ],
     );
   }

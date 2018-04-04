@@ -665,6 +665,22 @@
         "rule": "single"
       }
     },
+    "sexual_orientation": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        1,
+        2,
+        3,
+        4,
+        "U",
+        "Z"
+      ],
+      "pbj": {
+        "type": "string-enum",
+        "rule": "single"
+      }
+    },
     "story": {
       "type": "string",
       "minLength": 0,

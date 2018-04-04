@@ -15,6 +15,7 @@ use Gdbots\Pbj\Type as T;
 use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1 as GdbotsAnalyticsTrackedMessageV1;
 use Gdbots\Schemas\Analytics\Mixin\TrackedMessage\TrackedMessageV1Mixin as GdbotsAnalyticsTrackedMessageV1Mixin;
 use Gdbots\Schemas\Common\Enum\Gender;
+use Gdbots\Schemas\Common\Enum\SexualOrientation;
 use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1 as GdbotsCommonTaggableV1;
 use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Mixin as GdbotsCommonTaggableV1Mixin;
 use Gdbots\Schemas\Enrichments\Mixin\IpToGeo\IpToGeoV1 as GdbotsEnrichmentsIpToGeoV1;
@@ -104,6 +105,9 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                 Fb::create('gender', T\IntEnumType::create())
                     ->withDefault(Gender::UNKNOWN())
                     ->className(Gender::class)
+                    ->build(),
+                Fb::create('sexual_orientation', T\StringEnumType::create())
+                    ->className(SexualOrientation::class)
                     ->build(),
                 Fb::create('story', T\TextType::create())
                     ->build(),
