@@ -35,6 +35,9 @@
         },
         {
           "$ref": "http://schemas.wbeme.com/json-schema/gdbots/geo/address/1-0-1.json#"
+        },
+        {
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/geo/address/1-0-2.json#"
         }
       ]
     }
