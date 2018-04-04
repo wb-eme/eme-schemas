@@ -1,7 +1,6 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/node/solicit/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
 import Fb from '@gdbots/pbj/FieldBuilder';
-import Format from '@gdbots/pbj/enums/Format';
 import GdbotsCommonTaggableV1Mixin from '@gdbots/schemas/gdbots/common/mixin/taggable/TaggableV1Mixin';
 import GdbotsFormsFormV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/form/FormV1Mixin';
 import GdbotsNcrExpirableV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/expirable/ExpirableV1Mixin';
@@ -30,9 +29,6 @@ export default class SolicitV1 extends Message {
           .classProto(SolicitId)
           .build(),
         Fb.create('category', T.StringType.create())
-          .build(),
-        Fb.create('thank_you_url', T.StringType.create())
-          .format(Format.URL)
           .build(),
       ],
       [

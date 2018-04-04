@@ -22,7 +22,6 @@
         </js-options>
       </field>
       <field name="category" type="string"/>
-      <field name="thank_you_url" type="string" format="url"/>
     </fields>
 
     <mixins>

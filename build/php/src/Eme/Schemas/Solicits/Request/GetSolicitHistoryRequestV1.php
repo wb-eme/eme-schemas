@@ -6,8 +6,6 @@ use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Schema;
-use Gdbots\Schemas\Forms\Mixin\GetFormHistoryRequest\GetFormHistoryRequestV1 as GdbotsFormsGetFormHistoryRequestV1;
-use Gdbots\Schemas\Forms\Mixin\GetFormHistoryRequest\GetFormHistoryRequestV1Mixin as GdbotsFormsGetFormHistoryRequestV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\GetEventsRequest\GetEventsRequestV1 as GdbotsPbjxGetEventsRequestV1;
 use Gdbots\Schemas\Pbjx\Mixin\GetEventsRequest\GetEventsRequestV1Mixin as GdbotsPbjxGetEventsRequestV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Request\RequestV1 as GdbotsPbjxRequestV1;
@@ -18,8 +16,7 @@ final class GetSolicitHistoryRequestV1 extends AbstractMessage implements
     GetSolicitHistoryRequest,
     EmeAccountsAccountRefV1,
     GdbotsPbjxRequestV1,
-    GdbotsPbjxGetEventsRequestV1,
-    GdbotsFormsGetFormHistoryRequestV1
+    GdbotsPbjxGetEventsRequestV1
 {
     use GdbotsPbjxRequestV1Trait;
 
@@ -34,7 +31,6 @@ final class GetSolicitHistoryRequestV1 extends AbstractMessage implements
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxRequestV1Mixin::create(),
                 GdbotsPbjxGetEventsRequestV1Mixin::create(),
-                GdbotsFormsGetFormHistoryRequestV1Mixin::create(),
             ]
         );
     }

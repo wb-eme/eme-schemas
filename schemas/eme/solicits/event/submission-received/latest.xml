@@ -44,6 +44,9 @@
         <default>0</default>
         <enum id="gdbots:common:gender"/>
       </field>
+      <field name="sexual_orientation" type="string-enum">
+        <enum id="gdbots:common:sexual-orientation"/>
+      </field>
       <field name="story" type="text"/>
       <field name="file_ids" type="identifier" rule="set">
         <php-options>
@@ -64,7 +67,7 @@
       <field name="mentions" type="string" pattern="^[\w\.-]+$" max="50" rule="set">
         <description>
           Mentions contains the usernames extracted from the "networks" map and possibly
-          parsed from other text fields.  Makes it possible to search @mentions.
+          parsed from other text fields. Makes it possible to search @mentions.
         </description>
       </field>
       <field name="ppid" type="string" pattern="^[\w\/\.:-]+$">
@@ -100,20 +103,20 @@
       </field>
       <field name="s256" type="tiny-int">
         <description>
-          "s256" means shard 256.  Used to distribute read/write from storage and speed up
-          replay/reindex processes.  It can also be used to distribute workload in front end
+          "s256" means shard 256. Used to distribute read/write from storage and speed up
+          replay/reindex processes. It can also be used to distribute workload in front end
           user interfaces or notifications (like isles in a grocery store).
           This value should NOT change once set.
         </description>
       </field>
       <field name="s32" type="tiny-int">
         <description>
-          "s32" means shard 32.  See field "s256" for explanation.
+          "s32" means shard 32. See field "s256" for explanation.
         </description>
       </field>
       <field name="s16" type="tiny-int">
         <description>
-          "s16" means shard 16.  See field "s256" for explanation.
+          "s16" means shard 16. See field "s256" for explanation.
         </description>
       </field>
     </fields>

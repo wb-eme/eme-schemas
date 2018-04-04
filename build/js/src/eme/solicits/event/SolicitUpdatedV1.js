@@ -1,6 +1,5 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/event/solicit-updated/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
-import GdbotsFormsFormUpdatedV1Mixin from '@gdbots/schemas/gdbots/forms/mixin/form-updated/FormUpdatedV1Mixin';
 import GdbotsNcrNodeUpdatedV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/node-updated/NodeUpdatedV1Mixin';
 import GdbotsPbjxEventV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Mixin';
 import GdbotsPbjxEventV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Trait';
@@ -21,7 +20,6 @@ export default class SolicitUpdatedV1 extends Message {
         EmeAccountsAccountRefV1Mixin.create(),
         GdbotsPbjxEventV1Mixin.create(),
         GdbotsNcrNodeUpdatedV1Mixin.create(),
-        GdbotsFormsFormUpdatedV1Mixin.create(),
       ],
     );
   }

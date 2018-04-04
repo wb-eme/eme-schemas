@@ -6,8 +6,6 @@ use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Schema;
-use Gdbots\Schemas\Forms\Mixin\FormPublished\FormPublishedV1 as GdbotsFormsFormPublishedV1;
-use Gdbots\Schemas\Forms\Mixin\FormPublished\FormPublishedV1Mixin as GdbotsFormsFormPublishedV1Mixin;
 use Gdbots\Schemas\Ncr\Mixin\NodePublished\NodePublishedV1 as GdbotsNcrNodePublishedV1;
 use Gdbots\Schemas\Ncr\Mixin\NodePublished\NodePublishedV1Mixin as GdbotsNcrNodePublishedV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1 as GdbotsPbjxEventV1;
@@ -18,8 +16,7 @@ final class SolicitPublishedV1 extends AbstractMessage implements
     SolicitPublished,
     EmeAccountsAccountRefV1,
     GdbotsPbjxEventV1,
-    GdbotsNcrNodePublishedV1,
-    GdbotsFormsFormPublishedV1
+    GdbotsNcrNodePublishedV1
 {
     use GdbotsPbjxEventV1Trait;
 
@@ -34,7 +31,6 @@ final class SolicitPublishedV1 extends AbstractMessage implements
                 EmeAccountsAccountRefV1Mixin::create(),
                 GdbotsPbjxEventV1Mixin::create(),
                 GdbotsNcrNodePublishedV1Mixin::create(),
-                GdbotsFormsFormPublishedV1Mixin::create(),
             ]
         );
     }

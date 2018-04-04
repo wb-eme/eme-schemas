@@ -13,6 +13,7 @@ use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
 use Gdbots\Schemas\Common\Enum\Gender;
+use Gdbots\Schemas\Common\Enum\SexualOrientation;
 use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1 as GdbotsCommonTaggableV1;
 use Gdbots\Schemas\Common\Mixin\Taggable\TaggableV1Mixin as GdbotsCommonTaggableV1Mixin;
 use Gdbots\Schemas\Enrichments\Mixin\TimeParting\TimePartingV1 as GdbotsEnrichmentsTimePartingV1;
@@ -87,6 +88,9 @@ final class ImportSubmissionV1 extends AbstractMessage implements
                     ->build(),
                 Fb::create('gender', T\IntEnumType::create())
                     ->className(Gender::class)
+                    ->build(),
+                Fb::create('sexual_orientation', T\StringEnumType::create())
+                    ->className(SexualOrientation::class)
                     ->build(),
                 Fb::create('story', T\TextType::create())
                     ->build(),

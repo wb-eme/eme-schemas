@@ -7,7 +7,6 @@
     <mixins>
       <curie-major>gdbots:pbjx:mixin:response:v1</curie-major>
       <curie-major>gdbots:pbjx:mixin:get-events-response:v1</curie-major>
-      <curie-major>gdbots:forms:mixin:get-form-history-response:v1</curie-major>
     </mixins>
   </schema>
 </pbj-schema>

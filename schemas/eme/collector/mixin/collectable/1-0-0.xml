@@ -7,7 +7,7 @@
     <fields>
       <field name="collector" type="message">
         <description>
-          The application collecting the message.  This is set on the
+          The application collecting the message. This is set on the
           server by the collector app itself.
         </description>
         <any-of>
