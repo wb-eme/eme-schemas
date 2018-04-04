@@ -38,6 +38,9 @@
       <field name="gender" type="int-enum">
         <enum id="gdbots:common:gender"/>
       </field>
+      <field name="sexual_orientation" type="string-enum">
+        <enum id="gdbots:common:sexual-orientation"/>
+      </field>
       <field name="story" type="text"/>
       <field name="file_ids" type="identifier" rule="set">
         <php-options>

@@ -7,7 +7,9 @@
 * __Add Schemas:__
   * `eme:solicits:request:search-notes-request`
   * `eme:solicits:request:search-notes-response`
-* __Modify Schemas:__
+* __Modify Schemas:__ left versions as is (still in beta)
+  * `eme:solicits:command:import-submission`
+    * Add `sexual_orientation` string-enum field using `gdbots:common:sexual-orientation`
   * `eme:solicits:command:send-submission`
     * Add `sexual_orientation` string-enum field using `gdbots:common:sexual-orientation`
   * `eme:solicits:command:submission-received`
@@ -17,16 +19,16 @@
 
 
 ## v0.1.5
-* __Modify Schemas:__
-  * `eme:solicits:command:import-solicit` left version as is (still in beta)
+* __Modify Schemas:__ left versions as is (still in beta)
+  * `eme:solicits:command:import-solicit` 
     * Add `thank_you_url` string field.
-  * `eme:solicits:command:import-submission` left version as is (still in beta)
+  * `eme:solicits:command:import-submission`
     * Add `is_rejected` boolean field.
 
 
 ## v0.1.4
-* __Modify Schemas:__
-  * `eme:solicits:node:solicit` left version as is (still in beta)
+* __Modify Schemas:__ left versions as is (still in beta)
+  * `eme:solicits:node:solicit`
     * Add `thank_you_url` string field.
 
 
@@ -54,16 +56,16 @@
 
 
 ## v0.1.2
-* __Modify Schemas:__
-  * `eme:solicits:request:search-submissions-request` left version as is (still in beta)
+* __Modify Schemas:__ left versions as is (still in beta)
+  * `eme:solicits:request:search-submissions-request`
     * Add `gender` int-enum field using enum `gdbots:common:gender`.
 
 
 ## v0.1.1
-* __Modify Schemas:__
-  * `eme:solicits:command:send-submission` left version as is (still in beta)
+* __Modify Schemas:__ left versions as is (still in beta)
+  * `eme:solicits:command:send-submission`
     * Add `height` tiny-int field for recording physical height.
-  * `eme:solicits:event:submission-received` left version as is (still in beta)
+  * `eme:solicits:event:submission-received`
     * Add `height` tiny-int field for recording physical height.
 
 
