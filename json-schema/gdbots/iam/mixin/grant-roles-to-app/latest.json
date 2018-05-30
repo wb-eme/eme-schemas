@@ -1,22 +1,8 @@
 {
-  "id": "http://schemas.wbeme.com/json-schema/eme/solicits/command/reject-submission/1-0-0.json#",
+  "id": "http://schemas.wbeme.com/json-schema/gdbots/iam/mixin/grant-roles-to-app/1-0-0.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "_schema": {
-      "type": "string",
-      "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
-      "default": "pbj:eme:solicits:command:reject-submission:1-0-0"
-    },
-    "account_id": {
-      "type": "string",
-      "pattern": "^[\\w\\/\\.:-]+$",
-      "description": "The EME account that this message is associated with.",
-      "pbj": {
-        "type": "identifier",
-        "rule": "single"
-      }
-    },
     "command_id": {
       "type": "string",
       "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
@@ -195,36 +181,34 @@
         "overridable": true
       }
     },
-    "submission_id": {
+    "node_ref": {
       "type": "string",
-      "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+      "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {
-        "type": "time-uuid",
+        "type": "identifier",
         "rule": "single"
       }
     },
-    "hashtags": {
+    "roles": {
       "type": "array",
       "items": [
         {
           "type": "string",
-          "minLength": 0,
-          "maxLength": 255
+          "pattern": "^[\\w\\/\\.:-]+$"
         }
       ],
       "uniqueItems": true,
       "additionalProperties": false,
+      "description": "The roles to grant to the app.",
       "pbj": {
-        "type": "string",
-        "rule": "set",
-        "format": "hashtag"
+        "type": "identifier",
+        "rule": "set"
       }
     }
   },
   "required": [
-    "_schema",
     "command_id",
-    "submission_id"
+    "node_ref"
   ],
   "definitions": {
     "app": {
@@ -244,5 +228,5 @@
       ]
     }
   },
-  "additionalProperties": false
+  "additionalProperties": true
 }
