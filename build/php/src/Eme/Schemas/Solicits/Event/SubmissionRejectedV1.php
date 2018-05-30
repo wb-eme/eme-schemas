@@ -5,6 +5,7 @@ namespace Eme\Schemas\Solicits\Event;
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV1;
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
 use Gdbots\Pbj\AbstractMessage;
+use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
@@ -31,6 +32,10 @@ final class SubmissionRejectedV1 extends AbstractMessage implements
             [
                 Fb::create('submission_id', T\TimeUuidType::create())
                     ->required()
+                    ->build(),
+                Fb::create('hashtags', T\StringType::create())
+                    ->asASet()
+                    ->format(Format::HASHTAG())
                     ->build(),
             ],
             [
