@@ -6,6 +6,7 @@
   <schema id="pbj:eme:solicits:command:reject-submission:1-0-0">
     <fields>
       <field name="submission_id" type="time-uuid" required="true"/>
+      <field name="hashtags" type="string" format="hashtag" rule="set"/>
     </fields>
 
     <mixins>

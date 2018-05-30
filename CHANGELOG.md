@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.1
+* __Modify Schemas:__ left versions as is (still in beta)
+  * `eme:solicits:command:reject-submission`
+    * Add `hashtags` string set field with format hashtag.
+  * `eme:solicits:event:submission-rejected`
+    * Add `hashtags` string set field with format hashtag.
+
+
 ## v0.2.0
 * Eliminate use of `gdbots:forms:mixin:*` ncr crud schemas.
 * Upgrade to `"gdbots/schemas": "1.5.0"`.

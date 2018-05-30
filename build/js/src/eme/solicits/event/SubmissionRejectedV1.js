@@ -1,6 +1,7 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/event/submission-rejected/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
 import Fb from '@gdbots/pbj/FieldBuilder';
+import Format from '@gdbots/pbj/enums/Format';
 import GdbotsAnalyticsTrackedMessageV1Mixin from '@gdbots/schemas/gdbots/analytics/mixin/tracked-message/TrackedMessageV1Mixin';
 import GdbotsPbjxEventV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Mixin';
 import GdbotsPbjxEventV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/event/EventV1Trait';
@@ -20,6 +21,10 @@ export default class SubmissionRejectedV1 extends Message {
       [
         Fb.create('submission_id', T.TimeUuidType.create())
           .required()
+          .build(),
+        Fb.create('hashtags', T.StringType.create())
+          .asASet()
+          .format(Format.HASHTAG)
           .build(),
       ],
       [
