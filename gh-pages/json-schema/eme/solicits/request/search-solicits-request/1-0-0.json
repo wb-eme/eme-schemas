@@ -238,7 +238,6 @@
         "archived",
         "deleted"
       ],
-      "description": "The status a node must be in to match the search request.",
       "pbj": {
         "type": "string-enum",
         "rule": "single"
