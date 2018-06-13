@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+## v0.2.2
+* __Add Schemas:__
+  * `eme:solicits:command:purge-submission`
+
+
 ## v0.2.1
 * __Modify Schemas:__ left versions as is (still in beta)
   * `eme:solicits:command:reject-submission`

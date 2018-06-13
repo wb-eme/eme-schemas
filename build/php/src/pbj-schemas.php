@@ -22,6 +22,7 @@
     'eme:solicits:command:mark-submissions-as-read' => 'Eme\Schemas\Solicits\Command\MarkSubmissionsAsReadV1',
     'eme:solicits:command:mark-submissions-as-unread' => 'Eme\Schemas\Solicits\Command\MarkSubmissionsAsUnreadV1',
     'eme:solicits:command:publish-solicit' => 'Eme\Schemas\Solicits\Command\PublishSolicitV1',
+    'eme:solicits:command:purge-submission' => 'Eme\Schemas\Solicits\Command\PurgeSubmissionV1',
     'eme:solicits:command:reject-submission' => 'Eme\Schemas\Solicits\Command\RejectSubmissionV1',
     'eme:solicits:command:send-submission' => 'Eme\Schemas\Solicits\Command\SendSubmissionV1',
     'eme:solicits:command:unpublish-solicit' => 'Eme\Schemas\Solicits\Command\UnpublishSolicitV1',
