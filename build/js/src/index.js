@@ -21,6 +21,7 @@ import '@wbeme/schemas/eme/solicits/command/ImportSubmissionV1';
 import '@wbeme/schemas/eme/solicits/command/MarkSubmissionsAsReadV1';
 import '@wbeme/schemas/eme/solicits/command/MarkSubmissionsAsUnreadV1';
 import '@wbeme/schemas/eme/solicits/command/PublishSolicitV1';
+import '@wbeme/schemas/eme/solicits/command/PurgeSubmissionV1';
 import '@wbeme/schemas/eme/solicits/command/RejectSubmissionV1';
 import '@wbeme/schemas/eme/solicits/command/SendSubmissionV1';
 import '@wbeme/schemas/eme/solicits/command/UnpublishSolicitV1';
