@@ -9,6 +9,16 @@
       <field name="note" type="text"/>
       <field name="hashtags_added" type="string" format="hashtag" rule="set"/>
       <field name="hashtags_removed" type="string" format="hashtag" rule="set"/>
+      <field name="interview" type="identifier">
+        <php-options>
+          <imports>use Gdbots\Schemas\Files\FileId;</imports>
+          <class-name>FileId::class</class-name>
+        </php-options>
+        <js-options>
+          <imports>import FileId from '@gdbots/schemas/gdbots/files/FileId';</imports>
+          <class-proto>FileId</class-proto>
+        </js-options>
+      </field>
     </fields>
 
     <mixins>

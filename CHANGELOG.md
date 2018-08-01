@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.3
+* __Modify Schemas:__ left versions as is (still in beta)
+  * `eme:solicits:command:add-note-to-submission`
+    * Add `interview` file field with format identifier.
+  * `eme:solicits:event:note-added-to-submission`
+    * Add `interview` file field with format identifier.
+
+
 ## v0.2.2
 * __Add Schemas:__
   * `eme:solicits:command:purge-submission`
