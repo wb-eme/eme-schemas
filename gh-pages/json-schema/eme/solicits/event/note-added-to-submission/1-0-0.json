@@ -226,7 +226,7 @@
         "format": "hashtag"
       }
     },
-    "interview": {
+    "interview_id": {
       "type": "string",
       "pattern": "^[\\w\\/\\.:-]+$",
       "pbj": {

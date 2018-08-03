@@ -145,6 +145,9 @@ final class SubmissionReceivedV1 extends AbstractMessage implements
                     ->build(),
                 Fb::create('has_notes', T\BooleanType::create())
                     ->build(),
+                Fb::create('interview_id', T\IdentifierType::create())
+                    ->className(FileId::class)
+                    ->build(),
                 Fb::create('is_blocked', T\BooleanType::create())
                     ->build(),
                 Fb::create('is_read', T\BooleanType::create())

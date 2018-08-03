@@ -117,6 +117,9 @@ export default class SubmissionReceivedV1 extends Message {
           .build(),
         Fb.create('has_notes', T.BooleanType.create())
           .build(),
+        Fb.create('interview_id', T.IdentifierType.create())
+          .classProto(FileId)
+          .build(),
         Fb.create('is_blocked', T.BooleanType.create())
           .build(),
         Fb.create('is_read', T.BooleanType.create())

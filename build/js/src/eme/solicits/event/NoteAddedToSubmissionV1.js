@@ -33,7 +33,7 @@ export default class NoteAddedToSubmissionV1 extends Message {
           .asASet()
           .format(Format.HASHTAG)
           .build(),
-        Fb.create('interview', T.IdentifierType.create())
+        Fb.create('interview_id', T.IdentifierType.create())
           .classProto(FileId)
           .build(),
       ],

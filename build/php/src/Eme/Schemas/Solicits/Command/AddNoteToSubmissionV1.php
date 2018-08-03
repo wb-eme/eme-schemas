@@ -41,7 +41,7 @@ final class AddNoteToSubmissionV1 extends AbstractMessage implements
                     ->asASet()
                     ->format(Format::HASHTAG())
                     ->build(),
-                Fb::create('interview', T\IdentifierType::create())
+                Fb::create('interview_id', T\IdentifierType::create())
                     ->className(FileId::class)
                     ->build(),
             ],

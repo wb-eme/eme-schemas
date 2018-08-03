@@ -9,7 +9,7 @@
       <field name="note" type="text"/>
       <field name="hashtags_to_add" type="string" format="hashtag" rule="set"/>
       <field name="hashtags_to_remove" type="string" format="hashtag" rule="set"/>
-      <field name="interview" type="identifier">
+      <field name="interview_id" type="identifier">
         <php-options>
           <imports>use Gdbots\Schemas\Files\FileId;</imports>
           <class-name>FileId::class</class-name>
