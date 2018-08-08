@@ -2,13 +2,14 @@
 
 
 ## v0.2.3
+* Use gdbots/schemas v1.5.4.
 * __Modify Schemas:__ left versions as is (still in beta)
   * `eme:solicits:command:add-note-to-submission`
-    * Add `interview_id` file field with format identifier.
+    * Add `interview_id` identifier field.
   * `eme:solicits:event:note-added-to-submission`
-    * Add `interview_id` file field with format identifier.
+    * Add `interview_id` identifier field.
   * `eme:solicits:event:submission-received`
-    * Add `interview_id` file field with format identifier.
+    * Add `interview_id` identifier field.
 
 
 ## v0.2.2
