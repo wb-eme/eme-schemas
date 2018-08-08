@@ -9,6 +9,7 @@ use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
+use Gdbots\Schemas\Files\FileId;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1 as GdbotsPbjxCommandV1;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Mixin as GdbotsPbjxCommandV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Trait as GdbotsPbjxCommandV1Trait;
@@ -39,6 +40,9 @@ final class AddNoteToSubmissionV1 extends AbstractMessage implements
                 Fb::create('hashtags_to_remove', T\StringType::create())
                     ->asASet()
                     ->format(Format::HASHTAG())
+                    ->build(),
+                Fb::create('interview_id', T\IdentifierType::create())
+                    ->className(FileId::class)
                     ->build(),
             ],
             [

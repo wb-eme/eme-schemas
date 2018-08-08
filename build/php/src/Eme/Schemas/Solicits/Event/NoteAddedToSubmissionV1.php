@@ -9,6 +9,7 @@ use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
+use Gdbots\Schemas\Files\FileId;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1 as GdbotsPbjxEventV1;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Mixin as GdbotsPbjxEventV1Mixin;
 use Gdbots\Schemas\Pbjx\Mixin\Event\EventV1Trait as GdbotsPbjxEventV1Trait;
@@ -42,6 +43,9 @@ final class NoteAddedToSubmissionV1 extends AbstractMessage implements
                 Fb::create('hashtags_removed', T\StringType::create())
                     ->asASet()
                     ->format(Format::HASHTAG())
+                    ->build(),
+                Fb::create('interview_id', T\IdentifierType::create())
+                    ->className(FileId::class)
                     ->build(),
             ],
             [

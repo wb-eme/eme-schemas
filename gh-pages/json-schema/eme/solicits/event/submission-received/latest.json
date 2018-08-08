@@ -584,6 +584,14 @@
         "rule": "single"
       }
     },
+    "interview_id": {
+      "type": "string",
+      "pattern": "^[\\w\\/\\.:-]+$",
+      "pbj": {
+        "type": "identifier",
+        "rule": "single"
+      }
+    },
     "is_blocked": {
       "type": "boolean",
       "pbj": {

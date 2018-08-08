@@ -1,6 +1,7 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/command/add-note-to-submission/1-0-0.json#
 import EmeAccountsAccountRefV1Mixin from '@wbeme/schemas/eme/accounts/mixin/account-ref/AccountRefV1Mixin';
 import Fb from '@gdbots/pbj/FieldBuilder';
+import FileId from '@gdbots/schemas/gdbots/files/FileId';
 import Format from '@gdbots/pbj/enums/Format';
 import GdbotsPbjxCommandV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/command/CommandV1Mixin';
 import GdbotsPbjxCommandV1Trait from '@gdbots/schemas/gdbots/pbjx/mixin/command/CommandV1Trait';
@@ -30,6 +31,9 @@ export default class AddNoteToSubmissionV1 extends Message {
         Fb.create('hashtags_to_remove', T.StringType.create())
           .asASet()
           .format(Format.HASHTAG)
+          .build(),
+        Fb.create('interview_id', T.IdentifierType.create())
+          .classProto(FileId)
           .build(),
       ],
       [
