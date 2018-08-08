@@ -245,6 +245,14 @@
         "rule": "set",
         "format": "hashtag"
       }
+    },
+    "interview_id": {
+      "type": "string",
+      "pattern": "^[\\w\\/\\.:-]+$",
+      "pbj": {
+        "type": "identifier",
+        "rule": "single"
+      }
     }
   },
   "required": [
