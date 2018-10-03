@@ -1,6 +1,18 @@
 # CHANGELOG
 
 
+## v0.2.4
+* __Add Schemas:__
+  * `eme:solicits::search-filter`
+
+* __Add Enums:__
+  * `eme:solicits:search-filter-operator`
+
+* __Modify Schemas:__ left versions as is (still in beta)
+  * `eme:solicits:request:search-submissions-request`
+    * Add `cf_filters` message field.
+
+
 ## v0.2.3
 * Use gdbots/schemas v1.5.4.
 * __Modify Schemas:__ left versions as is (still in beta)

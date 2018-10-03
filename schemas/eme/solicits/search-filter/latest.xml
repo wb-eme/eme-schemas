@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:solicits::search-filter:1-0-0">
+    <fields>
+      <field name="name" type="string"/>
+      <field name="operator" type="string-enum">
+        <enum id="eme:solicits:search-filter-operator"/>
+      </field>
+      <field name="values" type="dynamic-field">
+        <description>Contains a comma delimited list of values to filter by.</description>
+      </field>
+    </fields>
+  </schema>
+</pbj-schema>

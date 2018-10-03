@@ -304,6 +304,19 @@
         "rule": "single"
       }
     },
+    "cf_filters": {
+      "type": "array",
+      "items": [
+        {
+          "$ref": "#/definitions/search-filter"
+        }
+      ],
+      "additionalProperties": false,
+      "pbj": {
+        "type": "message",
+        "rule": "list"
+      }
+    },
     "first_name": {
       "type": "string",
       "minLength": 0,
@@ -538,6 +551,14 @@
       "anyOf": [
         {
           "$ref": "http://schemas.wbeme.com/json-schema/gdbots/contexts/cloud/1-0-0.json#"
+        }
+      ]
+    },
+    "search-filter": {
+      "type": "object",
+      "anyOf": [
+        {
+          "$ref": "http://schemas.wbeme.com/json-schema/eme/solicits/search-filter/1-0-0.json#"
         }
       ]
     },

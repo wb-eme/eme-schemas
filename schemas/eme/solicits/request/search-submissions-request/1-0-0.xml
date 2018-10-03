@@ -16,6 +16,11 @@
           <class-proto>SolicitId</class-proto>
         </js-options>
       </field>
+      <field name="cf_filters" type="message" rule="list">
+        <any-of>
+          <curie>eme:solicits::search-filter</curie>
+        </any-of>
+      </field>
       <field name="first_name" type="string"/>
       <field name="last_name" type="string"/>
       <field name="email" type="string" format="email"/>

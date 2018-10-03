@@ -29,6 +29,12 @@ export default class SearchSubmissionsRequestV1 extends Message {
         Fb.create('solicit_id', T.IdentifierType.create())
           .classProto(SolicitId)
           .build(),
+        Fb.create('cf_filters', T.MessageType.create())
+          .asAList()
+          .anyOfCuries([
+            'eme:solicits::search-filter',
+          ])
+          .build(),
         Fb.create('first_name', T.StringType.create())
           .build(),
         Fb.create('last_name', T.StringType.create())

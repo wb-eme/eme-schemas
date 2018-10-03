@@ -4,6 +4,7 @@ namespace Eme\Schemas\Solicits\Request;
 
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1 as EmeAccountsAccountRefV1;
 use Eme\Schemas\Accounts\Mixin\AccountRef\AccountRefV1Mixin as EmeAccountsAccountRefV1Mixin;
+use Eme\Schemas\Solicits\SearchFilter as EmeSolicitsSearchFilter;
 use Eme\Schemas\Solicits\SolicitId;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Enum\Format;
@@ -42,6 +43,12 @@ final class SearchSubmissionsRequestV1 extends AbstractMessage implements
                     ->build(),
                 Fb::create('solicit_id', T\IdentifierType::create())
                     ->className(SolicitId::class)
+                    ->build(),
+                Fb::create('cf_filters', T\MessageType::create())
+                    ->asAList()
+                    ->anyOfClassNames([
+                        EmeSolicitsSearchFilter::class,
+                    ])
                     ->build(),
                 Fb::create('first_name', T\StringType::create())
                     ->build(),
