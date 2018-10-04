@@ -5,6 +5,7 @@ namespace Eme\Schemas\Solicits;
 use Eme\Schemas\Solicits\Enum\SearchFilterOperator;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\FieldBuilder as Fb;
+use Gdbots\Pbj\MessageRef;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
 
@@ -24,12 +25,38 @@ final class SearchFilterV1 extends AbstractMessage implements
                 Fb::create('operator', T\StringEnumType::create())
                     ->className(SearchFilterOperator::class)
                     ->build(),
-                /*
-                 * Contains a comma delimited list of values to filter by.
-                 */
-                Fb::create('values', T\DynamicFieldType::create())
+                Fb::create('bool_vals', T\BooleanType::create())
+                    ->asAList()
+                    ->build(),
+                Fb::create('date_vals', T\DateTimeType::create())
+                    ->asAList()
+                    ->build(),
+                Fb::create('int_vals', T\IntType::create())
+                    ->asAList()
+                    ->build(),
+                Fb::create('string_vals', T\StringType::create())
+                    ->asAList()
                     ->build(),
             ]
         );
+    }
+
+    /**
+     * @param string $tag
+     * @return MessageRef
+     */
+    public function generateMessageRef($tag = null)
+    {
+        return new MessageRef(static::schema()->getCurie(), $this->get('name'), $tag);
+    }
+    
+    /**
+     * @return array
+     */
+    public function getUriTemplateVars()
+    {
+        return [
+            'name' => $this->get('name'),
+        ];
     }
 }

@@ -9,6 +9,7 @@
  */
 
 \Gdbots\Pbj\MessageResolver::registerMap([
+    'eme:solicits::search-filter' => 'Eme\Schemas\Solicits\SearchFilterV1',
     'eme:solicits:command:add-note-to-submission' => 'Eme\Schemas\Solicits\Command\AddNoteToSubmissionV1',
     'eme:solicits:command:create-solicit' => 'Eme\Schemas\Solicits\Command\CreateSolicitV1',
     'eme:solicits:command:delete-solicit' => 'Eme\Schemas\Solicits\Command\DeleteSolicitV1',

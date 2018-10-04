@@ -1,6 +1,7 @@
 // @link http://schemas.wbeme.com/json-schema/eme/solicits/search-filter/1-0-0.json#
 import Fb from '@gdbots/pbj/FieldBuilder';
 import Message from '@gdbots/pbj/Message';
+import MessageRef from '@gdbots/pbj/MessageRef';
 import MessageResolver from '@gdbots/pbj/MessageResolver';
 import Schema from '@gdbots/pbj/Schema';
 import SearchFilterOperator from '@wbeme/schemas/eme/solicits/enums/SearchFilterOperator';
@@ -20,13 +21,37 @@ export default class SearchFilterV1 extends Message {
         Fb.create('operator', T.StringEnumType.create())
           .classProto(SearchFilterOperator)
           .build(),
-        /*
-         * Contains a comma delimited list of values to filter by.
-         */
-        Fb.create('values', T.DynamicFieldType.create())
+        Fb.create('bool_vals', T.BooleanType.create())
+          .asAList()
+          .build(),
+        Fb.create('date_vals', T.DateTimeType.create())
+          .asAList()
+          .build(),
+        Fb.create('int_vals', T.IntType.create())
+          .asAList()
+          .build(),
+        Fb.create('string_vals', T.StringType.create())
+          .asAList()
           .build(),
       ],
     );
+  }
+
+  /**
+   * @param {?string} tag
+   * @returns {MessageRef}
+   */
+  generateMessageRef(tag = null) {
+    return new MessageRef(this.schema().getCurie(), this.get('name'), tag);
+  }
+  
+  /**
+   * @returns {Object}
+   */
+  getUriTemplateVars() {
+    return {
+      name: this.get('name'),
+    };
   }
 }
 
