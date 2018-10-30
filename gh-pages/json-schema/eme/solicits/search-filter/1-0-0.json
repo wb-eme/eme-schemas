@@ -54,13 +54,13 @@
       "type": "array",
       "items": [
         {
-          "type": "string",
-          "format": "date-time"
+          "type": "object",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
         }
       ],
       "additionalProperties": false,
       "pbj": {
-        "type": "date-time",
+        "type": "date",
         "rule": "list"
       }
     },

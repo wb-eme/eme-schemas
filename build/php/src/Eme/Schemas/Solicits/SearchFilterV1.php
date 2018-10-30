@@ -28,7 +28,7 @@ final class SearchFilterV1 extends AbstractMessage implements
                 Fb::create('bool_vals', T\BooleanType::create())
                     ->asAList()
                     ->build(),
-                Fb::create('date_vals', T\DateTimeType::create())
+                Fb::create('date_vals', T\DateType::create())
                     ->asAList()
                     ->build(),
                 Fb::create('int_vals', T\IntType::create())

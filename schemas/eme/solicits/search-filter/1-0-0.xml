@@ -10,7 +10,7 @@
         <enum id="eme:solicits:search-filter-operator"/>
       </field>
       <field name="bool_vals" type="boolean" rule="list"/>
-      <field name="date_vals" type="date-time" rule="list"/>
+      <field name="date_vals" type="date" rule="list"/>
       <field name="int_vals" type="int" rule="list"/>
       <field name="string_vals" type="string" rule="list"/>
     </fields>
