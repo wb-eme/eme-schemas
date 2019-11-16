@@ -1,6 +1,6 @@
 {
   "name": "@wbeme/schemas",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Schemas for all EME apps and components.",
   "repository": {
     "type": "git",

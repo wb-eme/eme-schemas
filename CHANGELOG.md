@@ -1,7 +1,7 @@
 # CHANGELOG
 
 
-## v0.2.4
+## v0.3.0
 * __Add Schemas:__
   * `eme:solicits::search-filter`
   * `eme:solicits:command:block-submissions`
