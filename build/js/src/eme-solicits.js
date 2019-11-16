@@ -8,6 +8,7 @@
  */
 
 import MessageResolver from '@gdbots/pbj/MessageResolver';
+import '@wbeme/schemas/eme/solicits/SearchFilterV1';
 import '@wbeme/schemas/eme/solicits/command/AddNoteToSubmissionV1';
 import '@wbeme/schemas/eme/solicits/command/CreateSolicitV1';
 import '@wbeme/schemas/eme/solicits/command/DeleteSolicitV1';
