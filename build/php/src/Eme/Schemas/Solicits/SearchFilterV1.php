@@ -21,8 +21,12 @@ final class SearchFilterV1 extends AbstractMessage implements
         return new Schema('pbj:eme:solicits::search-filter:1-0-0', __CLASS__,
             [
                 Fb::create('name', T\StringType::create())
+                    ->required()
+                    ->maxLength(127)
+                    ->pattern('^[a-zA-Z_]{1}[\w-]*$')
                     ->build(),
                 Fb::create('operator', T\StringEnumType::create())
+                    ->withDefault(SearchFilterOperator::EQUAL_TO())
                     ->className(SearchFilterOperator::class)
                     ->build(),
                 Fb::create('bool_vals', T\BooleanType::create())

@@ -17,8 +17,12 @@ export default class SearchFilterV1 extends Message {
     return new Schema('pbj:eme:solicits::search-filter:1-0-0', SearchFilterV1,
       [
         Fb.create('name', T.StringType.create())
+          .required()
+          .maxLength(127)
+          .pattern('^[a-zA-Z_]{1}[\\w-]*$')
           .build(),
         Fb.create('operator', T.StringEnumType.create())
+          .withDefault(SearchFilterOperator.EQUAL_TO)
           .classProto(SearchFilterOperator)
           .build(),
         Fb.create('bool_vals', T.BooleanType.create())

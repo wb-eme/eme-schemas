@@ -4,13 +4,18 @@
 ## v0.2.4
 * __Add Schemas:__
   * `eme:solicits::search-filter`
-
-* __Add Enums:__
+  * `eme:solicits:command:block-submissions`
+  * `eme:solicits:command:export-submissions`
+  * `eme:solicits:command:process-irr`
+  * `eme:solicits:command:restore-submission`
+  * `eme:solicits:event:submission-restored`
+  * `eme:solicits:event:submissions-blocked`
   * `eme:solicits:search-filter-operator`
-
 * __Modify Schemas:__ left versions as is (still in beta)
   * `eme:solicits:request:search-submissions-request`
-    * Add `cf_filters` message field.
+    * Add `cf_filters` message field list.
+  * `eme:solicits:node:solicit`
+    * Add `cc_email` string field with format email.
 
 
 ## v0.2.3

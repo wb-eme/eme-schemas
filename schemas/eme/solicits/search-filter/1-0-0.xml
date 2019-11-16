@@ -5,8 +5,9 @@
 
   <schema id="pbj:eme:solicits::search-filter:1-0-0">
     <fields>
-      <field name="name" type="string"/>
+      <field name="name" type="string" pattern="^[a-zA-Z_]{1}[\w-]*$" max="127" required="true"/>
       <field name="operator" type="string-enum">
+        <default>eq</default>
         <enum id="eme:solicits:search-filter-operator"/>
       </field>
       <field name="bool_vals" type="boolean" rule="list"/>

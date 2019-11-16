@@ -167,6 +167,16 @@
         "overridable": true
       }
     },
+    "ctx_ipv6": {
+      "type": "string",
+      "format": "ipv6",
+      "pbj": {
+        "type": "string",
+        "rule": "single",
+        "format": "ipv6",
+        "overridable": true
+      }
+    },
     "ctx_ua": {
       "type": "string",
       "minLength": 0,
@@ -175,6 +185,22 @@
         "type": "text",
         "rule": "single",
         "overridable": true
+      }
+    },
+    "derefs": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "pattern": "^[\\w\\.-]+$"
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false,
+      "description": "Field names to dereference, this serves as a hint to the server and is not necessarily gauranteed since authorization, availability, etc. are determined by the server not the client.",
+      "pbj": {
+        "type": "string",
+        "rule": "set"
       }
     }
   },
