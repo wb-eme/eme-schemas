@@ -1,6 +1,10 @@
 # CHANGELOG
 
 
+## v0.3.1
+* Use gdbots/schemas v1.6.5
+
+
 ## v0.3.0
 * __Add Schemas:__
   * `eme:solicits::search-filter`
@@ -56,12 +60,12 @@
   * `eme:solicits:command:submission-received`
     * Add `sexual_orientation` string-enum field using `gdbots:common:sexual-orientation`
   * `eme:solicits:request:search-submissions-request`
-    * Add `ids` time-uuid set field. 
+    * Add `ids` time-uuid set field.
 
 
 ## v0.1.5
 * __Modify Schemas:__ left versions as is (still in beta)
-  * `eme:solicits:command:import-solicit` 
+  * `eme:solicits:command:import-solicit`
     * Add `thank_you_url` string field.
   * `eme:solicits:command:import-submission`
     * Add `is_rejected` boolean field.
