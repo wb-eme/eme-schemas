@@ -1,6 +1,6 @@
 {
   "name": "@wbeme/schemas",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Schemas for all EME apps and components.",
   "repository": {
     "type": "git",
@@ -19,11 +19,11 @@
   "module": "./index.js",
   "jsnext:main": "./index.js",
   "dependencies": {
-    "@gdbots/schemas": "1.6.3"
+    "@gdbots/schemas": "1.6.5"
   },
   "peerDependencies": {
-    "@gdbots/common": "^1.0.0",
-    "@gdbots/pbj": "^1.0.0",
+    "@gdbots/common": "^1.0.2",
+    "@gdbots/pbj": "^1.0.1",
     "lodash": "^4.17.4",
     "lodash-es": "^4.17.4",
     "md5": "^2.2.1",
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@gdbots/common": "^1.0.2",
-    "@gdbots/pbj": "^1.0.0",
+    "@gdbots/pbj": "^1.0.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-plugin-lodash": "^3.3.4",
@@ -42,17 +42,17 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-import-resolver-babel-module": "^4.0.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react": "^7.20.0",
     "faucet": "^0.0.1",
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
     "md5": "^2.2.1",
-    "moment": "^2.24.0",
-    "rimraf": "^3.0.0",
-    "tape": "^4.11.0",
+    "moment": "~2.24.0",
+    "rimraf": "^3.0.2",
+    "tape": "^4.13.2",
     "utf8": "^3.0.0",
-    "uuid": "^3.3.3"
+    "uuid": "^3.4.0"
   }
 }
