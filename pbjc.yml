@@ -1,10 +1,8 @@
 domain: http://schemas.wbeme.com
 
 namespaces:
-  - eme:accounts
-  - eme:collector
-  - eme:solicits
-  - eme:users
+  - eme:iam
+  - eme:sys
 
 languages:
   php:

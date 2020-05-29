@@ -1,0 +1,16 @@
+{
+  "id": "http://schemas.wbeme.com/json-schema/eme/sys/mixin/tenant-id/1-0-0.json#",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "tenant_id": {
+      "type": "string",
+      "pattern": "^[\\w\\/\\.:-]+$",
+      "description": "The EME tenant that this message is associated with."
+    }
+  },
+  "required": [
+    "tenant_id"
+  ],
+  "additionalProperties": true
+}

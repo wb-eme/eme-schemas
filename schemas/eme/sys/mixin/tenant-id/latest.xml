@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:sys:mixin:tenant-id:1-0-0" mixin="true">
+    <fields>
+      <field name="tenant_id" type="identifier" required="true">
+        <description>The EME tenant that this message is associated with.</description>
+        <php-options>
+          <imports>use Eme\Schemas\Sys\TenantId;</imports>
+          <class-name>TenantId::class</class-name>
+        </php-options>
+        <js-options>
+          <imports>import TenantId from '@wbeme/schemas/eme/sys/TenantId';</imports>
+          <class-proto>TenantId</class-proto>
+        </js-options>
+      </field>
+    </fields>
+  </schema>
+</pbj-schema>

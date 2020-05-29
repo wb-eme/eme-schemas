@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:sys:node:picklist:1-0-0">
+    <fields>
+      <field name="_id" type="identifier" required="true">
+        <php-options>
+          <imports>use Eme\Schemas\Sys\PicklistId;</imports>
+          <class-name>PicklistId::class</class-name>
+        </php-options>
+        <js-options>
+          <imports>import PicklistId from '@wbeme/schemas/eme/sys/PicklistId';</imports>
+          <class-proto>PicklistId</class-proto>
+        </js-options>
+      </field>
+      <field name="options" type="string" rule="list"/>
+      <field name="alpha_sort" type="boolean"/>
+      <field name="allow_other" type="boolean"/>
+      <field name="default_value" type="string"/>
+    </fields>
+
+    <mixins>
+      <curie-major>eme:sys:mixin:tenant-id:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
+    </mixins>
+
+    <php-options>
+      <insertion-points>
+        <imports/>
+        <methods>
+          <![CDATA[
+public function getUriTemplateVars(): array
+{
+    return ['_id' => $this->fget(self::_ID_FIELD)];
+}
+            ]]>
+        </methods>
+      </insertion-points>
+    </php-options>
+
+    <js-options>
+      <insertion-points>
+        <methods>
+          <![CDATA[
+/**
+ * @returns {Object}
+ */
+getUriTemplateVars() {
+  return { _id: `${this.get('_id', '')}` };
+}
+            ]]>
+        </methods>
+      </insertion-points>
+    </js-options>
+
+  </schema>
+</pbj-schema>

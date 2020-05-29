@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:sys:node:tenant:1-0-0">
+    <fields>
+      <field name="_id" type="identifier" required="true">
+        <php-options>
+          <imports>use Eme\Schemas\Sys\TenantId;</imports>
+          <class-name>TenantId::class</class-name>
+        </php-options>
+        <js-options>
+          <imports>import TenantId from '@wbeme/schemas/eme/sys/TenantId';</imports>
+          <class-proto>TenantId</class-proto>
+        </js-options>
+      </field>
+      <field name="auth0_client_domain" type="string" format="hostname"/>
+      <field name="auth0_client_id" type="string" pattern="^[\w\/\.:-]+$">
+        <description>Auth0 Client ID (or app id) does not require encryption.</description>
+      </field>
+      <field name="auth0_client_secret" type="text">
+        <description>Auth0 Client Secret MUST be encrypted when stored.</description>
+      </field>
+    </fields>
+
+    <mixins>
+      <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:sluggable:v1</curie-major>
+      <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
+    </mixins>
+
+    <php-options>
+      <insertion-points>
+        <imports/>
+        <methods>
+          <![CDATA[
+public function getUriTemplateVars(): array
+{
+    return ['_id' => $this->fget(self::_ID_FIELD)];
+}
+            ]]>
+        </methods>
+      </insertion-points>
+    </php-options>
+
+    <js-options>
+      <insertion-points>
+        <methods>
+          <![CDATA[
+/**
+ * @returns {Object}
+ */
+getUriTemplateVars() {
+  return { _id: `${this.get('_id', '')}` };
+}
+            ]]>
+        </methods>
+      </insertion-points>
+    </js-options>
+
+  </schema>
+</pbj-schema>
