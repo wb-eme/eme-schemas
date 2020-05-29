@@ -10,5 +10,8 @@ declare(strict_types=1);
  * @link http://schemas.wbeme.com/
  */
 
-\Gdbots\Pbj\MessageResolver::setManifestDir(__DIR__.'/manifests');
-\Gdbots\Pbj\MessageResolver::register(require __DIR__.'/manifests/messages.php');
+use Gdbots\Pbj\MessageResolver;
+
+MessageResolver::setDefaultVendor('eme');
+MessageResolver::setManifestDir(__DIR__.'/manifests');
+MessageResolver::register(require __DIR__.'/manifests/messages.php');
