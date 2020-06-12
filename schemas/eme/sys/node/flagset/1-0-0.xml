@@ -49,7 +49,7 @@ public function getUriTemplateVars(): array
  * @returns {Object}
  */
 getUriTemplateVars() {
-  return { _id: `${this.get('_id', '')}` };
+  return { _id: `${this.get(this._ID_FIELD, '')}` };
 }
             ]]>
         </methods>
