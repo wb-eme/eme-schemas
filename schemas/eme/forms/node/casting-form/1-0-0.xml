@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:forms:node:casting-form:1-0-0">
+    <mixins>
+      <curie-major>eme:sys:mixin:tenant-id:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
+      <curie-major>gdbots:forms:mixin:form:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:expirable:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:publishable:v1</curie-major>
+      <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
+    </mixins>
+
+    <php-options>
+      <insertion-points>
+        <methods>
+          <![CDATA[
+public function getUriTemplateVars(): array
+{
+    return ['_id' => $this->fget(self::_ID_FIELD)];
+}
+            ]]>
+        </methods>
+      </insertion-points>
+    </php-options>
+
+    <js-options>
+      <insertion-points>
+        <methods>
+          <![CDATA[
+/**
+ * @returns {Object}
+ */
+getUriTemplateVars() {
+  return { _id: `${this.get(this._ID_FIELD, '')}` };
+}
+            ]]>
+        </methods>
+      </insertion-points>
+    </js-options>
+  </schema>
+</pbj-schema>

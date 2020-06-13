@@ -1,6 +1,8 @@
 domain: http://schemas.wbeme.com
 
 namespaces:
+  - eme:common
+  - eme:forms
   - eme:iam
   - eme:sys
 

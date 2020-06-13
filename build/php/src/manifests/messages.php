@@ -12,6 +12,10 @@ declare(strict_types=1);
  */
 
 return [
+    'eme:common::search-filter:v1' => 'Eme\Schemas\Common\SearchFilterV1',
+    'eme:forms:node:casting-form:v1' => 'Eme\Schemas\Forms\Node\CastingFormV1',
+    'eme:forms:request:search-submissions-request:v1' => 'Eme\Schemas\Forms\Request\SearchSubmissionsRequestV1',
+    'eme:forms:request:search-submissions-response:v1' => 'Eme\Schemas\Forms\Request\SearchSubmissionsResponseV1',
     'eme:iam:node:role:v1' => 'Eme\Schemas\Iam\Node\RoleV1',
     'eme:iam:node:user:v1' => 'Eme\Schemas\Iam\Node\UserV1',
     'eme:sys:node:flagset:v1' => 'Eme\Schemas\Sys\Node\FlagsetV1',

@@ -7,4 +7,5 @@
  */
 
 export default [
+  'eme:forms:request:search-submissions-response:v1',
 ];

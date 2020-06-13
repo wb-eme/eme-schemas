@@ -7,4 +7,5 @@
  */
 
 export default [
+  'eme:forms:node:casting-form:v1',
 ];

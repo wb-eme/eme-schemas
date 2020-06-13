@@ -10,4 +10,5 @@ declare(strict_types=1);
  */
 
 return [
+    'eme:forms:node:casting-form:v1',
 ];

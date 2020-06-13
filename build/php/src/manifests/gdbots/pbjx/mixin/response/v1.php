@@ -10,6 +10,7 @@ declare(strict_types=1);
  */
 
 return [
+    'eme:forms:request:search-submissions-response:v1',
     'gdbots:iam:request:get-user-response:v1',
     'gdbots:iam:request:search-apps-response:v1',
     'gdbots:iam:request:search-roles-response:v1',

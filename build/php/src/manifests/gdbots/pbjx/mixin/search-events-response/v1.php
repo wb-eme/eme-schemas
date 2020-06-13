@@ -10,4 +10,5 @@ declare(strict_types=1);
  */
 
 return [
+    'eme:forms:request:search-submissions-response:v1',
 ];

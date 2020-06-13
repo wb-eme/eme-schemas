@@ -10,6 +10,7 @@ declare(strict_types=1);
  */
 
 return [
+    'eme:forms:node:casting-form:v1',
     'eme:iam:node:user:v1',
     'eme:sys:node:tenant:v1',
     'gdbots:iam:command:grant-roles-to-app:v1',

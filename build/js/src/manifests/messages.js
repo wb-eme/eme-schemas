@@ -9,6 +9,10 @@
  */
 
 export default {
+  'eme:common::search-filter:v1': import('@wbeme/schemas/eme/common/SearchFilterV1'),
+  'eme:forms:node:casting-form:v1': import('@wbeme/schemas/eme/forms/node/CastingFormV1'),
+  'eme:forms:request:search-submissions-request:v1': import('@wbeme/schemas/eme/forms/request/SearchSubmissionsRequestV1'),
+  'eme:forms:request:search-submissions-response:v1': import('@wbeme/schemas/eme/forms/request/SearchSubmissionsResponseV1'),
   'eme:iam:node:role:v1': import('@wbeme/schemas/eme/iam/node/RoleV1'),
   'eme:iam:node:user:v1': import('@wbeme/schemas/eme/iam/node/UserV1'),
   'eme:sys:node:flagset:v1': import('@wbeme/schemas/eme/sys/node/FlagsetV1'),
