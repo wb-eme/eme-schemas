@@ -4,7 +4,7 @@
 ## v1.0.0
 __BREAKING EVERYTHING__
 
-* Use gdbots/schemas v2.0.0
+* Use gdbots/schemas v2.0.2
 
 
 ## v0.3.1

@@ -3,6 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
 
+  <!-- move to gdbots/schemas? -->
   <schema id="pbj:eme:common::search-filter:1-0-0">
     <fields>
       <field name="name" type="string" pattern="^[a-zA-Z_]{1}[\w-]*$" max="127" required="true"/>

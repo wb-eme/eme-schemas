@@ -33,6 +33,7 @@ return [
     'gdbots:ncr:command:rename-node:v1',
     'gdbots:ncr:command:unlock-node:v1',
     'gdbots:ncr:command:unpublish-node:v1',
+    'gdbots:ncr:command:update-node:v1',
     'gdbots:ncr:event:edge-created:v1',
     'gdbots:ncr:event:edge-deleted:v1',
     'gdbots:ncr:event:node-created:v1',

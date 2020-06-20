@@ -82,6 +82,7 @@ export default {
   'gdbots:ncr:command:rename-node:v1': import('@gdbots/schemas/gdbots/ncr/command/RenameNodeV1'),
   'gdbots:ncr:command:unlock-node:v1': import('@gdbots/schemas/gdbots/ncr/command/UnlockNodeV1'),
   'gdbots:ncr:command:unpublish-node:v1': import('@gdbots/schemas/gdbots/ncr/command/UnpublishNodeV1'),
+  'gdbots:ncr:command:update-node:v1': import('@gdbots/schemas/gdbots/ncr/command/UpdateNodeV1'),
   'gdbots:ncr:event:edge-created:v1': import('@gdbots/schemas/gdbots/ncr/event/EdgeCreatedV1'),
   'gdbots:ncr:event:edge-deleted:v1': import('@gdbots/schemas/gdbots/ncr/event/EdgeDeletedV1'),
   'gdbots:ncr:event:node-created:v1': import('@gdbots/schemas/gdbots/ncr/event/NodeCreatedV1'),

@@ -85,6 +85,7 @@ return [
     'gdbots:ncr:command:rename-node:v1' => 'Gdbots\Schemas\Ncr\Command\RenameNodeV1',
     'gdbots:ncr:command:unlock-node:v1' => 'Gdbots\Schemas\Ncr\Command\UnlockNodeV1',
     'gdbots:ncr:command:unpublish-node:v1' => 'Gdbots\Schemas\Ncr\Command\UnpublishNodeV1',
+    'gdbots:ncr:command:update-node:v1' => 'Gdbots\Schemas\Ncr\Command\UpdateNodeV1',
     'gdbots:ncr:event:edge-created:v1' => 'Gdbots\Schemas\Ncr\Event\EdgeCreatedV1',
     'gdbots:ncr:event:edge-deleted:v1' => 'Gdbots\Schemas\Ncr\Event\EdgeDeletedV1',
     'gdbots:ncr:event:node-created:v1' => 'Gdbots\Schemas\Ncr\Event\NodeCreatedV1',

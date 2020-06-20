@@ -26,5 +26,6 @@ return [
     'gdbots:ncr:command:rename-node:v1',
     'gdbots:ncr:command:unlock-node:v1',
     'gdbots:ncr:command:unpublish-node:v1',
+    'gdbots:ncr:command:update-node:v1',
     'gdbots:pbjx:command:check-health:v1',
 ];
