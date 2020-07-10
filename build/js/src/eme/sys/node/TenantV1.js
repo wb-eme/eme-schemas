@@ -74,19 +74,11 @@ export default class TenantV1 extends Message {
           .asAMap()
           .pattern('^[\\w\\/\\.:-]+$')
           .build(),
-        Fb.create(this.AUTH0_CLIENT_DOMAIN_FIELD, T.StringType.create())
-          .format(Format.HOSTNAME)
-          .build(),
         /*
          * Auth0 Client ID (or app id) does not require encryption.
          */
         Fb.create(this.AUTH0_CLIENT_ID_FIELD, T.StringType.create())
           .pattern('^[\\w\\/\\.:-]+$')
-          .build(),
-        /*
-         * Auth0 Client Secret MUST be encrypted when stored.
-         */
-        Fb.create(this.AUTH0_CLIENT_SECRET_FIELD, T.TextType.create())
           .build(),
       ],
       this.MIXINS,
@@ -126,9 +118,7 @@ M.prototype.LAST_EVENT_REF_FIELD = M.LAST_EVENT_REF_FIELD = 'last_event_ref';
 M.prototype.TITLE_FIELD = M.TITLE_FIELD = 'title';
 M.prototype.SLUG_FIELD = M.SLUG_FIELD = 'slug';
 M.prototype.TAGS_FIELD = M.TAGS_FIELD = 'tags';
-M.prototype.AUTH0_CLIENT_DOMAIN_FIELD = M.AUTH0_CLIENT_DOMAIN_FIELD = 'auth0_client_domain';
 M.prototype.AUTH0_CLIENT_ID_FIELD = M.AUTH0_CLIENT_ID_FIELD = 'auth0_client_id';
-M.prototype.AUTH0_CLIENT_SECRET_FIELD = M.AUTH0_CLIENT_SECRET_FIELD = 'auth0_client_secret';
 
 M.prototype.FIELDS = M.FIELDS = [
   M._ID_FIELD,
@@ -142,9 +132,7 @@ M.prototype.FIELDS = M.FIELDS = [
   M.TITLE_FIELD,
   M.SLUG_FIELD,
   M.TAGS_FIELD,
-  M.AUTH0_CLIENT_DOMAIN_FIELD,
   M.AUTH0_CLIENT_ID_FIELD,
-  M.AUTH0_CLIENT_SECRET_FIELD,
 ];
 
 GdbotsNcrNodeV1Trait(M);

@@ -39,9 +39,7 @@ final class TenantV1 extends AbstractMessage
     const TITLE_FIELD = 'title';
     const SLUG_FIELD = 'slug';
     const TAGS_FIELD = 'tags';
-    const AUTH0_CLIENT_DOMAIN_FIELD = 'auth0_client_domain';
     const AUTH0_CLIENT_ID_FIELD = 'auth0_client_id';
-    const AUTH0_CLIENT_SECRET_FIELD = 'auth0_client_secret';
 
     const FIELDS = [
       self::_ID_FIELD,
@@ -55,9 +53,7 @@ final class TenantV1 extends AbstractMessage
       self::TITLE_FIELD,
       self::SLUG_FIELD,
       self::TAGS_FIELD,
-      self::AUTH0_CLIENT_DOMAIN_FIELD,
       self::AUTH0_CLIENT_ID_FIELD,
-      self::AUTH0_CLIENT_SECRET_FIELD,
     ];
 
     use GdbotsNcrNodeV1Trait;
@@ -123,19 +119,11 @@ final class TenantV1 extends AbstractMessage
                     ->asAMap()
                     ->pattern('^[\w\/\.:-]+$')
                     ->build(),
-                Fb::create(self::AUTH0_CLIENT_DOMAIN_FIELD, T\StringType::create())
-                    ->format(Format::HOSTNAME())
-                    ->build(),
                 /*
                  * Auth0 Client ID (or app id) does not require encryption.
                  */
                 Fb::create(self::AUTH0_CLIENT_ID_FIELD, T\StringType::create())
                     ->pattern('^[\w\/\.:-]+$')
-                    ->build(),
-                /*
-                 * Auth0 Client Secret MUST be encrypted when stored.
-                 */
-                Fb::create(self::AUTH0_CLIENT_SECRET_FIELD, T\TextType::create())
                     ->build(),
             ],
             self::MIXINS
