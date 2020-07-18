@@ -401,7 +401,7 @@
       "type": "object",
       "anyOf": [
         {
-          "$ref": "http://schemas.wbeme.com/json-schema/eme/common/search-filter/1-0-0.json#"
+          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/common/search-filter/1-0-0.json#"
         }
       ]
     },

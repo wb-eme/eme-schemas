@@ -133,6 +133,6 @@ final class FlagsetV1 extends AbstractMessage
 
     public function getUriTemplateVars(): array
     {
-        return ['_id' => $this->fget(self::_ID_FIELD)];
+        return ['_id' => $this->fget('_id')];
     }
 }

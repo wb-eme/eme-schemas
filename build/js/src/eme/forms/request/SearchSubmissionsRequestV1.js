@@ -125,7 +125,7 @@ export default class SearchSubmissionsRequestV1 extends Message {
         Fb.create(this.CF_FILTERS_FIELD, T.MessageType.create())
           .asAList()
           .anyOfCuries([
-            'eme:common::search-filter',
+            'gdbots:common::search-filter',
           ])
           .build(),
         Fb.create(this.FIRST_NAME_FIELD, T.StringType.create())

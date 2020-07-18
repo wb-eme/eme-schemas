@@ -1,12 +1,12 @@
 {
-  "id": "http://schemas.wbeme.com/json-schema/eme/common/search-filter/1-0-0.json#",
+  "id": "http://schemas.wbeme.com/json-schema/gdbots/common/search-filter/1-0-0.json#",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
     "_schema": {
       "type": "string",
       "pattern": "^pbj:([a-z0-9-]+):([a-z0-9\\.-]+):([a-z0-9-]+)?:([a-z0-9-]+):([0-9]+-[0-9]+-[0-9]+)$",
-      "default": "pbj:eme:common::search-filter:1-0-0"
+      "default": "pbj:gdbots:common::search-filter:1-0-0"
     },
     "name": {
       "type": "string",
@@ -29,7 +29,7 @@
         "not_contains"
       ]
     },
-    "bool_vals": {
+    "bools": {
       "type": "array",
       "items": [
         {
@@ -38,7 +38,7 @@
       ],
       "additionalProperties": false
     },
-    "date_vals": {
+    "dates": {
       "type": "array",
       "items": [
         {
@@ -48,7 +48,17 @@
       ],
       "additionalProperties": false
     },
-    "int_vals": {
+    "floats": {
+      "type": "array",
+      "items": [
+        {
+          "type": "number",
+          "default": 0
+        }
+      ],
+      "additionalProperties": false
+    },
+    "ints": {
       "type": "array",
       "items": [
         {
@@ -60,7 +70,7 @@
       ],
       "additionalProperties": false
     },
-    "string_vals": {
+    "strings": {
       "type": "array",
       "items": [
         {

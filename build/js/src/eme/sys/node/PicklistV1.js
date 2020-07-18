@@ -80,7 +80,7 @@ export default class PicklistV1 extends Message {
    * @returns {Object}
    */
   getUriTemplateVars() {
-    return { _id: `${this.get(this._ID_FIELD, '')}` };
+    return { _id: `${this.get('_id', '')}` };
   }
 }
 

@@ -8,6 +8,7 @@
       <curie-major>eme:sys:mixin:tenant-id:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
       <curie-major>gdbots:iam:mixin:user:v1</curie-major>
+      <curie-major>gdbots:common:mixin:labelable:v1</curie-major>
       <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
     </mixins>
   </schema>

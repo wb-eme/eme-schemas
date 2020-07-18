@@ -9,7 +9,7 @@
       <field name="ids" type="time-uuid" rule="set"/>
       <field name="cf_filters" type="message" rule="list">
         <any-of>
-          <curie>eme:common::search-filter</curie>
+          <curie>gdbots:common::search-filter</curie>
         </any-of>
       </field>
       <field name="first_name" type="string"/>

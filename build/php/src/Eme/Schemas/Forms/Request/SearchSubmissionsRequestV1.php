@@ -234,7 +234,7 @@ final class SearchSubmissionsRequestV1 extends AbstractMessage
                 Fb::create(self::CF_FILTERS_FIELD, T\MessageType::create())
                     ->asAList()
                     ->anyOfCuries([
-                        'eme:common::search-filter',
+                        'gdbots:common::search-filter',
                     ])
                     ->build(),
                 Fb::create(self::FIRST_NAME_FIELD, T\StringType::create())

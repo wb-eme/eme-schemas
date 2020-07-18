@@ -33,6 +33,8 @@ final class CastingFormV1 extends AbstractMessage
       'gdbots:ncr:mixin:expirable',
       'gdbots:ncr:mixin:publishable:v1',
       'gdbots:ncr:mixin:publishable',
+      'gdbots:common:mixin:labelable:v1',
+      'gdbots:common:mixin:labelable',
       'gdbots:common:mixin:taggable:v1',
       'gdbots:common:mixin:taggable',
     ];
@@ -60,6 +62,7 @@ final class CastingFormV1 extends AbstractMessage
     const PII_IMPACT_FIELD = 'pii_impact';
     const EXPIRES_AT_FIELD = 'expires_at';
     const PUBLISHED_AT_FIELD = 'published_at';
+    const LABELS_FIELD = 'labels';
     const TAGS_FIELD = 'tags';
 
     const FIELDS = [
@@ -86,6 +89,7 @@ final class CastingFormV1 extends AbstractMessage
       self::PII_IMPACT_FIELD,
       self::EXPIRES_AT_FIELD,
       self::PUBLISHED_AT_FIELD,
+      self::LABELS_FIELD,
       self::TAGS_FIELD,
     ];
 
@@ -199,6 +203,14 @@ final class CastingFormV1 extends AbstractMessage
                 Fb::create(self::PUBLISHED_AT_FIELD, T\DateTimeType::create())
                     ->build(),
                 /*
+                 * A set of strings used for categorization or workflow.
+                 * Similar to slack channels, github or gmail labels.
+                 */
+                Fb::create(self::LABELS_FIELD, T\StringType::create())
+                    ->asASet()
+                    ->pattern('^[\w-]+$')
+                    ->build(),
+                /*
                  * Tags is a map that categorizes data or tracks references in
                  * external systems. The tags names should be consistent and descriptive,
                  * e.g. fb_user_id:123, salesforce_customer_id:456.
@@ -214,6 +226,6 @@ final class CastingFormV1 extends AbstractMessage
 
     public function getUriTemplateVars(): array
     {
-        return ['_id' => $this->fget(self::_ID_FIELD)];
+        return ['_id' => $this->fget('_id')];
     }
 }
