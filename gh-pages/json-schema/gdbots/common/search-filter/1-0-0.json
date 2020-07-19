@@ -29,7 +29,7 @@
         "not_contains"
       ]
     },
-    "bools": {
+    "booleans": {
       "type": "array",
       "items": [
         {

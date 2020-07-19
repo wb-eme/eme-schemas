@@ -1,7 +1,7 @@
 // @link http://schemas.wbeme.com/json-schema/eme/iam/node/role/1-0-0.json#
 import Fb from '@gdbots/pbj/FieldBuilder';
-import GdbotsIamRoleV1Trait from '@gdbots/schemas/gdbots/iam/mixin/role/RoleV1Trait';
-import GdbotsNcrNodeV1Trait from '@gdbots/schemas/gdbots/ncr/mixin/node/NodeV1Trait';
+import GdbotsIamRoleV1Mixin from '@gdbots/schemas/gdbots/iam/mixin/role/RoleV1Mixin';
+import GdbotsNcrNodeV1Mixin from '@gdbots/schemas/gdbots/ncr/mixin/node/NodeV1Mixin';
 import Message from '@gdbots/pbj/Message';
 import NodeStatus from '@gdbots/schemas/gdbots/ncr/enums/NodeStatus';
 import RoleId from '@gdbots/schemas/gdbots/iam/RoleId';
@@ -21,31 +21,31 @@ export default class RoleV1 extends Message {
         /*
          * The EME tenant that this message is associated with.
          */
-        Fb.create(this.TENANT_ID_FIELD, T.IdentifierType.create())
+        Fb.create('tenant_id', T.IdentifierType.create())
           .required()
           .classProto(TenantId)
           .build(),
-        Fb.create(this._ID_FIELD, T.IdentifierType.create())
+        Fb.create('_id', T.IdentifierType.create())
           .required()
           .classProto(RoleId)
           .build(),
-        Fb.create(this.STATUS_FIELD, T.StringEnumType.create())
+        Fb.create('status', T.StringEnumType.create())
           .withDefault("draft")
           .classProto(NodeStatus)
           .build(),
-        Fb.create(this.ETAG_FIELD, T.StringType.create())
+        Fb.create('etag', T.StringType.create())
           .maxLength(100)
           .pattern('^[\\w\\.:-]+$')
           .build(),
-        Fb.create(this.CREATED_AT_FIELD, T.MicrotimeType.create())
+        Fb.create('created_at', T.MicrotimeType.create())
           .build(),
         /*
          * A fully qualified reference to what created this node. This is intentionally a message-ref
          * and not a user id because it is often a program that creates nodes, not a user.
          */
-        Fb.create(this.CREATOR_REF_FIELD, T.MessageRefType.create())
+        Fb.create('creator_ref', T.MessageRefType.create())
           .build(),
-        Fb.create(this.UPDATED_AT_FIELD, T.MicrotimeType.create())
+        Fb.create('updated_at', T.MicrotimeType.create())
           .useTypeDefault(false)
           .build(),
         /*
@@ -53,15 +53,15 @@ export default class RoleV1 extends Message {
          * and not a user id because it is often a program that updates nodes, not a user.
          * E.g. "acme:iam:node:app:cli-scheduler" or "acme:iam:node:user:60c71df0-fda8-11e5-bfb9-30342d363854"
          */
-        Fb.create(this.UPDATER_REF_FIELD, T.MessageRefType.create())
+        Fb.create('updater_ref', T.MessageRefType.create())
           .build(),
         /*
          * A reference to the last event that changed the state of this node.
          * E.g. "acme:blog:event:article-published:60c71df0-fda8-11e5-bfb9-30342d363854"
          */
-        Fb.create(this.LAST_EVENT_REF_FIELD, T.MessageRefType.create())
+        Fb.create('last_event_ref', T.MessageRefType.create())
           .build(),
-        Fb.create(this.TITLE_FIELD, T.StringType.create())
+        Fb.create('title', T.StringType.create())
           .build(),
         /*
          * The "allowed" field is a set of actions that a user will be granted.
@@ -69,7 +69,7 @@ export default class RoleV1 extends Message {
          * curies of the pbjx commands and requests from your application.
          * E.g. "acme:blog:command:publish-article" or "acme:blog:command:*"
          */
-        Fb.create(this.ALLOWED_FIELD, T.StringType.create())
+        Fb.create('allowed', T.StringType.create())
           .asASet()
           .pattern('^[a-z0-9_\\*\\.:-]+$')
           .build(),
@@ -78,7 +78,7 @@ export default class RoleV1 extends Message {
          * exception that these rules take precedence and deny a user's
          * ability to perform the action.
          */
-        Fb.create(this.DENIED_FIELD, T.StringType.create())
+        Fb.create('denied', T.StringType.create())
           .asASet()
           .pattern('^[a-z0-9_\\*\\.:-]+$')
           .build(),
@@ -92,7 +92,6 @@ const M = RoleV1;
 M.prototype.SCHEMA_ID = M.SCHEMA_ID = 'pbj:eme:iam:node:role:1-0-0';
 M.prototype.SCHEMA_CURIE = M.SCHEMA_CURIE = 'eme:iam:node:role';
 M.prototype.SCHEMA_CURIE_MAJOR = M.SCHEMA_CURIE_MAJOR = 'eme:iam:node:role:v1';
-
 M.prototype.MIXINS = M.MIXINS = [
   'eme:sys:mixin:tenant-id:v1',
   'eme:sys:mixin:tenant-id',
@@ -102,37 +101,9 @@ M.prototype.MIXINS = M.MIXINS = [
   'gdbots:iam:mixin:role',
 ];
 
-M.prototype.TENANT_ID_FIELD = M.TENANT_ID_FIELD = 'tenant_id';
-M.prototype._ID_FIELD = M._ID_FIELD = '_id';
-M.prototype.STATUS_FIELD = M.STATUS_FIELD = 'status';
-M.prototype.ETAG_FIELD = M.ETAG_FIELD = 'etag';
-M.prototype.CREATED_AT_FIELD = M.CREATED_AT_FIELD = 'created_at';
-M.prototype.CREATOR_REF_FIELD = M.CREATOR_REF_FIELD = 'creator_ref';
-M.prototype.UPDATED_AT_FIELD = M.UPDATED_AT_FIELD = 'updated_at';
-M.prototype.UPDATER_REF_FIELD = M.UPDATER_REF_FIELD = 'updater_ref';
-M.prototype.LAST_EVENT_REF_FIELD = M.LAST_EVENT_REF_FIELD = 'last_event_ref';
-M.prototype.TITLE_FIELD = M.TITLE_FIELD = 'title';
-M.prototype.ALLOWED_FIELD = M.ALLOWED_FIELD = 'allowed';
-M.prototype.DENIED_FIELD = M.DENIED_FIELD = 'denied';
+GdbotsNcrNodeV1Mixin(M);
 
-M.prototype.FIELDS = M.FIELDS = [
-  M.TENANT_ID_FIELD,
-  M._ID_FIELD,
-  M.STATUS_FIELD,
-  M.ETAG_FIELD,
-  M.CREATED_AT_FIELD,
-  M.CREATOR_REF_FIELD,
-  M.UPDATED_AT_FIELD,
-  M.UPDATER_REF_FIELD,
-  M.LAST_EVENT_REF_FIELD,
-  M.TITLE_FIELD,
-  M.ALLOWED_FIELD,
-  M.DENIED_FIELD,
-];
-
-GdbotsNcrNodeV1Trait(M);
-
-GdbotsIamRoleV1Trait(M);
+GdbotsIamRoleV1Mixin(M);
 
 Object.freeze(M);
 Object.freeze(M.prototype);
