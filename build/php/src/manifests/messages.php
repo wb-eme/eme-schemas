@@ -17,7 +17,6 @@ return [
     'eme:forms:request:search-submissions-response:v1' => 'Eme\Schemas\Forms\Request\SearchSubmissionsResponseV1',
     'eme:iam:node:role:v1' => 'Eme\Schemas\Iam\Node\RoleV1',
     'eme:iam:node:user:v1' => 'Eme\Schemas\Iam\Node\UserV1',
-    'eme:sys:node:flagset:v1' => 'Eme\Schemas\Sys\Node\FlagsetV1',
     'eme:sys:node:picklist:v1' => 'Eme\Schemas\Sys\Node\PicklistV1',
     'eme:sys:node:tenant:v1' => 'Eme\Schemas\Sys\Node\TenantV1',
     'gdbots:analytics:tracker:keen:v1' => 'Gdbots\Schemas\Analytics\Tracker\KeenV1',

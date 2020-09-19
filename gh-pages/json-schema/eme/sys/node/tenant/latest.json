@@ -137,21 +137,42 @@
       "maxLength": 255,
       "description": "The \"slug\" is a secondary identifier, typically used in a url: - MUST be url friendly - SHOULD NOT be case sensitive - SHOULD be unique within the message curie namespace - CAN be changed, but in practice once nodes are published you should avoid it if possible"
     },
-    "tags": {
-      "type": "object",
-      "patternProperties": {
-        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
-          "type": "string",
-          "pattern": "^[\\w\\/\\.:-]+$"
-        }
-      },
-      "additionalProperties": false,
-      "description": "Tags is a map that categorizes data or tracks references in external systems. The tags names should be consistent and descriptive, e.g. fb_user_id:123, salesforce_customer_id:456."
-    },
     "auth0_client_id": {
       "type": "string",
       "pattern": "^[\\w\\/\\.:-]+$",
       "description": "Auth0 Client ID (or app id) does not require encryption."
+    },
+    "collector_domain": {
+      "type": "string",
+      "format": "hostname"
+    },
+    "email_domain": {
+      "type": "string",
+      "format": "hostname"
+    },
+    "flags": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "pattern": "^([\\w\\/-]|[\\w-][\\w\\/-]*[\\w-])$",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false
+    },
+    "config": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z_]{1}[\\w\\.:-]+$": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 255
+        }
+      },
+      "additionalProperties": false
     }
   },
   "required": [

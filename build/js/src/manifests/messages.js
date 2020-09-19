@@ -14,7 +14,6 @@ export default {
   'eme:forms:request:search-submissions-response:v1': () => import('@wbeme/schemas/eme/forms/request/SearchSubmissionsResponseV1'),
   'eme:iam:node:role:v1': () => import('@wbeme/schemas/eme/iam/node/RoleV1'),
   'eme:iam:node:user:v1': () => import('@wbeme/schemas/eme/iam/node/UserV1'),
-  'eme:sys:node:flagset:v1': () => import('@wbeme/schemas/eme/sys/node/FlagsetV1'),
   'eme:sys:node:picklist:v1': () => import('@wbeme/schemas/eme/sys/node/PicklistV1'),
   'eme:sys:node:tenant:v1': () => import('@wbeme/schemas/eme/sys/node/TenantV1'),
   'gdbots:analytics:tracker:keen:v1': () => import('@gdbots/schemas/gdbots/analytics/tracker/KeenV1'),

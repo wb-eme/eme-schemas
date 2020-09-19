@@ -10,6 +10,5 @@ export default [
   'eme:forms:node:casting-form:v1',
   'eme:iam:node:role:v1',
   'eme:iam:node:user:v1',
-  'eme:sys:node:flagset:v1',
   'eme:sys:node:picklist:v1',
 ];

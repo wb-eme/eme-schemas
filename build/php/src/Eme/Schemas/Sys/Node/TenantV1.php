@@ -23,8 +23,6 @@ final class TenantV1 extends AbstractMessage
       'gdbots:ncr:mixin:node',
       'gdbots:ncr:mixin:sluggable:v1',
       'gdbots:ncr:mixin:sluggable',
-      'gdbots:common:mixin:taggable:v1',
-      'gdbots:common:mixin:taggable',
     ];
 
     use GdbotsNcrNodeV1Mixin;
@@ -82,19 +80,23 @@ final class TenantV1 extends AbstractMessage
                     ->format(Format::SLUG())
                     ->build(),
                 /*
-                 * Tags is a map that categorizes data or tracks references in
-                 * external systems. The tags names should be consistent and descriptive,
-                 * e.g. fb_user_id:123, salesforce_customer_id:456.
-                 */
-                Fb::create('tags', T\StringType::create())
-                    ->asAMap()
-                    ->pattern('^[\w\/\.:-]+$')
-                    ->build(),
-                /*
                  * Auth0 Client ID (or app id) does not require encryption.
                  */
                 Fb::create('auth0_client_id', T\StringType::create())
                     ->pattern('^[\w\/\.:-]+$')
+                    ->build(),
+                Fb::create('collector_domain', T\StringType::create())
+                    ->format(Format::HOSTNAME())
+                    ->build(),
+                Fb::create('email_domain', T\StringType::create())
+                    ->format(Format::HOSTNAME())
+                    ->build(),
+                Fb::create('flags', T\StringType::create())
+                    ->asASet()
+                    ->format(Format::SLUG())
+                    ->build(),
+                Fb::create('config', T\StringType::create())
+                    ->asAMap()
                     ->build(),
             ],
             self::MIXINS

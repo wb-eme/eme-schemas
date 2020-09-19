@@ -18,12 +18,15 @@
       <field name="auth0_client_id" type="string" pattern="^[\w\/\.:-]+$">
         <description>Auth0 Client ID (or app id) does not require encryption.</description>
       </field>
+      <field name="collector_domain" type="string" format="hostname"/>
+      <field name="email_domain" type="string" format="hostname"/>
+      <field name="flags" type="string" format="slug" rule="set"/>
+      <field name="config" type="string" rule="map"/>
     </fields>
 
     <mixins>
       <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
       <curie-major>gdbots:ncr:mixin:sluggable:v1</curie-major>
-      <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
     </mixins>
 
     <php-options>

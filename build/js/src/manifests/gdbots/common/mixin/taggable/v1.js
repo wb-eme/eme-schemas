@@ -9,7 +9,6 @@
 export default [
   'eme:forms:node:casting-form:v1',
   'eme:iam:node:user:v1',
-  'eme:sys:node:tenant:v1',
   'gdbots:iam:command:grant-roles-to-app:v1',
   'gdbots:iam:command:grant-roles-to-user:v1',
   'gdbots:iam:command:revoke-roles-from-app:v1',
