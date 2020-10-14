@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 return [
     'eme:forms:node:casting-form:v1',
+    'eme:forms:node:ugc-form:v1',
     'eme:iam:node:role:v1',
     'eme:iam:node:user:v1',
     'eme:sys:node:picklist:v1',

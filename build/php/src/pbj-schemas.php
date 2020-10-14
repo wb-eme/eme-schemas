@@ -16,6 +16,9 @@ MessageResolver::setDefaultVendor('eme');
 MessageResolver::setManifestDir(__DIR__.'/manifests');
 MessageResolver::register([
     'eme:forms:node:casting-form:v1' => 'Eme\Schemas\Forms\Node\CastingFormV1',
+    'eme:forms:node:ugc-form:v1' => 'Eme\Schemas\Forms\Node\UgcFormV1',
+    'eme:forms:request:search-forms-request:v1' => 'Eme\Schemas\Forms\Request\SearchFormsRequestV1',
+    'eme:forms:request:search-forms-response:v1' => 'Eme\Schemas\Forms\Request\SearchFormsResponseV1',
     'eme:forms:request:search-submissions-request:v1' => 'Eme\Schemas\Forms\Request\SearchSubmissionsRequestV1',
     'eme:forms:request:search-submissions-response:v1' => 'Eme\Schemas\Forms\Request\SearchSubmissionsResponseV1',
     'eme:iam:node:role:v1' => 'Eme\Schemas\Iam\Node\RoleV1',

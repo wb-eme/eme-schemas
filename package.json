@@ -21,10 +21,10 @@
     "@gdbots/schemas": "2.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.11.6",
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/register": "^7.11.5",
+    "@babel/cli": "^7.12.0",
+    "@babel/core": "^7.12.0",
+    "@babel/preset-env": "^7.12.0",
+    "@babel/register": "^7.12.0",
     "@gdbots/pbj": "^2.0.1",
     "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-module-resolver": "^4.0.0",
@@ -32,10 +32,10 @@
     "lodash": "^4.17.20",
     "lodash-es": "^4.17.15",
     "md5": "^2.3.0",
-    "moment": "^2.28.0",
+    "moment": "^2.29.1",
     "rimraf": "^3.0.2",
     "tape": "^5.0.1",
     "utf8": "^3.0.0",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.1"
   }
 }

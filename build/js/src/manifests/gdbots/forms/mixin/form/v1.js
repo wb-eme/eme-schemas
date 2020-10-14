@@ -8,4 +8,5 @@
 
 export default [
   'eme:forms:node:casting-form:v1',
+  'eme:forms:node:ugc-form:v1',
 ];

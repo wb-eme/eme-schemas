@@ -10,6 +10,9 @@
 
 export default {
   'eme:forms:node:casting-form:v1': () => import('@wbeme/schemas/eme/forms/node/CastingFormV1'),
+  'eme:forms:node:ugc-form:v1': () => import('@wbeme/schemas/eme/forms/node/UgcFormV1'),
+  'eme:forms:request:search-forms-request:v1': () => import('@wbeme/schemas/eme/forms/request/SearchFormsRequestV1'),
+  'eme:forms:request:search-forms-response:v1': () => import('@wbeme/schemas/eme/forms/request/SearchFormsResponseV1'),
   'eme:forms:request:search-submissions-request:v1': () => import('@wbeme/schemas/eme/forms/request/SearchSubmissionsRequestV1'),
   'eme:forms:request:search-submissions-response:v1': () => import('@wbeme/schemas/eme/forms/request/SearchSubmissionsResponseV1'),
   'eme:iam:node:role:v1': () => import('@wbeme/schemas/eme/iam/node/RoleV1'),
