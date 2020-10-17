@@ -7,7 +7,7 @@
  */
 
 export default [
-  'eme:forms:request:search-forms-request:v1',
+  'eme:collector:request:search-forms-request:v1',
   'gdbots:iam:request:search-apps-request:v1',
   'gdbots:iam:request:search-roles-request:v1',
   'gdbots:iam:request:search-users-request:v1',

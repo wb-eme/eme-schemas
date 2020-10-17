@@ -7,5 +7,5 @@
  */
 
 export default [
-  'eme:forms:request:search-submissions-response:v1',
+  'eme:collector:request:search-submissions-response:v1',
 ];

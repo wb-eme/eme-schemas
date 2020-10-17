@@ -12,12 +12,12 @@ declare(strict_types=1);
  */
 
 return [
-    'eme:forms:node:casting-form:v1' => 'Eme\Schemas\Forms\Node\CastingFormV1',
-    'eme:forms:node:ugc-form:v1' => 'Eme\Schemas\Forms\Node\UgcFormV1',
-    'eme:forms:request:search-forms-request:v1' => 'Eme\Schemas\Forms\Request\SearchFormsRequestV1',
-    'eme:forms:request:search-forms-response:v1' => 'Eme\Schemas\Forms\Request\SearchFormsResponseV1',
-    'eme:forms:request:search-submissions-request:v1' => 'Eme\Schemas\Forms\Request\SearchSubmissionsRequestV1',
-    'eme:forms:request:search-submissions-response:v1' => 'Eme\Schemas\Forms\Request\SearchSubmissionsResponseV1',
+    'eme:collector:node:casting-form:v1' => 'Eme\Schemas\Collector\Node\CastingFormV1',
+    'eme:collector:node:ugc-form:v1' => 'Eme\Schemas\Collector\Node\UgcFormV1',
+    'eme:collector:request:search-forms-request:v1' => 'Eme\Schemas\Collector\Request\SearchFormsRequestV1',
+    'eme:collector:request:search-forms-response:v1' => 'Eme\Schemas\Collector\Request\SearchFormsResponseV1',
+    'eme:collector:request:search-submissions-request:v1' => 'Eme\Schemas\Collector\Request\SearchSubmissionsRequestV1',
+    'eme:collector:request:search-submissions-response:v1' => 'Eme\Schemas\Collector\Request\SearchSubmissionsResponseV1',
     'eme:iam:node:role:v1' => 'Eme\Schemas\Iam\Node\RoleV1',
     'eme:iam:node:user:v1' => 'Eme\Schemas\Iam\Node\UserV1',
     'eme:sys:node:picklist:v1' => 'Eme\Schemas\Sys\Node\PicklistV1',

@@ -10,6 +10,6 @@ declare(strict_types=1);
  */
 
 return [
-    'eme:forms:node:casting-form:v1',
-    'eme:forms:node:ugc-form:v1',
+    'eme:collector:node:casting-form:v1',
+    'eme:collector:node:ugc-form:v1',
 ];

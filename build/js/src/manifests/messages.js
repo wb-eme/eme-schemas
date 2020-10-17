@@ -9,12 +9,12 @@
  */
 
 export default {
-  'eme:forms:node:casting-form:v1': () => import('@wbeme/schemas/eme/forms/node/CastingFormV1'),
-  'eme:forms:node:ugc-form:v1': () => import('@wbeme/schemas/eme/forms/node/UgcFormV1'),
-  'eme:forms:request:search-forms-request:v1': () => import('@wbeme/schemas/eme/forms/request/SearchFormsRequestV1'),
-  'eme:forms:request:search-forms-response:v1': () => import('@wbeme/schemas/eme/forms/request/SearchFormsResponseV1'),
-  'eme:forms:request:search-submissions-request:v1': () => import('@wbeme/schemas/eme/forms/request/SearchSubmissionsRequestV1'),
-  'eme:forms:request:search-submissions-response:v1': () => import('@wbeme/schemas/eme/forms/request/SearchSubmissionsResponseV1'),
+  'eme:collector:node:casting-form:v1': () => import('@wbeme/schemas/eme/collector/node/CastingFormV1'),
+  'eme:collector:node:ugc-form:v1': () => import('@wbeme/schemas/eme/collector/node/UgcFormV1'),
+  'eme:collector:request:search-forms-request:v1': () => import('@wbeme/schemas/eme/collector/request/SearchFormsRequestV1'),
+  'eme:collector:request:search-forms-response:v1': () => import('@wbeme/schemas/eme/collector/request/SearchFormsResponseV1'),
+  'eme:collector:request:search-submissions-request:v1': () => import('@wbeme/schemas/eme/collector/request/SearchSubmissionsRequestV1'),
+  'eme:collector:request:search-submissions-response:v1': () => import('@wbeme/schemas/eme/collector/request/SearchSubmissionsResponseV1'),
   'eme:iam:node:role:v1': () => import('@wbeme/schemas/eme/iam/node/RoleV1'),
   'eme:iam:node:user:v1': () => import('@wbeme/schemas/eme/iam/node/UserV1'),
   'eme:sys:node:picklist:v1': () => import('@wbeme/schemas/eme/sys/node/PicklistV1'),

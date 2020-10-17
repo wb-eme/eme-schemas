@@ -10,5 +10,5 @@ declare(strict_types=1);
  */
 
 return [
-    'eme:forms:request:search-submissions-request:v1',
+    'eme:collector:request:search-submissions-request:v1',
 ];
