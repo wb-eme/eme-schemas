@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 return [
+    'eme:collector:command:process-irr:v1' => 'Eme\Schemas\Collector\Command\ProcessIrrV1',
     'eme:collector:node:casting-form:v1' => 'Eme\Schemas\Collector\Node\CastingFormV1',
     'eme:collector:node:ugc-form:v1' => 'Eme\Schemas\Collector\Node\UgcFormV1',
     'eme:collector:request:search-forms-request:v1' => 'Eme\Schemas\Collector\Request\SearchFormsRequestV1',

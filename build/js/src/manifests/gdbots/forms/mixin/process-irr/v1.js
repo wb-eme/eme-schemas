@@ -7,4 +7,5 @@
  */
 
 export default [
+  'eme:collector:command:process-irr:v1',
 ];

@@ -7,6 +7,7 @@
  */
 
 export default [
+  'eme:collector:command:process-irr:v1',
   'gdbots:iam:command:grant-roles-to-app:v1',
   'gdbots:iam:command:grant-roles-to-user:v1',
   'gdbots:iam:command:revoke-roles-from-app:v1',
