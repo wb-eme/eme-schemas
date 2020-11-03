@@ -16,6 +16,8 @@ MessageResolver::setDefaultVendor('eme');
 MessageResolver::setManifestDir(__DIR__.'/manifests');
 MessageResolver::register([
     'eme:collector:command:process-irr:v1' => 'Eme\Schemas\Collector\Command\ProcessIrrV1',
+    'eme:collector:command:send-submission:v1' => 'Eme\Schemas\Collector\Command\SendSubmissionV1',
+    'eme:collector:event:submission-received:v1' => 'Eme\Schemas\Collector\Event\SubmissionReceivedV1',
     'eme:collector:node:casting-form:v1' => 'Eme\Schemas\Collector\Node\CastingFormV1',
     'eme:collector:node:ugc-form:v1' => 'Eme\Schemas\Collector\Node\UgcFormV1',
     'eme:collector:request:search-forms-request:v1' => 'Eme\Schemas\Collector\Request\SearchFormsRequestV1',

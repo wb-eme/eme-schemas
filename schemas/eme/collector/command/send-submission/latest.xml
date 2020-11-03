@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:collector:command:send-submission:1-0-0">
+    <fields>
+      <field name="collector" type="message">
+        <description>
+          The application collecting the message. This is set on the
+          server by the collector app itself.
+        </description>
+        <any-of>
+          <curie>gdbots:contexts::app</curie>
+        </any-of>
+      </field>
+      <field name="first_name" type="string"/>
+      <field name="last_name" type="string"/>
+      <field name="email" type="string" format="email"/>
+      <field name="email_domain" type="string" format="hostname"/>
+      <field name="address" type="message">
+        <any-of>
+          <curie>gdbots:geo::address</curie>
+        </any-of>
+      </field>
+      <field name="phone" type="string" pattern="^\+?[1-9]\d{1,14}$" max="20" rule="map">
+        <description>
+          A general format for international telephone numbers.
+          @link https://en.wikipedia.org/wiki/E.164
+        </description>
+      </field>
+      <field name="dob" type="date"/>
+      <field name="age" type="tiny-int" max="120">
+        <description>
+          The "age" is generally populated if "dob" is present by using the difference of
+          "dob" and "occurred_at" to determine the age at the time of the response.
+        </description>
+      </field>
+      <field name="height" type="tiny-int" max="120">
+        <description>The person's physical height recorded in inches.</description>
+      </field>
+      <field name="gender" type="int-enum">
+        <enum id="gdbots:common:gender"/>
+      </field>
+      <field name="sexual_orientation" type="string-enum">
+        <enum id="gdbots:common:sexual-orientation"/>
+      </field>
+      <field name="story" type="text"/>
+      <field name="networks" type="string" pattern="^[\w\.-]+$" max="50" rule="map">
+        <description>
+          Networks is a map that contains handles/usernames on a social network.
+          E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
+        </description>
+      </field>
+    </fields>
+
+    <mixins>
+      <curie-major>gdbots:pbjx:mixin:command:v1</curie-major>
+      <curie-major>gdbots:forms:mixin:send-submission:v1</curie-major>
+      <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
+      <curie-major>gdbots:enrichments:mixin:time-parting:v1</curie-major>
+      <curie-major>gdbots:enrichments:mixin:time-sampling:v1</curie-major>
+      <curie-major>gdbots:enrichments:mixin:utm:v1</curie-major>
+    </mixins>
+  </schema>
+</pbj-schema>

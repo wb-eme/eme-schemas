@@ -10,4 +10,6 @@ declare(strict_types=1);
  */
 
 return [
+    'eme:collector:command:send-submission:v1',
+    'eme:collector:event:submission-received:v1',
 ];

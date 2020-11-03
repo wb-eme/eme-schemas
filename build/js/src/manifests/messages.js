@@ -10,6 +10,8 @@
 
 export default {
   'eme:collector:command:process-irr:v1': () => import('@wbeme/schemas/eme/collector/command/ProcessIrrV1'),
+  'eme:collector:command:send-submission:v1': () => import('@wbeme/schemas/eme/collector/command/SendSubmissionV1'),
+  'eme:collector:event:submission-received:v1': () => import('@wbeme/schemas/eme/collector/event/SubmissionReceivedV1'),
   'eme:collector:node:casting-form:v1': () => import('@wbeme/schemas/eme/collector/node/CastingFormV1'),
   'eme:collector:node:ugc-form:v1': () => import('@wbeme/schemas/eme/collector/node/UgcFormV1'),
   'eme:collector:request:search-forms-request:v1': () => import('@wbeme/schemas/eme/collector/request/SearchFormsRequestV1'),

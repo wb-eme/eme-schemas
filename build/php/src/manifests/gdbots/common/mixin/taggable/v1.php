@@ -10,6 +10,8 @@ declare(strict_types=1);
  */
 
 return [
+    'eme:collector:command:send-submission:v1',
+    'eme:collector:event:submission-received:v1',
     'eme:collector:node:casting-form:v1',
     'eme:collector:node:ugc-form:v1',
     'eme:iam:node:user:v1',

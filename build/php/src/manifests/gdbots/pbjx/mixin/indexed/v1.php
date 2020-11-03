@@ -10,5 +10,6 @@ declare(strict_types=1);
  */
 
 return [
+    'eme:collector:event:submission-received:v1',
     'gdbots:pbjx:event:event-execution-failed:v1',
 ];

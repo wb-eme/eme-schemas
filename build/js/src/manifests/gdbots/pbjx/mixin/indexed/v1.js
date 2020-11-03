@@ -7,5 +7,6 @@
  */
 
 export default [
+  'eme:collector:event:submission-received:v1',
   'gdbots:pbjx:event:event-execution-failed:v1',
 ];

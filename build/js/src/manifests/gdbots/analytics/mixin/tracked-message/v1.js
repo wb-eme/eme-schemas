@@ -7,6 +7,7 @@
  */
 
 export default [
+  'eme:collector:event:submission-received:v1',
   'eme:collector:request:search-submissions-request:v1',
   'gdbots:iam:event:app-roles-granted:v1',
   'gdbots:iam:event:app-roles-revoked:v1',

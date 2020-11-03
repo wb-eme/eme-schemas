@@ -7,4 +7,6 @@
  */
 
 export default [
+  'eme:collector:command:send-submission:v1',
+  'eme:collector:event:submission-received:v1',
 ];
