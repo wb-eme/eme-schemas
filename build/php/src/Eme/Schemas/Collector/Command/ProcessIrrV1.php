@@ -124,6 +124,12 @@ final class ProcessIrrV1 extends AbstractMessage
                 Fb::create('wb_fulfillment_callback_uri', T\TextType::create())
                     ->format(Format::URL())
                     ->build(),
+                /*
+                 * A cursor is a string (normally base64 encoded) which marks a specific item in a list of data.
+                 * When cursor is present it should be used instead of "page".
+                 */
+                Fb::create('cursor', T\StringType::create())
+                    ->build(),
             ],
             self::MIXINS
         );

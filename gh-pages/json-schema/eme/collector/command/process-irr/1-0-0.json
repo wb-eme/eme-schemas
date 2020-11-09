@@ -183,6 +183,12 @@
     "wb_fulfillment_callback_uri": {
       "type": "string",
       "pattern": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"
+    },
+    "cursor": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 255,
+      "description": "A cursor is a string (normally base64 encoded) which marks a specific item in a list of data. When cursor is present it should be used instead of \"page\"."
     }
   },
   "required": [

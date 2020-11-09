@@ -8,6 +8,12 @@
       <field name="wb_subject_request_id" type="uuid"/>
       <field name="wb_status_callback_uri" type="text" format="url"/>
       <field name="wb_fulfillment_callback_uri" type="text" format="url"/>
+      <field name="cursor" type="string">
+        <description>
+          A cursor is a string (normally base64 encoded) which marks a specific item in a list of data.
+          When cursor is present it should be used instead of "page".
+        </description>
+      </field>
     </fields>
 
     <mixins>
