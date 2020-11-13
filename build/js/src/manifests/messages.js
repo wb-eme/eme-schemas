@@ -9,6 +9,7 @@
  */
 
 export default {
+  'eme:collector:command:import-submission:v1': () => import('@wbeme/schemas/eme/collector/command/ImportSubmissionV1'),
   'eme:collector:command:process-irr:v1': () => import('@wbeme/schemas/eme/collector/command/ProcessIrrV1'),
   'eme:collector:command:send-submission:v1': () => import('@wbeme/schemas/eme/collector/command/SendSubmissionV1'),
   'eme:collector:event:submission-received:v1': () => import('@wbeme/schemas/eme/collector/event/SubmissionReceivedV1'),
