@@ -10,5 +10,6 @@ declare(strict_types=1);
  */
 
 return [
+    'eme:collector:command:import-submission:v1',
     'eme:collector:command:send-submission:v1',
 ];

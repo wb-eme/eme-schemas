@@ -1,10 +1,12 @@
 // @link http://schemas.wbeme.com/json-schema/eme/collector/command/import-submission/1-0-0.json#
+import DayOfWeek from '@gdbots/schemas/gdbots/common/enums/DayOfWeek';
 import Fb from '@gdbots/pbj/FieldBuilder';
 import FileId from '@gdbots/schemas/gdbots/common/FileId';
 import Format from '@gdbots/pbj/enums/Format';
 import GdbotsPbjxCommandV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/command/CommandV1Mixin';
 import Gender from '@gdbots/schemas/gdbots/common/enums/Gender';
 import Message from '@gdbots/pbj/Message';
+import Month from '@gdbots/schemas/gdbots/common/enums/Month';
 import Schema from '@gdbots/pbj/Schema';
 import SexualOrientation from '@gdbots/schemas/gdbots/common/enums/SexualOrientation';
 import T from '@gdbots/pbj/types';
@@ -100,6 +102,90 @@ export default class ImportSubmissionV1 extends Message {
         Fb.create('form_ref', T.NodeRefType.create())
           .required()
           .build(),
+        /*
+         * Contains answers submitted from the fields on the form.
+         */
+        Fb.create('cf', T.DynamicFieldType.create())
+          .asAList()
+          .build(),
+        /*
+         * Any files uploaded should have the IDs copied here in addition to
+         * being present in the "cf" field (or whereever they are mapped to).
+         */
+        Fb.create('file_ids', T.IdentifierType.create())
+          .asASet()
+          .classProto(FileId)
+          .build(),
+        /*
+         * Publisher provided identifier (PPID)
+         */
+        Fb.create('ppid', T.StringType.create())
+          .pattern('^[\\w\\/\\.:-]+$')
+          .build(),
+        Fb.create('hashtags', T.StringType.create())
+          .asASet()
+          .format(Format.HASHTAG)
+          .build(),
+        /*
+         * Tags is a map that categorizes data or tracks references in
+         * external systems. The tags names should be consistent and descriptive,
+         * e.g. fb_user_id:123, salesforce_customer_id:456.
+         */
+        Fb.create('tags', T.StringType.create())
+          .asAMap()
+          .pattern('^[\\w\\/\\.:-]+$')
+          .build(),
+        Fb.create('month_of_year', T.IntEnumType.create())
+          .withDefault(0)
+          .classProto(Month)
+          .build(),
+        Fb.create('day_of_month', T.TinyIntType.create())
+          .max(31)
+          .build(),
+        Fb.create('day_of_week', T.IntEnumType.create())
+          .withDefault(0)
+          .classProto(DayOfWeek)
+          .build(),
+        Fb.create('is_weekend', T.BooleanType.create())
+          .build(),
+        Fb.create('hour_of_day', T.TinyIntType.create())
+          .max(23)
+          .build(),
+        Fb.create('ts_ymdh', T.IntType.create())
+          .build(),
+        Fb.create('ts_ymd', T.IntType.create())
+          .build(),
+        Fb.create('ts_ym', T.MediumIntType.create())
+          .build(),
+        Fb.create('utm_source', T.StringType.create())
+          .maxLength(50)
+          .pattern('^[\\w\\/\\.:-]+$')
+          .build(),
+        Fb.create('utm_medium', T.StringType.create())
+          .maxLength(50)
+          .pattern('^[\\w\\/\\.:-]+$')
+          .build(),
+        Fb.create('utm_term', T.StringType.create())
+          .maxLength(100)
+          .pattern('^[\\w\\s\\/\\.,:-]+$')
+          .build(),
+        Fb.create('utm_content', T.StringType.create())
+          .maxLength(50)
+          .pattern('^[\\w\\/\\.:-]+$')
+          .build(),
+        Fb.create('utm_campaign', T.StringType.create())
+          .maxLength(50)
+          .pattern('^[\\w\\/\\.:-]+$')
+          .build(),
+        /*
+         * The application collecting the message. This is set on the
+         * server by the collector app itself.
+         */
+        Fb.create('collector', T.MessageType.create())
+          .anyOfCuries([
+            'gdbots:contexts::app',
+          ])
+          .build(),
         Fb.create('first_name', T.StringType.create())
           .build(),
         Fb.create('last_name', T.StringType.create())
@@ -126,6 +212,10 @@ export default class ImportSubmissionV1 extends Message {
           .build(),
         Fb.create('dob', T.DateType.create())
           .build(),
+        /*
+         * The "age" is generally populated if "dob" is present by using the difference of
+         * "dob" and "occurred_at" to determine the age at the time of the response.
+         */
         Fb.create('age', T.TinyIntType.create())
           .max(120)
           .build(),
@@ -143,10 +233,6 @@ export default class ImportSubmissionV1 extends Message {
           .build(),
         Fb.create('story', T.TextType.create())
           .build(),
-        Fb.create('file_ids', T.IdentifierType.create())
-          .asASet()
-          .classProto(FileId)
-          .build(),
         /*
          * Networks is a map that contains handles/usernames on a social network.
          * E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
@@ -155,22 +241,6 @@ export default class ImportSubmissionV1 extends Message {
           .asAMap()
           .maxLength(50)
           .pattern('^[\\w\\.-]+$')
-          .build(),
-        /*
-         * Publisher provided identifier (PPID)
-         */
-        Fb.create('ppid', T.StringType.create())
-          .pattern('^[\\w\\/\\.:-]+$')
-          .build(),
-        /*
-         * Contains all of the answers submitted from the custom fields on the form.
-         */
-        Fb.create('cf', T.DynamicFieldType.create())
-          .asAList()
-          .build(),
-        Fb.create('hashtags', T.StringType.create())
-          .asASet()
-          .format(Format.HASHTAG)
           .build(),
         Fb.create('is_blocked', T.BooleanType.create())
           .build(),
@@ -209,6 +279,16 @@ M.prototype.SCHEMA_CURIE_MAJOR = M.SCHEMA_CURIE_MAJOR = 'eme:collector:command:i
 M.prototype.MIXINS = M.MIXINS = [
   'gdbots:pbjx:mixin:command:v1',
   'gdbots:pbjx:mixin:command',
+  'gdbots:forms:mixin:send-submission:v1',
+  'gdbots:forms:mixin:send-submission',
+  'gdbots:common:mixin:taggable:v1',
+  'gdbots:common:mixin:taggable',
+  'gdbots:enrichments:mixin:time-parting:v1',
+  'gdbots:enrichments:mixin:time-parting',
+  'gdbots:enrichments:mixin:time-sampling:v1',
+  'gdbots:enrichments:mixin:time-sampling',
+  'gdbots:enrichments:mixin:utm:v1',
+  'gdbots:enrichments:mixin:utm',
 ];
 
 GdbotsPbjxCommandV1Mixin(M);

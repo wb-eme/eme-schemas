@@ -7,5 +7,6 @@
  */
 
 export default [
+  'eme:collector:command:import-submission:v1',
   'eme:collector:command:send-submission:v1',
 ];

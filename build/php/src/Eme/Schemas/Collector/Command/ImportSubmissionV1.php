@@ -9,7 +9,9 @@ use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
 use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
+use Gdbots\Schemas\Common\Enum\DayOfWeek;
 use Gdbots\Schemas\Common\Enum\Gender;
+use Gdbots\Schemas\Common\Enum\Month;
 use Gdbots\Schemas\Common\Enum\SexualOrientation;
 use Gdbots\Schemas\Common\FileId;
 use Gdbots\Schemas\Pbjx\Mixin\Command\CommandV1Mixin as GdbotsPbjxCommandV1Mixin;
@@ -22,6 +24,16 @@ final class ImportSubmissionV1 extends AbstractMessage
     const MIXINS = [
       'gdbots:pbjx:mixin:command:v1',
       'gdbots:pbjx:mixin:command',
+      'gdbots:forms:mixin:send-submission:v1',
+      'gdbots:forms:mixin:send-submission',
+      'gdbots:common:mixin:taggable:v1',
+      'gdbots:common:mixin:taggable',
+      'gdbots:enrichments:mixin:time-parting:v1',
+      'gdbots:enrichments:mixin:time-parting',
+      'gdbots:enrichments:mixin:time-sampling:v1',
+      'gdbots:enrichments:mixin:time-sampling',
+      'gdbots:enrichments:mixin:utm:v1',
+      'gdbots:enrichments:mixin:utm',
     ];
 
     use GdbotsPbjxCommandV1Mixin;
@@ -112,6 +124,90 @@ final class ImportSubmissionV1 extends AbstractMessage
                 Fb::create('form_ref', T\NodeRefType::create())
                     ->required()
                     ->build(),
+                /*
+                 * Contains answers submitted from the fields on the form.
+                 */
+                Fb::create('cf', T\DynamicFieldType::create())
+                    ->asAList()
+                    ->build(),
+                /*
+                 * Any files uploaded should have the IDs copied here in addition to
+                 * being present in the "cf" field (or whereever they are mapped to).
+                 */
+                Fb::create('file_ids', T\IdentifierType::create())
+                    ->asASet()
+                    ->className(FileId::class)
+                    ->build(),
+                /*
+                 * Publisher provided identifier (PPID)
+                 */
+                Fb::create('ppid', T\StringType::create())
+                    ->pattern('^[\w\/\.:-]+$')
+                    ->build(),
+                Fb::create('hashtags', T\StringType::create())
+                    ->asASet()
+                    ->format(Format::HASHTAG())
+                    ->build(),
+                /*
+                 * Tags is a map that categorizes data or tracks references in
+                 * external systems. The tags names should be consistent and descriptive,
+                 * e.g. fb_user_id:123, salesforce_customer_id:456.
+                 */
+                Fb::create('tags', T\StringType::create())
+                    ->asAMap()
+                    ->pattern('^[\w\/\.:-]+$')
+                    ->build(),
+                Fb::create('month_of_year', T\IntEnumType::create())
+                    ->withDefault(0)
+                    ->className(Month::class)
+                    ->build(),
+                Fb::create('day_of_month', T\TinyIntType::create())
+                    ->max(31)
+                    ->build(),
+                Fb::create('day_of_week', T\IntEnumType::create())
+                    ->withDefault(0)
+                    ->className(DayOfWeek::class)
+                    ->build(),
+                Fb::create('is_weekend', T\BooleanType::create())
+                    ->build(),
+                Fb::create('hour_of_day', T\TinyIntType::create())
+                    ->max(23)
+                    ->build(),
+                Fb::create('ts_ymdh', T\IntType::create())
+                    ->build(),
+                Fb::create('ts_ymd', T\IntType::create())
+                    ->build(),
+                Fb::create('ts_ym', T\MediumIntType::create())
+                    ->build(),
+                Fb::create('utm_source', T\StringType::create())
+                    ->maxLength(50)
+                    ->pattern('^[\w\/\.:-]+$')
+                    ->build(),
+                Fb::create('utm_medium', T\StringType::create())
+                    ->maxLength(50)
+                    ->pattern('^[\w\/\.:-]+$')
+                    ->build(),
+                Fb::create('utm_term', T\StringType::create())
+                    ->maxLength(100)
+                    ->pattern('^[\w\s\/\.,:-]+$')
+                    ->build(),
+                Fb::create('utm_content', T\StringType::create())
+                    ->maxLength(50)
+                    ->pattern('^[\w\/\.:-]+$')
+                    ->build(),
+                Fb::create('utm_campaign', T\StringType::create())
+                    ->maxLength(50)
+                    ->pattern('^[\w\/\.:-]+$')
+                    ->build(),
+                /*
+                 * The application collecting the message. This is set on the
+                 * server by the collector app itself.
+                 */
+                Fb::create('collector', T\MessageType::create())
+                    ->anyOfCuries([
+                        'gdbots:contexts::app',
+                    ])
+                    ->build(),
                 Fb::create('first_name', T\StringType::create())
                     ->build(),
                 Fb::create('last_name', T\StringType::create())
@@ -138,6 +234,10 @@ final class ImportSubmissionV1 extends AbstractMessage
                     ->build(),
                 Fb::create('dob', T\DateType::create())
                     ->build(),
+                /*
+                 * The "age" is generally populated if "dob" is present by using the difference of
+                 * "dob" and "occurred_at" to determine the age at the time of the response.
+                 */
                 Fb::create('age', T\TinyIntType::create())
                     ->max(120)
                     ->build(),
@@ -155,10 +255,6 @@ final class ImportSubmissionV1 extends AbstractMessage
                     ->build(),
                 Fb::create('story', T\TextType::create())
                     ->build(),
-                Fb::create('file_ids', T\IdentifierType::create())
-                    ->asASet()
-                    ->className(FileId::class)
-                    ->build(),
                 /*
                  * Networks is a map that contains handles/usernames on a social network.
                  * E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
@@ -167,22 +263,6 @@ final class ImportSubmissionV1 extends AbstractMessage
                     ->asAMap()
                     ->maxLength(50)
                     ->pattern('^[\w\.-]+$')
-                    ->build(),
-                /*
-                 * Publisher provided identifier (PPID)
-                 */
-                Fb::create('ppid', T\StringType::create())
-                    ->pattern('^[\w\/\.:-]+$')
-                    ->build(),
-                /*
-                 * Contains all of the answers submitted from the custom fields on the form.
-                 */
-                Fb::create('cf', T\DynamicFieldType::create())
-                    ->asAList()
-                    ->build(),
-                Fb::create('hashtags', T\StringType::create())
-                    ->asASet()
-                    ->format(Format::HASHTAG())
                     ->build(),
                 Fb::create('is_blocked', T\BooleanType::create())
                     ->build(),
