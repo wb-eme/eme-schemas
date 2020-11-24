@@ -21,8 +21,8 @@
     "@gdbots/schemas": "2.1.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.7",
-    "@babel/core": "^7.12.7",
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.8",
     "@babel/preset-env": "^7.12.7",
     "@babel/register": "^7.12.1",
     "@gdbots/pbj": "^2.0.1",

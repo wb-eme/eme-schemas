@@ -104,6 +104,8 @@ export default class ProcessIrrV1 extends Message {
           .build(),
         Fb.create('wb_subject_request_id', T.UuidType.create())
           .build(),
+        Fb.create('wb_subject_request_received_timestamp', T.TimestampType.create())
+          .build(),
         Fb.create('wb_status_callback_uri', T.TextType.create())
           .format(Format.URL)
           .build(),

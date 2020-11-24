@@ -176,6 +176,11 @@
       "type": "string",
       "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
     },
+    "wb_subject_request_received_timestamp": {
+      "type": "integer",
+      "minimum": -2147483648,
+      "maximum": 2147483647
+    },
     "wb_status_callback_uri": {
       "type": "string",
       "pattern": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$"

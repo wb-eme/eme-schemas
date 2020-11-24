@@ -6,6 +6,7 @@
   <schema id="pbj:eme:collector:command:process-irr:1-0-0">
     <fields>
       <field name="wb_subject_request_id" type="uuid"/>
+      <field name="wb_subject_request_received_timestamp" type="timestamp"/>
       <field name="wb_status_callback_uri" type="text" format="url"/>
       <field name="wb_fulfillment_callback_uri" type="text" format="url"/>
       <field name="cursor" type="string">
