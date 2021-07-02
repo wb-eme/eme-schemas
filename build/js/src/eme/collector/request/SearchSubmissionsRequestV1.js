@@ -4,8 +4,9 @@ import Format from '@gdbots/pbj/enums/Format';
 import GdbotsPbjxRequestV1Mixin from '@gdbots/schemas/gdbots/pbjx/mixin/request/RequestV1Mixin';
 import Gender from '@gdbots/schemas/gdbots/common/enums/Gender';
 import Message from '@gdbots/pbj/Message';
+import NodeStatus from '@gdbots/schemas/gdbots/ncr/enums/NodeStatus';
 import Schema from '@gdbots/pbj/Schema';
-import SearchEventsSort from '@gdbots/schemas/gdbots/pbjx/enums/SearchEventsSort';
+import SearchSubmissionsSort from '@wbeme/schemas/eme/collector/enums/SearchSubmissionsSort';
 import SexualOrientation from '@gdbots/schemas/gdbots/common/enums/SexualOrientation';
 import T from '@gdbots/pbj/types';
 
@@ -94,19 +95,38 @@ export default class SearchSubmissionsRequestV1 extends Message {
           .min(1)
           .withDefault(1)
           .build(),
+        Fb.create('autocomplete', T.BooleanType.create())
+          .build(),
         /*
          * A cursor is a string (normally base64 encoded) which marks a specific item in a list of data.
          * When cursor is present it should be used instead of "page".
          */
         Fb.create('cursor', T.StringType.create())
           .build(),
-        Fb.create('sort', T.StringEnumType.create())
-          .withDefault("relevance")
-          .classProto(SearchEventsSort)
+        /*
+         * The status a node must be in to match the search request.
+         */
+        Fb.create('status', T.StringEnumType.create())
+          .classProto(NodeStatus)
           .build(),
-        Fb.create('occurred_after', T.DateTimeType.create())
+        /*
+         * A set of statuses (node must match at least one) to include in the search results.
+         */
+        Fb.create('statuses', T.StringEnumType.create())
+          .asASet()
+          .classProto(NodeStatus)
           .build(),
-        Fb.create('occurred_before', T.DateTimeType.create())
+        Fb.create('created_after', T.DateTimeType.create())
+          .build(),
+        Fb.create('created_before', T.DateTimeType.create())
+          .build(),
+        Fb.create('updated_after', T.DateTimeType.create())
+          .build(),
+        Fb.create('updated_before', T.DateTimeType.create())
+          .build(),
+        Fb.create('published_after', T.DateTimeType.create())
+          .build(),
+        Fb.create('published_before', T.DateTimeType.create())
           .build(),
         /*
          * The fields that are being queried as determined by parsing the "q" field.
@@ -117,10 +137,14 @@ export default class SearchSubmissionsRequestV1 extends Message {
           .build(),
         Fb.create('parsed_query_json', T.TextType.create())
           .build(),
-        Fb.create('form_ref', T.NodeRefType.create())
+        Fb.create('sort', T.StringEnumType.create())
+          .withDefault(SearchSubmissionsSort.RELEVANCE)
+          .classProto(SearchSubmissionsSort)
           .build(),
-        Fb.create('ids', T.TimeUuidType.create())
+        Fb.create('node_refs', T.NodeRefType.create())
           .asASet()
+          .build(),
+        Fb.create('form_ref', T.NodeRefType.create())
           .build(),
         Fb.create('cf_filters', T.MessageType.create())
           .asAList()
@@ -154,6 +178,12 @@ export default class SearchSubmissionsRequestV1 extends Message {
           .build(),
         Fb.create('height_max', T.TinyIntType.create())
           .max(120)
+          .build(),
+        Fb.create('weight_min', T.TinyIntType.create())
+          .max(1500)
+          .build(),
+        Fb.create('weight_max', T.TinyIntType.create())
+          .max(1500)
           .build(),
         Fb.create('gender', T.IntEnumType.create())
           .classProto(Gender)
@@ -190,10 +220,8 @@ M.prototype.SCHEMA_CURIE_MAJOR = M.SCHEMA_CURIE_MAJOR = 'eme:collector:request:s
 M.prototype.MIXINS = M.MIXINS = [
   'gdbots:pbjx:mixin:request:v1',
   'gdbots:pbjx:mixin:request',
-  'gdbots:pbjx:mixin:search-events-request:v1',
-  'gdbots:pbjx:mixin:search-events-request',
-  'gdbots:analytics:mixin:tracked-message:v1',
-  'gdbots:analytics:mixin:tracked-message',
+  'gdbots:ncr:mixin:search-nodes-request:v1',
+  'gdbots:ncr:mixin:search-nodes-request',
 ];
 
 GdbotsPbjxRequestV1Mixin(M);

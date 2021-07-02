@@ -18,8 +18,8 @@ final class SearchSubmissionsResponseV1 extends AbstractMessage
     const MIXINS = [
       'gdbots:pbjx:mixin:response:v1',
       'gdbots:pbjx:mixin:response',
-      'gdbots:pbjx:mixin:search-events-response:v1',
-      'gdbots:pbjx:mixin:search-events-response',
+      'gdbots:ncr:mixin:search-nodes-response:v1',
+      'gdbots:ncr:mixin:search-nodes-response',
     ];
 
     use GdbotsPbjxResponseV1Mixin;
@@ -74,7 +74,7 @@ final class SearchSubmissionsResponseV1 extends AbstractMessage
                     ->asAMap()
                     ->build(),
                 /*
-                 * The total number of events matching the search.
+                 * The total number of nodes matching the search.
                  */
                 Fb::create('total', T\IntType::create())
                     ->build(),
@@ -86,7 +86,7 @@ final class SearchSubmissionsResponseV1 extends AbstractMessage
                 Fb::create('time_taken', T\MediumIntType::create())
                     ->build(),
                 /*
-                 * The maximum score of a matching event from the entire search.
+                 * The maximum score of a matching node from the entire search.
                  */
                 Fb::create('max_score', T\FloatType::create())
                     ->build(),
@@ -97,12 +97,11 @@ final class SearchSubmissionsResponseV1 extends AbstractMessage
                 Fb::create('cursors', T\StringType::create())
                     ->asAMap()
                     ->build(),
-                Fb::create('events', T\MessageType::create())
+                Fb::create('nodes', T\MessageType::create())
                     ->asAList()
                     ->anyOfCuries([
-                        'gdbots:pbjx:mixin:event',
+                        'eme:collector:node:submission',
                     ])
-                    ->overridable(true)
                     ->build(),
             ],
             self::MIXINS

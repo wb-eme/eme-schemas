@@ -124,7 +124,7 @@
       "default": 0,
       "minimum": 0,
       "maximum": 4294967295,
-      "description": "The total number of events matching the search."
+      "description": "The total number of nodes matching the search."
     },
     "has_more": {
       "type": "boolean"
@@ -139,7 +139,7 @@
     "max_score": {
       "type": "number",
       "default": 0,
-      "description": "The maximum score of a matching event from the entire search."
+      "description": "The maximum score of a matching node from the entire search."
     },
     "cursors": {
       "type": "object",
@@ -153,11 +153,11 @@
       "additionalProperties": false,
       "description": "Cursors are optionally provided by the underlying search system to allow for efficient pagination. In the absense of cursors, paging is done using count and page number."
     },
-    "events": {
+    "nodes": {
       "type": "array",
       "items": [
         {
-          "$ref": "#/definitions/event"
+          "$ref": "#/definitions/submission"
         }
       ],
       "additionalProperties": false
@@ -185,17 +185,11 @@
         }
       ]
     },
-    "event": {
+    "submission": {
       "type": "object",
       "anyOf": [
         {
-          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/pbjx/mixin/event/1-0-0.json#"
-        },
-        {
-          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/pbjx/mixin/event/1-0-1.json#"
-        },
-        {
-          "$ref": "http://schemas.wbeme.com/json-schema/gdbots/pbjx/mixin/event/1-0-2.json#"
+          "$ref": "http://schemas.wbeme.com/json-schema/eme/collector/node/submission/1-0-0.json#"
         }
       ]
     }

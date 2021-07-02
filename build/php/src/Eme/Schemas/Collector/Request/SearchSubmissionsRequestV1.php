@@ -4,6 +4,7 @@ declare(strict_types=1);
 // @link http://schemas.wbeme.com/json-schema/eme/collector/request/search-submissions-request/1-0-0.json#
 namespace Eme\Schemas\Collector\Request;
 
+use Eme\Schemas\Collector\Enum\SearchSubmissionsSort;
 use Gdbots\Pbj\AbstractMessage;
 use Gdbots\Pbj\Enum\Format;
 use Gdbots\Pbj\FieldBuilder as Fb;
@@ -11,7 +12,7 @@ use Gdbots\Pbj\Schema;
 use Gdbots\Pbj\Type as T;
 use Gdbots\Schemas\Common\Enum\Gender;
 use Gdbots\Schemas\Common\Enum\SexualOrientation;
-use Gdbots\Schemas\Pbjx\Enum\SearchEventsSort;
+use Gdbots\Schemas\Ncr\Enum\NodeStatus;
 use Gdbots\Schemas\Pbjx\Mixin\Request\RequestV1Mixin as GdbotsPbjxRequestV1Mixin;
 
 final class SearchSubmissionsRequestV1 extends AbstractMessage
@@ -22,10 +23,8 @@ final class SearchSubmissionsRequestV1 extends AbstractMessage
     const MIXINS = [
       'gdbots:pbjx:mixin:request:v1',
       'gdbots:pbjx:mixin:request',
-      'gdbots:pbjx:mixin:search-events-request:v1',
-      'gdbots:pbjx:mixin:search-events-request',
-      'gdbots:analytics:mixin:tracked-message:v1',
-      'gdbots:analytics:mixin:tracked-message',
+      'gdbots:ncr:mixin:search-nodes-request:v1',
+      'gdbots:ncr:mixin:search-nodes-request',
     ];
 
     use GdbotsPbjxRequestV1Mixin;
@@ -110,19 +109,38 @@ final class SearchSubmissionsRequestV1 extends AbstractMessage
                     ->min(1)
                     ->withDefault(1)
                     ->build(),
+                Fb::create('autocomplete', T\BooleanType::create())
+                    ->build(),
                 /*
                  * A cursor is a string (normally base64 encoded) which marks a specific item in a list of data.
                  * When cursor is present it should be used instead of "page".
                  */
                 Fb::create('cursor', T\StringType::create())
                     ->build(),
-                Fb::create('sort', T\StringEnumType::create())
-                    ->withDefault("relevance")
-                    ->className(SearchEventsSort::class)
+                /*
+                 * The status a node must be in to match the search request.
+                 */
+                Fb::create('status', T\StringEnumType::create())
+                    ->className(NodeStatus::class)
                     ->build(),
-                Fb::create('occurred_after', T\DateTimeType::create())
+                /*
+                 * A set of statuses (node must match at least one) to include in the search results.
+                 */
+                Fb::create('statuses', T\StringEnumType::create())
+                    ->asASet()
+                    ->className(NodeStatus::class)
                     ->build(),
-                Fb::create('occurred_before', T\DateTimeType::create())
+                Fb::create('created_after', T\DateTimeType::create())
+                    ->build(),
+                Fb::create('created_before', T\DateTimeType::create())
+                    ->build(),
+                Fb::create('updated_after', T\DateTimeType::create())
+                    ->build(),
+                Fb::create('updated_before', T\DateTimeType::create())
+                    ->build(),
+                Fb::create('published_after', T\DateTimeType::create())
+                    ->build(),
+                Fb::create('published_before', T\DateTimeType::create())
                     ->build(),
                 /*
                  * The fields that are being queried as determined by parsing the "q" field.
@@ -133,10 +151,14 @@ final class SearchSubmissionsRequestV1 extends AbstractMessage
                     ->build(),
                 Fb::create('parsed_query_json', T\TextType::create())
                     ->build(),
-                Fb::create('form_ref', T\NodeRefType::create())
+                Fb::create('sort', T\StringEnumType::create())
+                    ->withDefault(SearchSubmissionsSort::RELEVANCE())
+                    ->className(SearchSubmissionsSort::class)
                     ->build(),
-                Fb::create('ids', T\TimeUuidType::create())
+                Fb::create('node_refs', T\NodeRefType::create())
                     ->asASet()
+                    ->build(),
+                Fb::create('form_ref', T\NodeRefType::create())
                     ->build(),
                 Fb::create('cf_filters', T\MessageType::create())
                     ->asAList()
@@ -170,6 +192,12 @@ final class SearchSubmissionsRequestV1 extends AbstractMessage
                     ->build(),
                 Fb::create('height_max', T\TinyIntType::create())
                     ->max(120)
+                    ->build(),
+                Fb::create('weight_min', T\TinyIntType::create())
+                    ->max(1500)
+                    ->build(),
+                Fb::create('weight_max', T\TinyIntType::create())
+                    ->max(1500)
                     ->build(),
                 Fb::create('gender', T\IntEnumType::create())
                     ->className(Gender::class)

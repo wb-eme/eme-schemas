@@ -5,8 +5,8 @@
   "type": "pbj-schema-store",
   "license": "Apache-2.0",
   "require": {
-    "php": ">=7.4",
-    "gdbots/schemas": "2.1.0"
+    "php": ">=8.0",
+    "gdbots/schemas": "2.1.1"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.2",
@@ -34,15 +34,6 @@
       "vendor/bin/pbjc",
       "git add .",
       "@test"
-    ],
-    "post-package-install": [
-      "Gdbots\\Pbjc\\Composer\\ScriptHandler::writePbjSchemaStoresFile"
-    ],
-    "post-package-uninstall": [
-      "Gdbots\\Pbjc\\Composer\\ScriptHandler::writePbjSchemaStoresFile"
-    ],
-    "post-package-update": [
-      "Gdbots\\Pbjc\\Composer\\ScriptHandler::writePbjSchemaStoresFile"
     ],
     "test": [
       "vendor/bin/phpunit",

@@ -5,8 +5,12 @@
 
   <schema id="pbj:eme:collector:request:search-submissions-request:1-0-0">
     <fields>
+      <field name="sort" type="string-enum">
+        <default>relevance</default>
+        <enum id="eme:collector:search-submissions-sort"/>
+      </field>
+      <field name="node_refs" type="node-ref" rule="set"/>
       <field name="form_ref" type="node-ref"/>
-      <field name="ids" type="time-uuid" rule="set"/>
       <field name="cf_filters" type="message" rule="list">
         <any-of>
           <curie>gdbots:common::search-filter</curie>
@@ -25,6 +29,8 @@
       <field name="age_max" type="tiny-int" max="120"/>
       <field name="height_min" type="tiny-int" max="120"/>
       <field name="height_max" type="tiny-int" max="120"/>
+      <field name="weight_min" type="tiny-int" max="1500"/>
+      <field name="weight_max" type="tiny-int" max="1500"/>
       <field name="gender" type="int-enum">
         <enum id="gdbots:common:gender"/>
       </field>
@@ -43,8 +49,7 @@
 
     <mixins>
       <curie-major>gdbots:pbjx:mixin:request:v1</curie-major>
-      <curie-major>gdbots:pbjx:mixin:search-events-request:v1</curie-major>
-      <curie-major>gdbots:analytics:mixin:tracked-message:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:search-nodes-request:v1</curie-major>
     </mixins>
   </schema>
 </pbj-schema>

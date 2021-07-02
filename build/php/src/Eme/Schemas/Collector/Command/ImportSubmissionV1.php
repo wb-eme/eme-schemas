@@ -247,6 +247,12 @@ final class ImportSubmissionV1 extends AbstractMessage
                 Fb::create('height', T\TinyIntType::create())
                     ->max(120)
                     ->build(),
+                /*
+                 * The person's physical weight recorded in pounds.
+                 */
+                Fb::create('weight', T\SmallIntType::create())
+                    ->max(1500)
+                    ->build(),
                 Fb::create('gender', T\IntEnumType::create())
                     ->className(Gender::class)
                     ->build(),
@@ -263,6 +269,8 @@ final class ImportSubmissionV1 extends AbstractMessage
                     ->asAMap()
                     ->maxLength(50)
                     ->pattern('^[\w\.-]+$')
+                    ->build(),
+                Fb::create('signature', T\TextType::create())
                     ->build(),
                 Fb::create('is_blocked', T\BooleanType::create())
                     ->build(),

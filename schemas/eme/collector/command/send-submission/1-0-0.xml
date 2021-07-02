@@ -39,6 +39,9 @@
       <field name="height" type="tiny-int" max="120">
         <description>The person's physical height recorded in inches.</description>
       </field>
+      <field name="weight" type="small-int" max="1500">
+        <description>The person's physical weight recorded in pounds.</description>
+      </field>
       <field name="gender" type="int-enum">
         <enum id="gdbots:common:gender"/>
       </field>
@@ -52,6 +55,7 @@
           E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
         </description>
       </field>
+      <field name="signature" type="text"/>
     </fields>
 
     <mixins>

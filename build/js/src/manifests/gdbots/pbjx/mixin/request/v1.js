@@ -9,6 +9,9 @@
 export default [
   'eme:collector:request:search-forms-request:v1',
   'eme:collector:request:search-submissions-request:v1',
+  'eme:marketing:request:search-campaigns-request:v1',
+  'eme:marketing:request:search-profiles-request:v1',
+  'eme:sys:request:search-picklists-request:v1',
   'gdbots:iam:request:get-user-request:v1',
   'gdbots:iam:request:search-apps-request:v1',
   'gdbots:iam:request:search-roles-request:v1',

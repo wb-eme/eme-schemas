@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 return [
     'eme:collector:event:submission-received:v1',
+    'eme:collector:node:submission:v1',
     'gdbots:iam:event:app-roles-granted:v1',
     'gdbots:iam:event:app-roles-revoked:v1',
     'gdbots:iam:event:user-roles-granted:v1',

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:marketing:node:profile:1-0-0">
+    <fields>
+      <field name="first_name" type="string"/>
+      <field name="last_name" type="string"/>
+      <field name="email" type="string" format="email"/>
+      <field name="email_domain" type="string" format="hostname"/>
+      <field name="phone" type="string" pattern="^\+?[1-9]\d{1,14}$" rule="map">
+        <description>
+          A general format for international telephone numbers.
+          @link https://en.wikipedia.org/wiki/E.164
+        </description>
+      </field>
+      <field name="networks" type="string" pattern="^[\w\.-]+$" max="50" rule="map">
+        <description>
+          Networks is a map that contains handles/usernames on a social network.
+          E.g. facebook:homer, twitter:stackoverflow, youtube:coltrane78.
+        </description>
+      </field>
+    </fields>
+
+    <mixins>
+      <curie-major>eme:sys:mixin:tenant-id:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:node:v1</curie-major>
+      <curie-major>gdbots:common:mixin:labelable:v1</curie-major>
+      <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
+    </mixins>
+
+    <php-options>
+      <insertion-points>
+        <imports/>
+        <methods>
+          <![CDATA[
+public function getUriTemplateVars(): array
+{
+    return [
+        '_id' => $this->fget('_id'),
+        'email' => $this->fget('email'),
+    ];
+}
+          ]]>
+        </methods>
+      </insertion-points>
+    </php-options>
+
+    <js-options>
+      <insertion-points>
+        <methods>
+          <![CDATA[
+/**
+ * @returns {Object}
+ */
+getUriTemplateVars() {
+  return {
+    _id: `${this.get('_id', '')}`,
+    email: this.get('email'),
+  };
+}
+          ]]>
+        </methods>
+      </insertion-points>
+    </js-options>
+  </schema>
+</pbj-schema>

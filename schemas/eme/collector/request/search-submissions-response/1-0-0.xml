@@ -4,9 +4,17 @@
     xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
 
   <schema id="pbj:eme:collector:request:search-submissions-response:1-0-0">
+    <fields>
+      <field name="nodes" type="message" rule="list">
+        <any-of>
+          <curie>eme:collector:node:submission</curie>
+        </any-of>
+      </field>
+    </fields>
+
     <mixins>
       <curie-major>gdbots:pbjx:mixin:response:v1</curie-major>
-      <curie-major>gdbots:pbjx:mixin:search-events-response:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:search-nodes-response:v1</curie-major>
     </mixins>
   </schema>
 </pbj-schema>

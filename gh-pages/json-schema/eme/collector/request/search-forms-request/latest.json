@@ -271,20 +271,6 @@
         "title-desc",
         "title-asc"
       ]
-    },
-    "types": {
-      "type": "array",
-      "items": [
-        {
-          "type": "string",
-          "pattern": "^([\\w\\/-]|[\\w-][\\w\\/-]*[\\w-])$",
-          "minLength": 0,
-          "maxLength": 255
-        }
-      ],
-      "uniqueItems": true,
-      "additionalProperties": false,
-      "description": "A set of form types (node must match at least one) to include in the search results, such as casting-form or ugc-form."
     }
   },
   "required": [

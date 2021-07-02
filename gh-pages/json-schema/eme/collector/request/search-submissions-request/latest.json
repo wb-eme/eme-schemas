@@ -173,27 +173,71 @@
       "minimum": 1,
       "maximum": 255
     },
+    "autocomplete": {
+      "type": "boolean"
+    },
     "cursor": {
       "type": "string",
       "minLength": 0,
       "maxLength": 255,
       "description": "A cursor is a string (normally base64 encoded) which marks a specific item in a list of data. When cursor is present it should be used instead of \"page\"."
     },
-    "sort": {
+    "status": {
       "type": "string",
-      "default": "relevance",
       "enum": [
         "unknown",
-        "relevance",
-        "date-desc",
-        "date-asc"
-      ]
+        "published",
+        "scheduled",
+        "pending",
+        "draft",
+        "expired",
+        "archived",
+        "deleted"
+      ],
+      "description": "The status a node must be in to match the search request."
     },
-    "occurred_after": {
+    "statuses": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "published",
+            "scheduled",
+            "pending",
+            "draft",
+            "expired",
+            "archived",
+            "deleted"
+          ]
+        }
+      ],
+      "uniqueItems": true,
+      "additionalProperties": false,
+      "description": "A set of statuses (node must match at least one) to include in the search results."
+    },
+    "created_after": {
       "type": "string",
       "format": "date-time"
     },
-    "occurred_before": {
+    "created_before": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_after": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_before": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "published_after": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "published_before": {
       "type": "string",
       "format": "date-time"
     },
@@ -214,20 +258,32 @@
       "minLength": 0,
       "maxLength": 65535
     },
-    "form_ref": {
+    "sort": {
       "type": "string",
-      "pattern": "^[\\w\\/\\.:-]+$"
+      "default": "relevance",
+      "enum": [
+        "unknown",
+        "relevance",
+        "created-at-desc",
+        "created-at-asc",
+        "updated-at-desc",
+        "updated-at-asc"
+      ]
     },
-    "ids": {
+    "node_refs": {
       "type": "array",
       "items": [
         {
           "type": "string",
-          "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+          "pattern": "^[\\w\\/\\.:-]+$"
         }
       ],
       "uniqueItems": true,
       "additionalProperties": false
+    },
+    "form_ref": {
+      "type": "string",
+      "pattern": "^[\\w\\/\\.:-]+$"
     },
     "cf_filters": {
       "type": "array",
@@ -287,6 +343,18 @@
       "default": 0,
       "minimum": 0,
       "maximum": 120
+    },
+    "weight_min": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 1500
+    },
+    "weight_max": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 1500
     },
     "gender": {
       "type": "integer",

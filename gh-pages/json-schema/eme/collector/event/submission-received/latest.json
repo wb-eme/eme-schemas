@@ -323,6 +323,13 @@
       "maximum": 120,
       "description": "The person's physical height recorded in inches."
     },
+    "weight": {
+      "type": "integer",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 1500,
+      "description": "The person's physical weight recorded in pounds."
+    },
     "gender": {
       "type": "integer",
       "default": 0,
@@ -335,6 +342,7 @@
     },
     "sexual_orientation": {
       "type": "string",
+      "default": "unknown",
       "enum": [
         "unknown",
         1,
@@ -582,7 +590,12 @@
         }
       ],
       "additionalProperties": false,
-      "description": "Contains all of the answers submitted from the custom fields on the solicit."
+      "description": "Contains all of the answers submitted from the custom fields on the form."
+    },
+    "signature": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 65535
     },
     "s256": {
       "type": "integer",

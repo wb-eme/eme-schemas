@@ -9,12 +9,6 @@
         <default>relevance</default>
         <enum id="gdbots:forms:search-forms-sort"/>
       </field>
-      <field name="types" type="string" format="slug" rule="set">
-        <description>
-          A set of form types (node must match at least one) to include in
-          the search results, such as casting-form or ugc-form.
-        </description>
-      </field>
     </fields>
 
     <mixins>

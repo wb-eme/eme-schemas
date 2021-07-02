@@ -40,11 +40,15 @@
       <field name="height" type="tiny-int" max="120">
         <description>The person's physical height recorded in inches.</description>
       </field>
+      <field name="weight" type="small-int" max="1500">
+        <description>The person's physical weight recorded in pounds.</description>
+      </field>
       <field name="gender" type="int-enum">
         <default>0</default>
         <enum id="gdbots:common:gender"/>
       </field>
       <field name="sexual_orientation" type="string-enum">
+        <default>unknown</default>
         <enum id="gdbots:common:sexual-orientation"/>
       </field>
       <field name="story" type="text"/>
@@ -109,8 +113,9 @@
         <description>The maximum number of contiguous exclamation points in the "story" text.</description>
       </field>
       <field name="cf" type="dynamic-field" rule="list">
-        <description>Contains all of the answers submitted from the custom fields on the solicit.</description>
+        <description>Contains all of the answers submitted from the custom fields on the form.</description>
       </field>
+      <field name="signature" type="text"/>
       <field name="s256" type="tiny-int">
         <description>
           "s256" means shard 256. Used to distribute read/write from storage and speed up
@@ -133,7 +138,6 @@
 
     <mixins>
       <curie-major>gdbots:pbjx:mixin:event:v1</curie-major>
-      <curie-major>gdbots:pbjx:mixin:indexed:v1</curie-major>
       <curie-major>gdbots:analytics:mixin:tracked-message:v1</curie-major>
       <curie-major>gdbots:common:mixin:taggable:v1</curie-major>
       <curie-major>gdbots:enrichments:mixin:ip-to-geo:v1</curie-major>

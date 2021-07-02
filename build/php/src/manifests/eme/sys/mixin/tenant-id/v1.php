@@ -10,9 +10,11 @@ declare(strict_types=1);
  */
 
 return [
-    'eme:collector:node:casting-form:v1',
-    'eme:collector:node:ugc-form:v1',
+    'eme:collector:node:form:v1',
+    'eme:collector:node:submission:v1',
     'eme:iam:node:role:v1',
     'eme:iam:node:user:v1',
+    'eme:marketing:node:campaign:v1',
+    'eme:marketing:node:profile:v1',
     'eme:sys:node:picklist:v1',
 ];

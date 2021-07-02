@@ -7,6 +7,5 @@
  */
 
 export default [
-  'eme:collector:node:casting-form:v1',
-  'eme:collector:node:ugc-form:v1',
+  'eme:collector:node:form:v1',
 ];

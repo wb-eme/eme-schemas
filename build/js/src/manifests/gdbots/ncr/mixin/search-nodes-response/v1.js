@@ -8,6 +8,10 @@
 
 export default [
   'eme:collector:request:search-forms-response:v1',
+  'eme:collector:request:search-submissions-response:v1',
+  'eme:marketing:request:search-campaigns-response:v1',
+  'eme:marketing:request:search-profiles-response:v1',
+  'eme:sys:request:search-picklists-response:v1',
   'gdbots:iam:request:search-apps-response:v1',
   'gdbots:iam:request:search-roles-response:v1',
   'gdbots:iam:request:search-users-response:v1',

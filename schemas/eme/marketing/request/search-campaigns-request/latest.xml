@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pbj-schema xmlns="http://gdbots.io/pbj/xsd"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://gdbots.io/pbj/xsd http://gdbots.io/pbj/xsd/schema.xsd">
+
+  <schema id="pbj:eme:marketing:request:search-campaigns-request:1-0-0">
+    <fields>
+      <field name="sort" type="string-enum">
+        <default>sent-at-desc</default>
+        <enum id="eme:marketing:search-campaigns-sort"/>
+      </field>
+      <field name="send_status" type="string-enum">
+        <enum id="eme:marketing:campaign-send-status"/>
+      </field>
+    </fields>
+
+    <mixins>
+      <curie-major>gdbots:pbjx:mixin:request:v1</curie-major>
+      <curie-major>gdbots:ncr:mixin:search-nodes-request:v1</curie-major>
+    </mixins>
+  </schema>
+</pbj-schema>

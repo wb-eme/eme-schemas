@@ -139,14 +139,6 @@ export default class SearchFormsRequestV1 extends Message {
           .withDefault(SearchFormsSort.RELEVANCE)
           .classProto(SearchFormsSort)
           .build(),
-        /*
-         * A set of form types (node must match at least one) to include in
-         * the search results, such as casting-form or ugc-form.
-         */
-        Fb.create('types', T.StringType.create())
-          .asASet()
-          .format(Format.SLUG)
-          .build(),
       ],
       this.MIXINS,
     );

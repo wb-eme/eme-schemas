@@ -10,5 +10,4 @@ declare(strict_types=1);
  */
 
 return [
-    'eme:collector:request:search-submissions-response:v1',
 ];

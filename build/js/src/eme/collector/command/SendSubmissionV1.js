@@ -225,6 +225,12 @@ export default class SendSubmissionV1 extends Message {
         Fb.create('height', T.TinyIntType.create())
           .max(120)
           .build(),
+        /*
+         * The person's physical weight recorded in pounds.
+         */
+        Fb.create('weight', T.SmallIntType.create())
+          .max(1500)
+          .build(),
         Fb.create('gender', T.IntEnumType.create())
           .classProto(Gender)
           .build(),
@@ -241,6 +247,8 @@ export default class SendSubmissionV1 extends Message {
           .asAMap()
           .maxLength(50)
           .pattern('^[\\w\\.-]+$')
+          .build(),
+        Fb.create('signature', T.TextType.create())
           .build(),
       ],
       this.MIXINS,

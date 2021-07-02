@@ -185,11 +185,18 @@ export default class SubmissionReceivedV1 extends Message {
         Fb.create('height', T.TinyIntType.create())
           .max(120)
           .build(),
+        /*
+         * The person's physical weight recorded in pounds.
+         */
+        Fb.create('weight', T.SmallIntType.create())
+          .max(1500)
+          .build(),
         Fb.create('gender', T.IntEnumType.create())
           .withDefault(Gender.UNKNOWN)
           .classProto(Gender)
           .build(),
         Fb.create('sexual_orientation', T.StringEnumType.create())
+          .withDefault(SexualOrientation.UNKNOWN)
           .classProto(SexualOrientation)
           .build(),
         Fb.create('story', T.TextType.create())
@@ -267,10 +274,12 @@ export default class SubmissionReceivedV1 extends Message {
         Fb.create('exclaims', T.TinyIntType.create())
           .build(),
         /*
-         * Contains all of the answers submitted from the custom fields on the solicit.
+         * Contains all of the answers submitted from the custom fields on the form.
          */
         Fb.create('cf', T.DynamicFieldType.create())
           .asAList()
+          .build(),
+        Fb.create('signature', T.TextType.create())
           .build(),
         /*
          * "s256" means shard 256. Used to distribute read/write from storage and speed up
@@ -303,8 +312,6 @@ M.prototype.SCHEMA_CURIE_MAJOR = M.SCHEMA_CURIE_MAJOR = 'eme:collector:event:sub
 M.prototype.MIXINS = M.MIXINS = [
   'gdbots:pbjx:mixin:event:v1',
   'gdbots:pbjx:mixin:event',
-  'gdbots:pbjx:mixin:indexed:v1',
-  'gdbots:pbjx:mixin:indexed',
   'gdbots:analytics:mixin:tracked-message:v1',
   'gdbots:analytics:mixin:tracked-message',
   'gdbots:common:mixin:taggable:v1',
